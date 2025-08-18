@@ -80,8 +80,6 @@ const Process = () => {
             })}
           </div>
 
-          {/* Process Timeline Connector (hidden on mobile) */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-border opacity-30 -translate-x-1/2"></div>
 
           {/* Bottom Message */}
           <div className="text-center mt-16 p-8 bg-card rounded-lg shadow-soft border border-border/50">
