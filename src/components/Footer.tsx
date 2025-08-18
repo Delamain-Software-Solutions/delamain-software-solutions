@@ -6,7 +6,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold mb-4">
-              <span className="gradient-silver">Delamain</span>{" "}
+              <span className="gradient-professional">Delamain</span>{" "}
               <span className="text-primary-foreground/80">Software Solutions</span>
             </h3>
             <p className="text-primary-foreground/70 mb-4">

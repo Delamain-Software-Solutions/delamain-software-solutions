@@ -8,7 +8,7 @@ const Header = () => {
           {/* Logo/Brand */}
           <div className="flex items-center space-x-2">
             <h1 className="text-3xl font-bold">
-              <span className="gradient-metallic">Delamain</span>{" "}
+              <span className="gradient-navy">Delamain</span>{" "}
               <span className="text-muted-foreground font-normal">Software Solutions</span>
             </h1>
           </div>
@@ -27,7 +27,7 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <Button variant="default" className="hidden md:block shadow-metallic">
+          <Button variant="default" className="hidden md:block shadow-professional">
             Get Started
           </Button>
 

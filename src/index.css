@@ -8,50 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 10% 98%;
-    --foreground: 220 10% 15%;
+    --background: 220 15% 96%;
+    --foreground: 217 33% 17%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 10% 15%;
+    --card-foreground: 217 33% 17%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 10% 15%;
+    --popover-foreground: 217 33% 17%;
 
-    --primary: 220 15% 25%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 217 91% 15%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 220 8% 92%;
-    --secondary-foreground: 220 15% 25%;
+    --secondary: 215 25% 27%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 8% 95%;
-    --muted-foreground: 220 8% 45%;
+    --muted: 220 15% 92%;
+    --muted-foreground: 215 20% 45%;
 
-    --accent: 220 15% 88%;
-    --accent-foreground: 220 15% 25%;
+    --accent: 215 25% 85%;
+    --accent-foreground: 217 33% 17%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 220 15% 25%;
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 217 91% 15%;
 
     --radius: 0.75rem;
 
-    /* Silver gradient system - Enhanced for more pop */
-    --silver-light: 0 0% 95%;
-    --silver-medium: 210 15% 75%;
-    --silver-dark: 220 20% 35%;
-    --silver-metallic: 210 25% 50%;
+    /* Navy blue and professional color system */
+    --navy-light: 217 40% 85%;
+    --navy-medium: 217 50% 50%;
+    --navy-dark: 217 91% 15%;
+    --slate-accent: 215 25% 27%;
     
-    /* Gradients - More vibrant and eye-catching */
-    --gradient-silver: linear-gradient(135deg, hsl(0 0% 98%), hsl(210 20% 80%), hsl(220 25% 45%), hsl(0 0% 90%));
-    --gradient-metallic: linear-gradient(135deg, hsl(0 0% 98%), hsl(210 25% 70%), hsl(220 35% 40%), hsl(210 20% 75%), hsl(0 0% 92%));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(210 15% 92%), hsl(var(--muted)));
+    /* Professional gradients inspired by Graphene */
+    --gradient-navy: linear-gradient(135deg, hsl(217 91% 25%), hsl(215 25% 27%), hsl(217 91% 15%));
+    --gradient-professional: linear-gradient(135deg, hsl(220 15% 96%), hsl(217 40% 85%), hsl(215 25% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(217 40% 90%), hsl(var(--muted)));
     
-    /* Shadows - Enhanced for more dramatic effect */
-    --shadow-metallic: 0 8px 32px -4px hsl(220 25% 35% / 0.4), 0 0 0 1px hsl(210 15% 75% / 0.2);
-    --shadow-soft: 0 4px 16px -2px hsl(var(--primary) / 0.15);
+    /* Professional shadows */
+    --shadow-professional: 0 10px 40px -8px hsl(217 91% 15% / 0.25), 0 0 0 1px hsl(217 40% 85% / 0.3);
+    --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.2);
 
     --sidebar-background: 0 0% 98%;
 
@@ -120,22 +120,22 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  .gradient-silver {
-    background: var(--gradient-silver);
+  .gradient-navy {
+    background: var(--gradient-navy);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
-  .gradient-metallic {
-    background: var(--gradient-metallic);
+  .gradient-professional {
+    background: var(--gradient-professional);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
-  .shadow-metallic {
-    box-shadow: var(--shadow-metallic);
+  .shadow-professional {
+    box-shadow: var(--shadow-professional);
   }
   
   .shadow-soft {
