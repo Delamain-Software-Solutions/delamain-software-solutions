@@ -6,10 +6,10 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold mb-4">
-              <span className="gradient-professional">Delamain</span>{" "}
-              <span className="text-primary-foreground/80">Software Solutions</span>
+              <span className="text-primary-foreground">Delamain</span>{" "}
+              <span className="text-primary-foreground">Software Solutions</span>
             </h3>
-            <p className="text-primary-foreground/70 mb-4">
+            <p className="text-primary-foreground/90 mb-4">
               Developed by AI, tested by professionals
             </p>
           </div>
@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
-          <p className="text-primary-foreground/60">
+          <p className="text-primary-foreground/80">
             © 2024 Delamain Software Solutions. All rights reserved.
           </p>
         </div>

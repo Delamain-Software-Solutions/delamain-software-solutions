@@ -8,7 +8,7 @@ const Header = () => {
           {/* Logo/Brand */}
           <div className="flex items-center space-x-2">
             <h1 className="text-3xl font-bold">
-              <span className="gradient-navy">Delamain</span>{" "}
+              <span className="text-primary">Delamain</span>{" "}
               <span className="text-muted-foreground font-normal">Software Solutions</span>
             </h1>
           </div>

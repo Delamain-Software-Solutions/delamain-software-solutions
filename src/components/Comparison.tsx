@@ -7,79 +7,79 @@ const comparisonData = [
     traditional: {
       icon: Clock,
       text: "Weeks to months",
-      status: "slow"
+      status: "slow",
     },
     aiPowered: {
       icon: Zap,
       text: "Days to weeks",
-      status: "fast"
-    }
+      status: "fast",
+    },
   },
   {
     feature: "Code Quality",
     traditional: {
       icon: Users,
       text: "Varies by developer skill",
-      status: "variable"
+      status: "variable",
     },
     aiPowered: {
       icon: Check,
       text: "Consistent, optimized patterns",
-      status: "excellent"
-    }
+      status: "excellent",
+    },
   },
   {
     feature: "Error Reduction",
     traditional: {
       icon: X,
       text: "Human error prone",
-      status: "poor"
+      status: "poor",
     },
     aiPowered: {
       icon: Check,
       text: "AI-assisted error prevention",
-      status: "excellent"
-    }
+      status: "excellent",
+    },
   },
   {
     feature: "Scalability",
     traditional: {
       icon: Users,
       text: "Limited by team size",
-      status: "limited"
+      status: "limited",
     },
     aiPowered: {
       icon: Code,
       text: "AI scales infinitely",
-      status: "unlimited"
-    }
+      status: "unlimited",
+    },
   },
   {
     feature: "Cost Efficiency",
     traditional: {
       icon: X,
       text: "High labor costs",
-      status: "expensive"
+      status: "expensive",
     },
     aiPowered: {
       icon: Check,
       text: "Optimized resource usage",
-      status: "efficient"
-    }
+      status: "efficient",
+    },
   },
   {
     feature: "Innovation",
     traditional: {
       icon: Clock,
       text: "Gradual improvements",
-      status: "slow"
+      status: "slow",
     },
     aiPowered: {
       icon: Zap,
       text: "Rapid experimentation",
-      status: "fast"
-    }
-  }
+      status: "fast",
+    },
+  },
 ];
 
 const Comparison = () => {
@@ -88,10 +88,12 @@ const Comparison = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Why Choose <span className="gradient-metallic">AI-Powered</span> Development?
+            Why Choose <span className="text-primary">AI-Powered</span>{" "}
+            Development?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            See how our innovative approach compares to traditional development methods
+            See how our innovative approach compares to traditional development
+            methods
           </p>
         </div>
 
@@ -100,14 +102,18 @@ const Comparison = () => {
           <div className="grid grid-cols-3 gap-8 mb-8">
             <div></div>
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-muted-foreground mb-2">Traditional Development</h3>
-              <p className="text-muted-foreground">The old way</p>
+              <h3 className="text-2xl font-bold text-slate mb-2">
+                Traditional Development
+              </h3>
+              <p className="text-slate">The old way</p>
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-2">
-                <span className="gradient-metallic">AI-Powered Development</span>
+                <span className="text-primary">
+                  AI-Powered Development
+                </span>
               </h3>
-              <p className="text-muted-foreground">The future is here</p>
+              <p className="text-primary">The future is here</p>
             </div>
           </div>
 
@@ -124,31 +130,49 @@ const Comparison = () => {
 
                     {/* Traditional */}
                     <div className="flex items-center space-x-3">
-                      <div className={`p-2 rounded-lg ${
-                        item.traditional.status === 'poor' ? 'bg-destructive/10' :
-                        item.traditional.status === 'slow' ? 'bg-muted' :
-                        item.traditional.status === 'expensive' ? 'bg-destructive/10' :
-                        item.traditional.status === 'limited' ? 'bg-muted' :
-                        'bg-muted'
-                      }`}>
-                        <item.traditional.icon className={`h-5 w-5 ${
-                          item.traditional.status === 'poor' ? 'text-destructive' :
-                          item.traditional.status === 'expensive' ? 'text-destructive' :
-                          'text-muted-foreground'
-                        }`} />
+                      <div
+                        className={`p-2 rounded-lg ${
+                          item.traditional.status === "poor"
+                            ? "bg-destructive/10"
+                            : item.traditional.status === "slow"
+                            ? "bg-muted"
+                            : item.traditional.status === "expensive"
+                            ? "bg-destructive/10"
+                            : item.traditional.status === "limited"
+                            ? "bg-muted"
+                            : "bg-muted"
+                        }`}
+                      >
+                        <item.traditional.icon
+                          className={`h-5 w-5 ${
+                            item.traditional.status === "poor"
+                              ? "text-destructive"
+                              : item.traditional.status === "expensive"
+                              ? "text-destructive"
+                              : "text-muted-foreground"
+                          }`}
+                        />
                       </div>
-                      <span className="text-muted-foreground">{item.traditional.text}</span>
+                      <span className="text-muted-foreground">
+                        {item.traditional.text}
+                      </span>
                     </div>
 
                     {/* AI-Powered */}
                     <div className="flex items-center space-x-3">
-                      <div className={`p-2 rounded-lg ${
-                        item.aiPowered.status === 'excellent' ? 'bg-gradient-metallic' :
-                        item.aiPowered.status === 'fast' ? 'bg-gradient-metallic' :
-                        item.aiPowered.status === 'unlimited' ? 'bg-gradient-metallic' :
-                        item.aiPowered.status === 'efficient' ? 'bg-gradient-metallic' :
-                        'bg-primary/10'
-                      }`}>
+                      <div
+                        className={`p-2 rounded-lg ${
+                          item.aiPowered.status === "excellent"
+                            ? "bg-primary"
+                            : item.aiPowered.status === "fast"
+                            ? "bg-primary"
+                            : item.aiPowered.status === "unlimited"
+                            ? "bg-primary"
+                            : item.aiPowered.status === "efficient"
+                            ? "bg-primary"
+                            : "bg-primary/10"
+                        }`}
+                      >
                         <item.aiPowered.icon className="h-5 w-5 text-white" />
                       </div>
                       <span className="font-medium">{item.aiPowered.text}</span>
@@ -164,7 +188,7 @@ const Comparison = () => {
             <p className="text-lg text-muted-foreground mb-4">
               Ready to experience the difference?
             </p>
-            <button className="bg-gradient-metallic text-white px-8 py-3 rounded-lg font-semibold shadow-metallic hover:shadow-lg transition-all duration-300">
+            <button className="bg-primary text-white px-8 py-3 rounded-lg font-semibold shadow-professional hover:shadow-lg transition-all duration-300">
               Start Your AI-Powered Project
             </button>
           </div>
