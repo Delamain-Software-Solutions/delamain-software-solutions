@@ -5,7 +5,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Brain, Shield, Zap, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Brain, Shield, Zap, Users, ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -36,40 +37,67 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Our <span className="text-foreground">Services</span>
+    <section id="services" className="py-24 bg-gradient-to-br from-background to-muted/50">
+      <div className="container mx-auto px-8">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium mb-6">
+            <Zap className="h-4 w-4 text-primary" />
+            Our Expertise
+          </div>
+          <h2 className="text-4xl lg:text-6xl font-bold mb-6">
+            <span className="gradient-text-primary">Comprehensive</span>
+            <br />
+            <span className="text-foreground">AI Solutions</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Combining artificial intelligence with human expertise to deliver
-            exceptional software solutions
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            From concept to deployment, we leverage cutting-edge AI technology combined with professional expertise to deliver exceptional results.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Card
+              <div
                 key={index}
-                className="shadow-soft hover:shadow-professional transition-all duration-300 border-border/50"
+                className="group relative p-8 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/30 shadow-soft hover:shadow-professional transition-all duration-500 backdrop-blur-sm"
               >
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 p-3 bg-primary rounded-lg w-fit">
-                    <Icon className="h-8 w-8 text-white" />
+                {/* Background gradient on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-start gap-6">
+                    <div className="flex-shrink-0 p-4 bg-gradient-primary rounded-xl shadow-accent group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="flex-1 space-y-4">
+                      <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed text-lg">
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-center leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             );
           })}
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center">
+          <div className="inline-flex flex-col sm:flex-row gap-4">
+            <Button size="lg" className="shadow-professional text-lg px-8 py-6">
+              Explore All Services
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-primary/30 hover:bg-primary/5">
+              Schedule Consultation
+            </Button>
+          </div>
         </div>
       </div>
     </section>
