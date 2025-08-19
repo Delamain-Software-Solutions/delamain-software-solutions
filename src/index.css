@@ -8,50 +8,53 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 15% 96%;
-    --foreground: 217 33% 17%;
+    --background: 35 18% 95%;
+    --foreground: 200 15% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 217 33% 17%;
+    --card-foreground: 200 15% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 217 33% 17%;
+    --popover-foreground: 200 15% 20%;
 
-    --primary: 240, 100%, 25%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 185 72% 28%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 217, 23%, 31%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 200 18% 38%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 15% 92%;
-    --muted-foreground: 215 20% 45%;
+    --muted: 35 12% 90%;
+    --muted-foreground: 200 8% 48%;
 
-    --accent: 215 25% 85%;
-    --accent-foreground: 217 33% 17%;
+    --accent: 25 38% 72%;
+    --accent-foreground: 200 15% 20%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 13% 88%;
-    --input: 220 13% 88%;
-    --ring: 217 91% 15%;
+    --border: 35 8% 85%;
+    --input: 35 8% 85%;
+    --ring: 185 72% 28%;
 
     --radius: 0.75rem;
 
-    /* Navy blue and professional color system */
-    --navy-light: 217 40% 85%;
-    --navy-medium: 217 50% 50%;
-    --navy-dark: 217 91% 15%;
-    --slate-accent: 215 25% 27%;
+    /* Sophisticated teal, charcoal and bronze color system */
+    --teal-light: 185 45% 75%;
+    --teal-medium: 185 60% 48%;
+    --teal-dark: 185 72% 28%;
+    --charcoal-accent: 200 18% 38%;
+    --bronze-accent: 25 38% 72%;
     
-    /* Professional gradients inspired by Graphene */
-    --gradient-navy: linear-gradient(135deg, hsl(217 91% 25%), hsl(215 25% 27%), hsl(217 91% 15%));
-    --gradient-professional: linear-gradient(135deg, hsl(220 15% 96%), hsl(217 40% 85%), hsl(215 25% 35%));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(217 40% 90%), hsl(var(--muted)));
+    /* Sophisticated gradients with deep teal and warm tones */
+    --gradient-primary: linear-gradient(135deg, hsl(185 72% 38%), hsl(185 60% 45%), hsl(185 72% 28%));
+    --gradient-professional: linear-gradient(135deg, hsl(35 18% 95%), hsl(185 35% 82%), hsl(200 12% 68%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(185 25% 88%), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(135deg, hsl(185 72% 28%), hsl(200 18% 38%), hsl(25 38% 72%));
     
-    /* Professional shadows */
-    --shadow-professional: 0 10px 40px -8px hsl(217 91% 15% / 0.25), 0 0 0 1px hsl(217 40% 85% / 0.3);
-    --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.2);
+    /* Sophisticated shadows with teal undertones */
+    --shadow-professional: 0 12px 45px -10px hsl(185 72% 28% / 0.3), 0 0 0 1px hsl(185 35% 82% / 0.4);
+    --shadow-soft: 0 6px 25px -6px hsl(var(--primary) / 0.25);
+    --shadow-accent: 0 8px 30px -8px hsl(200 18% 38% / 0.2);
 
     --sidebar-background: 0 0% 98%;
 
@@ -120,8 +123,8 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  .gradient-navy {
-    background: var(--gradient-navy);
+  .gradient-primary {
+    background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -134,11 +137,22 @@ All colors MUST be HSL.
     background-clip: text;
   }
   
+  .gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
   .shadow-professional {
     box-shadow: var(--shadow-professional);
   }
   
   .shadow-soft {
     box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-accent {
+    box-shadow: var(--shadow-accent);
   }
 }
