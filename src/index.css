@@ -8,53 +8,53 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 35 18% 95%;
-    --foreground: 200 15% 20%;
+    --background: 45 15% 92%;
+    --foreground: 150 20% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 200 15% 20%;
+    --card-foreground: 150 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 200 15% 20%;
+    --popover-foreground: 150 20% 15%;
 
-    --primary: 185 72% 28%;
+    --primary: 150 35% 25%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 200 18% 38%;
+    --secondary: 210 15% 35%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 35 12% 90%;
-    --muted-foreground: 200 8% 48%;
+    --muted: 45 12% 86%;
+    --muted-foreground: 150 8% 45%;
 
-    --accent: 25 38% 72%;
-    --accent-foreground: 200 15% 20%;
+    --accent: 35 45% 78%;
+    --accent-foreground: 150 20% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 35 8% 85%;
-    --input: 35 8% 85%;
-    --ring: 185 72% 28%;
+    --border: 45 8% 82%;
+    --input: 45 8% 82%;
+    --ring: 150 35% 25%;
 
     --radius: 0.75rem;
 
-    /* Sophisticated teal, charcoal and bronze color system */
-    --teal-light: 185 45% 75%;
-    --teal-medium: 185 60% 48%;
-    --teal-dark: 185 72% 28%;
-    --charcoal-accent: 200 18% 38%;
-    --bronze-accent: 25 38% 72%;
+    /* Sophisticated forest green, charcoal and cream color system */
+    --forest-light: 150 25% 65%;
+    --forest-medium: 150 30% 40%;
+    --forest-dark: 150 35% 25%;
+    --charcoal-accent: 210 15% 35%;
+    --cream-accent: 35 45% 78%;
     
-    /* Sophisticated gradients with deep teal and warm tones */
-    --gradient-primary: linear-gradient(135deg, hsl(185 72% 38%), hsl(185 60% 45%), hsl(185 72% 28%));
-    --gradient-professional: linear-gradient(135deg, hsl(35 18% 95%), hsl(185 35% 82%), hsl(200 12% 68%));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(185 25% 88%), hsl(var(--muted)));
-    --gradient-accent: linear-gradient(135deg, hsl(185 72% 28%), hsl(200 18% 38%), hsl(25 38% 72%));
+    /* Sophisticated gradients with forest green and warm tones */
+    --gradient-primary: linear-gradient(135deg, hsl(150 35% 35%), hsl(150 30% 40%), hsl(150 35% 25%));
+    --gradient-professional: linear-gradient(135deg, hsl(45 15% 92%), hsl(150 20% 78%), hsl(210 12% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(150 18% 85%), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(135deg, hsl(150 35% 25%), hsl(210 15% 35%), hsl(35 45% 78%));
     
-    /* Sophisticated shadows with teal undertones */
-    --shadow-professional: 0 12px 45px -10px hsl(185 72% 28% / 0.3), 0 0 0 1px hsl(185 35% 82% / 0.4);
+    /* Sophisticated shadows with forest green undertones */
+    --shadow-professional: 0 12px 45px -10px hsl(150 35% 25% / 0.3), 0 0 0 1px hsl(150 20% 78% / 0.4);
     --shadow-soft: 0 6px 25px -6px hsl(var(--primary) / 0.25);
-    --shadow-accent: 0 8px 30px -8px hsl(200 18% 38% / 0.2);
+    --shadow-accent: 0 8px 30px -8px hsl(210 15% 35% / 0.2);
 
     --sidebar-background: 0 0% 98%;
 
