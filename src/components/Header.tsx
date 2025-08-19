@@ -7,21 +7,18 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo/Brand */}
           <div className="flex items-center space-x-2">
-            <h1 className="text-3xl font-bold">
-              <span className="text-primary">Delamain</span>{" "}
-              <span className="text-muted-foreground font-normal">Software Solutions</span>
-            </h1>
+            <img src="/src/assets/Delamain-Logo.png" alt="Delamain Logo" className="mt-1" height={10} width={200} />
           </div>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-foreground hover:text-primary transition-colors">
+            <a href="#services" className="text-foreground hover:text-muted-foreground transition-colors">
               Services
             </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
+            <a href="#about" className="text-foreground hover:text-muted-foreground transition-colors">
               About
             </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors">
+            <a href="#contact" className="text-foreground hover:text-muted-foreground transition-colors">
               Contact
             </a>
           </nav>

@@ -88,7 +88,7 @@ const Comparison = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Why Choose <span className="text-primary">AI-Powered</span>{" "}
+            Why Choose <span className="text-foreground">AI-Powered</span>{" "}
             Development?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -109,11 +109,11 @@ const Comparison = () => {
             </div>
             <div className="text-center">
               <h3 className="text-2xl font-bold mb-2">
-                <span className="text-primary">
+                <span className="text-foreground">
                   AI-Powered Development
                 </span>
               </h3>
-              <p className="text-primary">The future is here</p>
+              <p className="text-muted-foreground">The future is here</p>
             </div>
           </div>
 

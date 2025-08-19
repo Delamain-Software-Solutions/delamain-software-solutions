@@ -59,7 +59,7 @@ const Process = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Our <span className="text-primary">Development</span>{" "}
+            Our <span className="text-foreground">Development</span>{" "}
             Process
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -104,7 +104,7 @@ const Process = () => {
           <div className="text-center mt-16 p-8 bg-card rounded-lg shadow-soft border border-border/50">
             <h3 className="text-2xl font-bold mb-4">
               Ready to transform your{" "}
-              <span className="text-primary">
+              <span className="text-foreground">
                 development experience
               </span>
               ?

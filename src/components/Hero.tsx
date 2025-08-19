@@ -10,14 +10,13 @@ const Hero = () => {
       <div className="container mx-auto px-6 relative">
         <div className="text-center max-w-4xl mx-auto">
           {/* Main headline */}
-          <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-            <span className="text-primary block mb-2">Delamain</span>
-            <span className="text-secondary">Software Solutions</span>
+          <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            <span className="text-foreground block mb-2 mx-5">Innovative and Reliable Tech Solutions for Your Business</span>
           </h1>
 
           {/* Tagline */}
-          <p className="text-xl lg:text-2xl text-slate mb-8 max-w-2xl mx-auto">
-            Developed by AI, tested by professionals
+          <p className="text-xl lg:text-3xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Developed by AI, Tested by Professionals
           </p>
 
           {/* Description */}
@@ -37,18 +36,7 @@ const Hero = () => {
               View Our Work
             </Button>
           </div>
-
-          {/* Feature highlights */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            <div className="flex items-center justify-center space-x-3 text-muted-foreground">
-              <Code className="h-6 w-6 text-slate" />
-              <span>AI-Powered Development</span>
-            </div>
-            <div className="flex items-center justify-center space-x-3 text-muted-foreground">
-              <TestTube className="h-6 w-6 text-slate" />
-              <span>Professional Testing</span>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section>
