@@ -5,7 +5,7 @@ import heroImage from '@/assets/hero-ai-development.jpg';
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-[120vh] flex items-center justify-center relative overflow-hidden bg-background">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
       {/* Flowing Abstract Artwork */}
       <div className="absolute inset-0">
         {/* Light mode - whitish background with flowing artwork */}
@@ -63,9 +63,9 @@ const HeroSection = () => {
         </div>
       </div>
       
-      <div className="container mx-auto px-6 py-40 text-center relative z-10">
+      <div className="container mx-auto px-6 py-32 text-center relative z-10">
         {/* Main Hero Content */}
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-4xl mx-auto space-y-8 py-32">
           
           {/* Main Headline */}
           <h1 className="text-5xl lg:text-7xl font-bold font-space-grotesk leading-tight text-foreground">
@@ -141,6 +141,7 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+
   );
 };
 
