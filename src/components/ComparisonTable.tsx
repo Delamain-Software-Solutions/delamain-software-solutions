@@ -97,16 +97,6 @@ const ComparisonTable = () => {
             </Table>
           </div>
 
-          {/* Bottom CTA */}
-          <div className="text-center mt-12">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent p-1 rounded-full">
-              <div className="bg-background dark:bg-slate-900 rounded-full px-8 py-3">
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-semibold text-lg">
-                  Ready to transform your development process?
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

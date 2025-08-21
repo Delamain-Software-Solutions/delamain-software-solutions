@@ -16,23 +16,23 @@ const services = [
   },
   {
     icon: Cloud,
-    title: 'Cloud Solutions',
-    description: 'Scalable cloud infrastructure with AI-driven monitoring, auto-scaling, and predictive maintenance.',
+    title: 'Desktop Development',
+    description: 'Robust desktop applications for Windows, macOS, and Linux with AI-enhanced features and seamless performance.',
   },
   {
     icon: Database,
-    title: 'Data Analytics',
-    description: 'Advanced data processing and analytics platforms powered by machine learning and AI insights.',
+    title: 'API Development',
+    description: 'Secure and scalable APIs designed to integrate systems, accelerate workflows, and enable AI-driven automation.',
   },
   {
     icon: Cpu,
     title: 'AI Integration',
-    description: 'Seamlessly integrate AI capabilities into your existing systems for enhanced productivity.',
+    description: 'Seamlessly integrate AI capabilities into your existing systems for enhanced productivity and smarter decision-making.',
   },
   {
     icon: Globe,
     title: 'Enterprise Solutions',
-    description: 'Comprehensive AI transformation for large-scale enterprises with custom development and support.',
+    description: 'Comprehensive AI transformation for enterprises with tailored development, testing, and long-term support.',
   }
 ];
 
