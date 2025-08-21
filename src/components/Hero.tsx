@@ -97,32 +97,24 @@ const HeroSection = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-12 mt-20 max-w-7xl mx-auto">
-          <div className="group relative">
+        <div className="flex gap-12 mt-20 max-w-7xl mx-auto">
+          <div className="group relative flex-1">
             {/* Animated background glow */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
             
             {/* Main card */}
-            <div className="relative bg-gradient-to-br from-card/90 to-card/70 dark:from-card/60 dark:to-card/40 backdrop-blur-2xl rounded-2xl p-8 border border-border/30 dark:border-white/10 
-                          transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/20">
+            <div className="relative h-full bg-gradient-to-br from-card/90 to-card/70 dark:from-card/60 dark:to-card/40 backdrop-blur-2xl rounded-2xl p-8 border border-border/30 dark:border-white/10 
+                          transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/20 flex flex-col">
               
               {/* Floating icon container */}
               <div className="relative mb-8">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl flex items-center justify-center
+                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl flex items-center justify-center
                               transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
                   <Brain className="h-10 w-10 text-primary transition-all duration-500 group-hover:text-accent" />
-                </div>
-                
-                {/* Animated dots */}
-                <div className="absolute -top-2 -right-2 flex space-x-1">
-                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                  <div className="w-2 h-2 bg-accent rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="space-y-3">
+              <div className="space-y-3 flex-1">
                 <h3 className="text-2xl font-bold font-space-grotesk text-foreground 
                              transform transition-all duration-300 group-hover:text-primary">
                   AI-Powered
@@ -132,8 +124,8 @@ const HeroSection = () => {
                 </p>
                 
                 {/* Animated progress bar */}
-                <div className="mt-6 space-y-2">
-                  <div className="flex justify-between text-xs text-muted-foreground">
+                <div className="!mt-8 space-y-2">
+                  <div className="flex justify-between text-sm text-muted-foreground">
                     <span>Intelligence</span>
                     <span>95%</span>
                   </div>
@@ -146,31 +138,23 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="group relative">
+          <div className="group relative flex-1">
             {/* Animated background glow */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 via-primary/20 to-accent/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
             
             {/* Main card */}
-            <div className="relative bg-gradient-to-br from-card/90 to-card/70 dark:from-card/60 dark:to-card/40 backdrop-blur-2xl rounded-2xl p-8 border border-border/30 dark:border-white/10 
-                          transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-accent/20">
+            <div className="relative h-full bg-gradient-to-br from-card/90 to-card/70 dark:from-card/60 dark:to-card/40 backdrop-blur-2xl rounded-2xl p-8 border border-border/30 dark:border-white/10 
+                          transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-accent/20 flex flex-col">
               
               {/* Floating icon container */}
               <div className="relative mb-8">
-                <div className="w-20 h-20 bg-gradient-to-br from-accent/5 to-primary/5 rounded-2xl flex items-center justify-center
+                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-accent/5 to-primary/5 rounded-2xl flex items-center justify-center
                               transform transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3">
                   <Zap className="h-10 w-10 text-accent transition-all duration-500 group-hover:text-primary" />
-                </div>
-                
-                {/* Animated lightning bolts */}
-                <div className="absolute -top-1 -right-1 text-accent/60 transform transition-all duration-300 group-hover:scale-125 group-hover:text-accent">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-                  </svg>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="space-y-3">
+              <div className="space-y-3 flex-1">
                 <h3 className="text-2xl font-bold font-space-grotesk text-foreground 
                              transform transition-all duration-300 group-hover:text-accent">
                   Exclusive Focus
@@ -194,30 +178,23 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="group relative">
-            {/* Animated background glow */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
+          <div className="group relative flex-1">
             
             {/* Main card */}
-            <div className="relative bg-gradient-to-br from-card/90 to-card/70 dark:from-card/60 dark:to-card/40 backdrop-blur-2xl rounded-2xl p-8 border border-border/30 dark:border-white/10 
-                          transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/20">
+            <div className="relative h-full bg-gradient-to-br from-card/90 to-card/70 dark:from-card/60 dark:to-card/40 backdrop-blur-2xl rounded-2xl p-8 border border-border/30 dark:border-white/10 
+                          transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/20 flex flex-col">
               
               {/* Floating icon container */}
               <div className="relative mb-8">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl flex items-center justify-center
+                <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl flex items-center justify-center
                               transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
                   <TrendingUp className="h-10 w-10 text-primary transition-all duration-500 group-hover:text-accent" />
                 </div>
                 
-                {/* Animated growth indicator */}
-                <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-full
-                              transform transition-all duration-500 group-hover:scale-110 group-hover:bg-accent">
-                  +40%
-                </div>
               </div>
 
               {/* Content */}
-              <div className="space-y-3">
+              <div className="space-y-3 flex-1">
                 <h3 className="text-2xl font-bold font-space-grotesk text-foreground 
                              transform transition-all duration-300 group-hover:text-primary">
                   Proven Growth
@@ -228,12 +205,12 @@ const HeroSection = () => {
                 
                 {/* Animated chart */}
                 <div className="mt-6 space-y-2">
-                  <div className="flex justify-between text-xs text-muted-foreground">
+                  <div className="flex justify-between text-sm text-muted-foreground">
                     <span>Success Rate</span>
                     <span>40%+</span>
                   </div>
                   <div className="flex items-end space-x-1 h-12">
-                    {[20, 35, 45, 60, 40].map((height, i) => (
+                    {[20, 35, 45, 50, 65].map((height, i) => (
                       <div key={i} className="flex-1 bg-gradient-to-t from-primary/30 to-accent/30 rounded-t 
                                            transform transition-all duration-700 group-hover:from-primary group-hover:to-accent"
                            style={{
