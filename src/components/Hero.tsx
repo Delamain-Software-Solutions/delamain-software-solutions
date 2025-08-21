@@ -97,45 +97,63 @@ const HeroSection = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mt-20 max-w-5xl mx-auto">
-          <div className="bg-card/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-border dark:border-white/20 hover:scale-105 transition-all duration-300 group">
-            <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:from-primary/30 group-hover:to-cyan-500/30 transition-all duration-300">
-              <Brain className="h-10 w-10 text-primary dark:text-cyan-400" />
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold font-space-grotesk text-primary dark:text-cyan-400 mb-2">
-                AI-Powered
-              </div>
-              <div className="text-sm text-muted-foreground dark:text-white/70 uppercase tracking-wide font-medium">
-                Intelligent Design
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-card/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-border dark:border-white/20 hover:scale-105 transition-all duration-300 group">
-            <div className="w-20 h-20 bg-gradient-to-br from-teal-500/20 to-primary/20 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:from-teal-500/30 group-hover:to-primary/30 transition-all duration-300">
-              <Zap className="h-10 w-10 text-teal-600 dark:text-teal-400" />
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold font-space-grotesk text-teal-600 dark:text-teal-400 mb-2">
-                3 Clients/Month
-              </div>
-              <div className="text-sm text-muted-foreground dark:text-white/70 uppercase tracking-wide font-medium">
-                Premium Focus
+        <div className="grid md:grid-cols-3 gap-8 mt-20 max-w-6xl mx-auto">
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+            <div className="relative bg-card/80 dark:bg-card/40 backdrop-blur-xl rounded-3xl p-8 border border-border/50 dark:border-white/10 hover:border-primary/30 transition-all duration-300">
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className="relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center">
+                    <Brain className="h-8 w-8 text-primary" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                    <span className="text-xs text-primary-foreground font-bold">AI</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold font-space-grotesk text-foreground mb-1">Smart Development</h3>
+                  <p className="text-sm text-muted-foreground">Intelligent code generation</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-card/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-border dark:border-white/20 hover:scale-105 transition-all duration-300 group">
-            <div className="w-20 h-20 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:from-emerald-500/30 group-hover:to-teal-500/30 transition-all duration-300">
-              <TrendingUp className="h-10 w-10 text-emerald-600 dark:text-emerald-400" />
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold font-space-grotesk text-emerald-600 dark:text-emerald-400 mb-2">
-                +40% Growth
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-primary rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+            <div className="relative bg-card/80 dark:bg-card/40 backdrop-blur-xl rounded-3xl p-8 border border-border/50 dark:border-white/10 hover:border-accent/30 transition-all duration-300">
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className="relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl flex items-center justify-center">
+                    <Zap className="h-8 w-8 text-accent" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-accent rounded-full flex items-center justify-center">
+                    <span className="text-xs text-accent-foreground font-bold">3</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold font-space-grotesk text-foreground mb-1">Exclusive Focus</h3>
+                  <p className="text-sm text-muted-foreground">Premium clients only</p>
+                </div>
               </div>
-              <div className="text-sm text-muted-foreground dark:text-white/70 uppercase tracking-wide font-medium">
-                Within 90 Days
+            </div>
+          </div>
+
+          <div className="relative group">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-accent to-primary rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+            <div className="relative bg-card/80 dark:bg-card/40 backdrop-blur-xl rounded-3xl p-8 border border-border/50 dark:border-white/10 hover:border-primary/30 transition-all duration-300">
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className="relative">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center">
+                    <TrendingUp className="h-8 w-8 text-primary" />
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-6 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
+                    <span className="text-xs text-primary-foreground font-bold">+40%</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold font-space-grotesk text-foreground mb-1">Proven Results</h3>
+                  <p className="text-sm text-muted-foreground">Growth in 90 days</p>
+                </div>
               </div>
             </div>
           </div>
