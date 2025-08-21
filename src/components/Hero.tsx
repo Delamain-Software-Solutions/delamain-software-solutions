@@ -124,7 +124,7 @@ const HeroSection = () => {
                 </p>
                 
                 {/* Animated progress bar */}
-                <div className="!mt-8 space-y-2">
+                <div className="!mt-6 space-y-2">
                   <div className="flex justify-between text-sm text-muted-foreground">
                     <span>Intelligence</span>
                     <span>95%</span>
@@ -149,22 +149,22 @@ const HeroSection = () => {
               <div className="relative mb-8">
                 <div className="w-20 h-20 mx-auto bg-gradient-to-br from-accent/5 to-primary/5 rounded-2xl flex items-center justify-center
                               transform transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3">
-                  <Zap className="h-10 w-10 text-accent transition-all duration-500 group-hover:text-primary" />
+                  <Zap className="h-10 w-10 text-primary transition-all duration-500 group-hover:text-accent" />
                 </div>
               </div>
 
               {/* Content */}
               <div className="space-y-3 flex-1">
                 <h3 className="text-2xl font-bold font-space-grotesk text-foreground 
-                             transform transition-all duration-300 group-hover:text-accent">
-                  Exclusive Focus
+                             transform transition-all duration-300 group-hover:text-primary">
+                  Fast Delivery
                 </h3>
                 <p className="text-muted-foreground font-inter leading-relaxed">
-                  Only 3 premium clients per month for maximum attention
+                  Agile workflows ensuring faster releases
                 </p>
                 
                 {/* Animated counter */}
-                <div className="mt-6 flex items-center justify-between">
+                <div className="!mt-6 flex items-center justify-between">
                   <span className="text-sm text-muted-foreground">Monthly Clients</span>
                   <div className="flex space-x-1">
                     {[1, 2, 3].map((i) => (
@@ -200,7 +200,7 @@ const HeroSection = () => {
                   Proven Growth
                 </h3>
                 <p className="text-muted-foreground font-inter leading-relaxed">
-                  Average conversion increase within 90 days
+                  Track measurable results in just weeks
                 </p>
                 
                 {/* Animated chart */}
@@ -211,8 +211,8 @@ const HeroSection = () => {
                   </div>
                   <div className="flex items-end space-x-1 h-12">
                     {[20, 35, 45, 50, 65].map((height, i) => (
-                      <div key={i} className="flex-1 bg-gradient-to-t from-primary/30 to-accent/30 rounded-t 
-                                           transform transition-all duration-700 group-hover:from-primary group-hover:to-accent"
+                      <div key={i} className="flex-1 bg-accent/30 rounded-t 
+                                           transform transition-all duration-700 group-hover:bg-accent"
                            style={{
                              height: `${height}%`,
                              transitionDelay: `${i * 100}ms`

@@ -6,23 +6,23 @@ const ComparisonTable = () => {
   const comparisons = [
     {
       aspect: 'Development Speed',
-      traditional: { value: '3-6 months', icon: Clock, color: 'text-red-500', bgColor: 'bg-red-50 dark:bg-red-950/20' },
-      ai: { value: '2-4 weeks', icon: Zap, color: 'text-emerald-500', bgColor: 'bg-emerald-50 dark:bg-emerald-950/20' }
+      traditional: { value: '3-6 months', icon: Clock, color: 'text-muted-foreground', bgColor: 'bg-muted' },
+      ai: { value: '2-4 weeks', icon: Zap, color: 'text-primary dark:text-accent', bgColor: 'bg-primary/5 dark:bg-accent/5' }
     },
     {
       aspect: 'Cost Efficiency',
-      traditional: { value: '$50k - $200k', icon: DollarSign, color: 'text-red-500', bgColor: 'bg-red-50 dark:bg-red-950/20' },
-      ai: { value: '$5k - $25k', icon: CheckCircle, color: 'text-emerald-500', bgColor: 'bg-emerald-50 dark:bg-emerald-950/20' }
+      traditional: { value: '$50k - $200k', icon: DollarSign, color: 'text-muted-foreground', bgColor: 'bg-muted' },
+      ai: { value: '$5k - $25k', icon: CheckCircle, color: 'text-primary dark:text-accent', bgColor: 'bg-primary/5 dark:bg-accent/5' }
     },
     {
       aspect: 'Error Rate',
-      traditional: { value: 'High Risk', icon: AlertTriangle, color: 'text-red-500', bgColor: 'bg-red-50 dark:bg-red-950/20' },
-      ai: { value: 'Minimal Risk', icon: CheckCircle, color: 'text-emerald-500', bgColor: 'bg-emerald-50 dark:bg-emerald-950/20' }
+      traditional: { value: 'High Risk', icon: AlertTriangle, color: 'text-muted-foreground', bgColor: 'bg-muted' },
+      ai: { value: 'Minimal Risk', icon: CheckCircle, color: 'text-primary dark:text-accent', bgColor: 'bg-primary/5 dark:bg-accent/5' }
     },
     {
       aspect: 'Scalability',
-      traditional: { value: 'Limited', icon: XCircle, color: 'text-red-500', bgColor: 'bg-red-50 dark:bg-red-950/20' },
-      ai: { value: 'Unlimited', icon: CheckCircle, color: 'text-emerald-500', bgColor: 'bg-emerald-50 dark:bg-emerald-950/20' }
+      traditional: { value: 'Limited', icon: XCircle, color: 'text-muted-foreground', bgColor: 'bg-muted' },
+      ai: { value: 'Unlimited', icon: CheckCircle, color: 'text-primary dark:text-accent', bgColor: 'bg-primary/5 dark:bg-accent/5' }
     }
   ];
 
@@ -56,10 +56,10 @@ const ComparisonTable = () => {
                   <TableHead className="text-left py-6 px-8 text-lg font-semibold text-foreground">
                     Development Aspect
                   </TableHead>
-                  <TableHead className="text-center py-6 px-8 text-lg font-semibold text-red-600 dark:text-red-400">
+                  <TableHead className="text-center py-6 px-8 text-lg font-semibold text-muted-foreground">
                     Traditional Development
                   </TableHead>
-                  <TableHead className="text-center py-6 px-8 text-lg font-semibold text-emerald-600 dark:text-emerald-400">
+                  <TableHead className="text-center py-6 px-8 text-lg font-semibold text-primary dark:text-accent">
                     AI-Assisted Development
                   </TableHead>
                 </TableRow>
