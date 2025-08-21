@@ -97,62 +97,151 @@ const HeroSection = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mt-20 max-w-6xl mx-auto">
-          <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-            <div className="relative bg-card/80 dark:bg-card/40 backdrop-blur-xl rounded-3xl p-8 border border-border/50 dark:border-white/10 hover:border-primary/30 transition-all duration-300">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center">
-                    <Brain className="h-8 w-8 text-primary" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                    <span className="text-xs text-primary-foreground font-bold">AI</span>
-                  </div>
+        <div className="grid md:grid-cols-3 gap-12 mt-20 max-w-7xl mx-auto">
+          <div className="group relative">
+            {/* Animated background glow */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
+            
+            {/* Main card */}
+            <div className="relative bg-gradient-to-br from-card/90 to-card/70 dark:from-card/60 dark:to-card/40 backdrop-blur-2xl rounded-2xl p-8 border border-border/30 dark:border-white/10 
+                          transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/20">
+              
+              {/* Floating icon container */}
+              <div className="relative mb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl flex items-center justify-center
+                              transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <Brain className="h-10 w-10 text-primary transition-all duration-500 group-hover:text-accent" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold font-space-grotesk text-foreground mb-1">Smart Development</h3>
-                  <p className="text-sm text-muted-foreground">Intelligent code generation</p>
+                
+                {/* Animated dots */}
+                <div className="absolute -top-2 -right-2 flex space-x-1">
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-accent rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="space-y-3">
+                <h3 className="text-2xl font-bold font-space-grotesk text-foreground 
+                             transform transition-all duration-300 group-hover:text-primary">
+                  AI-Powered
+                </h3>
+                <p className="text-muted-foreground font-inter leading-relaxed">
+                  Intelligent development that learns and adapts
+                </p>
+                
+                {/* Animated progress bar */}
+                <div className="mt-6 space-y-2">
+                  <div className="flex justify-between text-xs text-muted-foreground">
+                    <span>Intelligence</span>
+                    <span>95%</span>
+                  </div>
+                  <div className="h-1 bg-muted rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-primary to-accent rounded-full w-0 
+                                  group-hover:w-[95%] transition-all duration-1000 ease-out"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-primary rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-            <div className="relative bg-card/80 dark:bg-card/40 backdrop-blur-xl rounded-3xl p-8 border border-border/50 dark:border-white/10 hover:border-accent/30 transition-all duration-300">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl flex items-center justify-center">
-                    <Zap className="h-8 w-8 text-accent" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-accent rounded-full flex items-center justify-center">
-                    <span className="text-xs text-accent-foreground font-bold">3</span>
-                  </div>
+          <div className="group relative">
+            {/* Animated background glow */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 via-primary/20 to-accent/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
+            
+            {/* Main card */}
+            <div className="relative bg-gradient-to-br from-card/90 to-card/70 dark:from-card/60 dark:to-card/40 backdrop-blur-2xl rounded-2xl p-8 border border-border/30 dark:border-white/10 
+                          transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-accent/20">
+              
+              {/* Floating icon container */}
+              <div className="relative mb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-accent/5 to-primary/5 rounded-2xl flex items-center justify-center
+                              transform transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3">
+                  <Zap className="h-10 w-10 text-accent transition-all duration-500 group-hover:text-primary" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold font-space-grotesk text-foreground mb-1">Exclusive Focus</h3>
-                  <p className="text-sm text-muted-foreground">Premium clients only</p>
+                
+                {/* Animated lightning bolts */}
+                <div className="absolute -top-1 -right-1 text-accent/60 transform transition-all duration-300 group-hover:scale-125 group-hover:text-accent">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="space-y-3">
+                <h3 className="text-2xl font-bold font-space-grotesk text-foreground 
+                             transform transition-all duration-300 group-hover:text-accent">
+                  Exclusive Focus
+                </h3>
+                <p className="text-muted-foreground font-inter leading-relaxed">
+                  Only 3 premium clients per month for maximum attention
+                </p>
+                
+                {/* Animated counter */}
+                <div className="mt-6 flex items-center justify-between">
+                  <span className="text-sm text-muted-foreground">Monthly Clients</span>
+                  <div className="flex space-x-1">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className={`w-3 h-3 rounded-full bg-accent/30 transition-all duration-300 
+                                             group-hover:bg-accent group-hover:scale-125`}
+                           style={{transitionDelay: `${i * 100}ms`}}></div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="relative group">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary via-accent to-primary rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
-            <div className="relative bg-card/80 dark:bg-card/40 backdrop-blur-xl rounded-3xl p-8 border border-border/50 dark:border-white/10 hover:border-primary/30 transition-all duration-300">
-              <div className="flex flex-col items-center text-center space-y-4">
-                <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl flex items-center justify-center">
-                    <TrendingUp className="h-8 w-8 text-primary" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-6 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
-                    <span className="text-xs text-primary-foreground font-bold">+40%</span>
-                  </div>
+          <div className="group relative">
+            {/* Animated background glow */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700 animate-pulse"></div>
+            
+            {/* Main card */}
+            <div className="relative bg-gradient-to-br from-card/90 to-card/70 dark:from-card/60 dark:to-card/40 backdrop-blur-2xl rounded-2xl p-8 border border-border/30 dark:border-white/10 
+                          transform transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/20">
+              
+              {/* Floating icon container */}
+              <div className="relative mb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl flex items-center justify-center
+                              transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                  <TrendingUp className="h-10 w-10 text-primary transition-all duration-500 group-hover:text-accent" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold font-space-grotesk text-foreground mb-1">Proven Results</h3>
-                  <p className="text-sm text-muted-foreground">Growth in 90 days</p>
+                
+                {/* Animated growth indicator */}
+                <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 rounded-full
+                              transform transition-all duration-500 group-hover:scale-110 group-hover:bg-accent">
+                  +40%
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="space-y-3">
+                <h3 className="text-2xl font-bold font-space-grotesk text-foreground 
+                             transform transition-all duration-300 group-hover:text-primary">
+                  Proven Growth
+                </h3>
+                <p className="text-muted-foreground font-inter leading-relaxed">
+                  Average conversion increase within 90 days
+                </p>
+                
+                {/* Animated chart */}
+                <div className="mt-6 space-y-2">
+                  <div className="flex justify-between text-xs text-muted-foreground">
+                    <span>Success Rate</span>
+                    <span>40%+</span>
+                  </div>
+                  <div className="flex items-end space-x-1 h-12">
+                    {[20, 35, 45, 60, 40].map((height, i) => (
+                      <div key={i} className="flex-1 bg-gradient-to-t from-primary/30 to-accent/30 rounded-t 
+                                           transform transition-all duration-700 group-hover:from-primary group-hover:to-accent"
+                           style={{
+                             height: `${height}%`,
+                             transitionDelay: `${i * 100}ms`
+                           }}></div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
