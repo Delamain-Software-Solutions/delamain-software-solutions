@@ -98,45 +98,46 @@ const HeroSection = () => {
 
         {/* Feature Cards */}
         <div className="grid md:grid-cols-3 gap-8 mt-20 max-w-5xl mx-auto">
-          <div className="bg-card/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-border dark:border-white/20">
-            <div className="w-16 h-16 bg-muted dark:bg-white/10 rounded-full flex items-center justify-center mb-6 mx-auto">
-              <Brain className="h-8 w-8 text-primary dark:text-white" />
+          <div className="bg-card/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-border dark:border-white/20 hover:scale-105 transition-all duration-300 group">
+            <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-cyan-500/20 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:from-primary/30 group-hover:to-cyan-500/30 transition-all duration-300">
+              <Brain className="h-10 w-10 text-primary dark:text-cyan-400" />
             </div>
-            <h3 className="text-xl font-semibold font-space-grotesk mb-4 text-foreground dark:text-white">
-              AI-First Design
-            </h3>
-            <p className="text-muted-foreground dark:text-white/80 font-inter leading-relaxed">
-              Every Product Strategically Designed To Turn Website Visitors Into Paying Customers, Rather Than Just 
-              Looks, But On Improving Your KPIs.
-            </p>
+            <div className="text-center">
+              <div className="text-3xl font-bold font-space-grotesk text-primary dark:text-cyan-400 mb-2">
+                AI-Powered
+              </div>
+              <div className="text-sm text-muted-foreground dark:text-white/70 uppercase tracking-wide font-medium">
+                Intelligent Design
+              </div>
+            </div>
           </div>
 
-          <div className="bg-card/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-border dark:border-white/20">
-            <div className="w-16 h-16 bg-muted dark:bg-white/10 rounded-full flex items-center justify-center mb-6 mx-auto">
-              <Zap className="h-8 w-8 text-primary dark:text-white" />
+          <div className="bg-card/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-border dark:border-white/20 hover:scale-105 transition-all duration-300 group">
+            <div className="w-20 h-20 bg-gradient-to-br from-teal-500/20 to-primary/20 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:from-teal-500/30 group-hover:to-primary/30 transition-all duration-300">
+              <Zap className="h-10 w-10 text-teal-600 dark:text-teal-400" />
             </div>
-            <h3 className="text-xl font-semibold font-space-grotesk mb-4 text-foreground dark:text-white">
-              Dedicated Focus
-            </h3>
-            <p className="text-muted-foreground dark:text-white/80 font-inter leading-relaxed">
-              We Only Take On 3 New High-Value Clients Per Month 
-              To Ensure They Receive Our Undivided Attention & Design
-              Services.
-            </p>
+            <div className="text-center">
+              <div className="text-3xl font-bold font-space-grotesk text-teal-600 dark:text-teal-400 mb-2">
+                3 Clients/Month
+              </div>
+              <div className="text-sm text-muted-foreground dark:text-white/70 uppercase tracking-wide font-medium">
+                Premium Focus
+              </div>
+            </div>
           </div>
 
-          <div className="bg-card/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-border dark:border-white/20">
-            <div className="w-16 h-16 bg-muted dark:bg-white/10 rounded-full flex items-center justify-center mb-6 mx-auto">
-              <TrendingUp className="h-8 w-8 text-primary dark:text-white" />
+          <div className="bg-card/60 dark:bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-lg border border-border dark:border-white/20 hover:scale-105 transition-all duration-300 group">
+            <div className="w-20 h-20 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:from-emerald-500/30 group-hover:to-teal-500/30 transition-all duration-300">
+              <TrendingUp className="h-10 w-10 text-emerald-600 dark:text-emerald-400" />
             </div>
-            <h3 className="text-xl font-semibold font-space-grotesk mb-4 text-foreground dark:text-white">
-              Growth-Focused Approach
-            </h3>
-            <p className="text-muted-foreground dark:text-white/80 font-inter leading-relaxed">
-              Our Clients See An Average 40% Increase In
-              Conversions Within 90 Days, Compared To Their
-              Previous After Working With Us.
-            </p>
+            <div className="text-center">
+              <div className="text-3xl font-bold font-space-grotesk text-emerald-600 dark:text-emerald-400 mb-2">
+                +40% Growth
+              </div>
+              <div className="text-sm text-muted-foreground dark:text-white/70 uppercase tracking-wide font-medium">
+                Within 90 Days
+              </div>
+            </div>
           </div>
         </div>
       </div>
