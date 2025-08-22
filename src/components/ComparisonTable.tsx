@@ -37,8 +37,8 @@ const ComparisonTable = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-6">
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Why Choose AI-Assisted
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-foreground">
+              Why Choose <span className="text-primary">AI-Assisted</span>
             </span>
             <br />
             <span className="text-foreground">Development?</span>

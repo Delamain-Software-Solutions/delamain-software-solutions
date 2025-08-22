@@ -117,6 +117,10 @@ export default {
 						strokeDashoffset: '-1000',
 						opacity: '0.3'
 					}
+				},
+				'scroll-left': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-50%)' }
 				}
 			},
 			animation: {
@@ -125,7 +129,8 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'gradient-x': 'gradient-x 15s ease infinite',
 				'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
-				'draw': 'draw 8s ease-in-out infinite'
+				'draw': 'draw 8s ease-in-out infinite',
+				'scroll-left': 'scroll-left 30s linear infinite'
 			}
 		}
 	},

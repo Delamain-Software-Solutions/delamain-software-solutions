@@ -36,10 +36,14 @@ const HeroSection = () => {
 
           {/* CTA Button */}
           <div className="pt-4">
+            <Button size="lg" className="bg-secondary hover:bg-accent/90 text-black hover:text-primary-foreground px-8 py-4 text-lg rounded-full me-5 border-solid ">
+              Book a Consultation
+            </Button>
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg rounded-full">
-              Let's Chat
+              Get Project Quote
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
+
           </div>
         </div>
 

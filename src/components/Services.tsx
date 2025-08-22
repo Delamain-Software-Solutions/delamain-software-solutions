@@ -1,13 +1,14 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Smartphone, Globe, Monitor } from 'lucide-react';
 
 const services = [
   {
     icon: Globe,
-    title: 'Web Design and Development',
-    description: 'AI-powered custom web applications with modern design, seamless functionality, and superior user experience.',
+    title: 'Web Design & Development',
+    description: 'Custom web applications with modern design, seamless functionality, and superior user experience.',
   },
   {
     icon: Monitor,
@@ -31,16 +32,37 @@ const technologies = [
   { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
   { name: 'AWS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
   { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-  { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' }
+  { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+  { name: 'Vue.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
+  { name: 'Angular', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
+  { name: 'Firebase', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
+  { name: 'GraphQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg' },
+  { name: 'Kubernetes', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg' },
+  { name: 'Java', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+  { name: 'C++', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
+  { name: 'Go', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg' },
+  { name: 'Redis', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg' },
+  { name: 'Laravel', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg' },
+  { name: 'Django', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg' },
+  { name: 'Spring', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
+  { name: 'Express', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
+  { name: 'Rust', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg' },
+  { name: 'Swift', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg' },
+  { name: 'Kotlin', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg' },
+  { name: 'Supabase', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg' },
+  { name: 'Tailwind', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg' },
+  { name: 'Vite', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg' },
+  { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' }
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-20 bg-muted/30">
+    <section id="services" className="py-24 bg-gradient-to-br from-muted/80 to-secondary/90">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-6 text-foreground">
-            Our <span className="text-primary"> Services</span>
+          <Badge variant="outline" className="text-sm mb-4">Our Expertise</Badge>
+          <h2 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-6 text-primary">
+            Services <span className="text-foreground">We Offer</span>
           </h2>
           
           <p className="text-xl text-muted-foreground font-inter max-w-2xl mx-auto leading-relaxed">
@@ -49,14 +71,14 @@ const ServicesSection = () => {
         </div>
 
 {/* Technology Logos */}
-        <div className="text-center">
-          <div className="grid grid-cols-5 md:grid-cols-10 gap-6 max-w-4xl mx-auto items-center">
-            {technologies.map((tech, index) => (
-              <div key={index} className="flex items-center justify-center p-2 grayscale hover:grayscale-0 transition-all duration-300">
+        <div className="mb-16 overflow-hidden relative">
+          <div className="flex animate-scroll-left">
+            {[...technologies, ...technologies].map((tech, index) => (
+              <div key={index} className="flex items-center justify-center p-4 mx-4 grayscale hover:grayscale-0 transition-all duration-300 flex-shrink-0 min-w-[80px]">
                 <img 
                   src={tech.logo} 
                   alt={tech.name}
-                  className="w-8 h-8 md:w-10 md:h-10 object-contain"
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain"
                   title={tech.name}
                 />
               </div>

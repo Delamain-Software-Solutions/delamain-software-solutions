@@ -31,11 +31,8 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-6 h-6 bg-foreground rounded-full flex items-center justify-center">
-              <Circle className="w-3 h-3 text-background fill-background" />
-            </div>
-            <div className="text-xl font-bold font-space-grotesk text-foreground">
-              DELAMAIN
+            <div className="flex items-center justify-center ms-5">
+              <img src="src/assets/Delamain-Logo.png" alt="Logo" height={200} width={200}/>
             </div>
           </div>
 

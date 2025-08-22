@@ -4,6 +4,8 @@ import AboutUs from "@/components/AboutUs";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import ComparisonTable from "@/components/ComparisonTable";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -16,6 +18,8 @@ const Index = () => {
         <Portfolio />
       </div>
       <ComparisonTable />
+      <Contact />
+      <Footer />
     </div>
   );
 };
