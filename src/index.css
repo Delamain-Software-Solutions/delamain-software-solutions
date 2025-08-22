@@ -76,6 +76,11 @@
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
+    /* Section backgrounds for alternating design */
+    --section-primary: 0 0% 100%;
+    --section-secondary: 0 0% 98%;
+    --section-accent: 14 100% 57% / 0.03;
+
     --radius: 0.5rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;

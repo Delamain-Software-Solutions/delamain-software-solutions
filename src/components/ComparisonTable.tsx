@@ -48,7 +48,7 @@ const ComparisonTable = () => {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="bg-card/80 dark:bg-white/5 backdrop-blur-md rounded-3xl shadow-2xl border border-border/50 dark:border-white/10 overflow-hidden">
             <Table>
               <TableHeader>

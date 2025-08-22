@@ -1,15 +1,21 @@
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import ComparisonTable from "@/components/ComparisonTable";
+import HeroSection from "@/components/HeroSection";
+import AboutUs from "@/components/AboutUs";
 import Services from "@/components/Services";
+import Portfolio from "@/components/Portfolio";
+import ComparisonTable from "@/components/ComparisonTable";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <Hero />
-      <ComparisonTable />
+      <HeroSection />
+      <AboutUs />
       <Services />
+      <div className="bg-secondary/30">
+        <Portfolio />
+      </div>
+      <ComparisonTable />
     </div>
   );
 };

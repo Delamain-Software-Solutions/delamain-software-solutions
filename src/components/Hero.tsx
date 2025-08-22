@@ -6,60 +6,86 @@ import heroImage from '@/assets/hero-ai-development.jpg';
 const HeroSection = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
-      {/* Flowing Abstract Artwork */}
-      <div className="absolute inset-0">
-        {/* Light mode - whitish background with flowing artwork */}
+      {/* Optimized Abstract Lines Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Light mode - clean gradient lines */}
         <div className="absolute inset-0 dark:hidden">
-          {/* Flowing abstract shapes */}
-          <div className="absolute -top-1/4 -left-1/4 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-primary/20 rounded-full blur-3xl animate-[float_8s_ease-in-out_infinite] transform rotate-45"></div>
-          <div className="absolute top-1/3 -right-1/4 w-80 h-80 bg-gradient-to-br from-accent/20 to-red-200/30 rounded-full blur-2xl animate-[float_6s_ease-in-out_infinite_2s] transform -rotate-12"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-gradient-to-br from-blue-300/20 to-navy-200/30 rounded-full blur-3xl animate-[float_10s_ease-in-out_infinite_4s] transform rotate-12"></div>
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="lightLine1" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.15" />
+                <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.1" />
+              </linearGradient>
+              <linearGradient id="lightLine2" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.1" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
+              </linearGradient>
+              <linearGradient id="lightLine3" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.08" />
+                <stop offset="50%" stopColor="hsl(var(--accent))" stopOpacity="0.18" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.12" />
+              </linearGradient>
+            </defs>
+            
+            {/* Main flowing curves */}
+            <path d="M-200,200 Q300,100 600,250 Q900,400 1400,300" 
+                  stroke="url(#lightLine1)" strokeWidth="8" fill="none" 
+                  className="animate-[draw_8s_ease-in-out_infinite]" />
+            <path d="M-200,400 Q200,300 500,420 Q800,540 1400,450" 
+                  stroke="url(#lightLine2)" strokeWidth="6" fill="none"
+                  className="animate-[draw_12s_ease-in-out_infinite_2s]" />
+            <path d="M-200,600 Q400,450 700,580 Q1000,710 1400,600" 
+                  stroke="url(#lightLine3)" strokeWidth="4" fill="none"
+                  className="animate-[draw_10s_ease-in-out_infinite_4s]" />
+            <path d="M-200,100 Q500,50 800,150 Q1100,250 1400,180" 
+                  stroke="url(#lightLine1)" strokeWidth="5" fill="none"
+                  className="animate-[draw_15s_ease-in-out_infinite_1s]" />
+          </svg>
           
-          {/* Flowing lines */}
-          <div className="absolute inset-0 opacity-10">
-            <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none">
-              <path d="M-100,200 Q300,100 500,300 Q700,500 1100,400" stroke="url(#lightGradient1)" strokeWidth="3" opacity="0.6" className="animate-[gradient-x_20s_ease_infinite]"/>
-              <path d="M-100,600 Q200,400 400,600 Q600,800 1000,700" stroke="url(#lightGradient2)" strokeWidth="2" opacity="0.4" className="animate-[gradient-x_15s_ease_infinite_5s]"/>
-              <defs>
-                <linearGradient id="lightGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
-                  <stop offset="50%" stopColor="hsl(var(--accent))" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
-                </linearGradient>
-                <linearGradient id="lightGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.4" />
-                  <stop offset="100%" stopColor="hsl(220 80% 60%)" stopOpacity="0.3" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
+          {/* Subtle accent shapes */}
+          <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-br from-primary/10 to-accent/5 rounded-full blur-xl"></div>
+          <div className="absolute bottom-32 left-16 w-24 h-24 bg-gradient-to-br from-accent/8 to-primary/12 rounded-full blur-lg"></div>
         </div>
 
-        {/* Dark mode - full abstract background */}
-        <div className="absolute inset-0 hidden dark:block bg-gradient-to-br from-slate-900 via-blue-900 to-navy-900">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-blue-600/30 to-accent/20 animate-gradient-x"></div>
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-600/30 to-primary/30 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-accent/30 to-red-600/30 rounded-full blur-3xl animate-pulse-glow"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-r from-navy-600/20 to-blue-500/20 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
+        {/* Dark mode - enhanced gradient lines */}
+        <div className="absolute inset-0 hidden dark:block bg-gradient-to-br from-slate-900 to-slate-800">
+          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="darkLine1" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
+                <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.2" />
+              </linearGradient>
+              <linearGradient id="darkLine2" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" stopColor="hsl(var(--accent))" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.4" />
+              </linearGradient>
+              <linearGradient id="darkLine3" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="objectBoundingBox">
+                <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
+                <stop offset="50%" stopColor="hsl(var(--accent))" stopOpacity="0.35" />
+                <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.25" />
+              </linearGradient>
+            </defs>
+            
+            {/* Enhanced flowing curves for dark mode */}
+            <path d="M-200,200 Q300,100 600,250 Q900,400 1400,300" 
+                  stroke="url(#darkLine1)" strokeWidth="10" fill="none"
+                  className="animate-[draw_8s_ease-in-out_infinite]" />
+            <path d="M-200,400 Q200,300 500,420 Q800,540 1400,450" 
+                  stroke="url(#darkLine2)" strokeWidth="8" fill="none"
+                  className="animate-[draw_12s_ease-in-out_infinite_2s]" />
+            <path d="M-200,600 Q400,450 700,580 Q1000,710 1400,600" 
+                  stroke="url(#darkLine3)" strokeWidth="6" fill="none"
+                  className="animate-[draw_10s_ease-in-out_infinite_4s]" />
+            <path d="M-200,100 Q500,50 800,150 Q1100,250 1400,180" 
+                  stroke="url(#darkLine1)" strokeWidth="7" fill="none"
+                  className="animate-[draw_15s_ease-in-out_infinite_1s]" />
+          </svg>
           
-          {/* Neural network lines */}
-          <div className="absolute inset-0 opacity-20">
-            <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none">
-              <path d="M100,400 Q300,200 500,400 T900,400" stroke="url(#gradient1)" strokeWidth="2" opacity="0.6"/>
-              <path d="M200,500 Q400,300 600,500 T1000,500" stroke="url(#gradient2)" strokeWidth="1.5" opacity="0.4"/>
-              <defs>
-                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="hsl(var(--primary))" />
-                  <stop offset="50%" stopColor="hsl(var(--accent))" />
-                  <stop offset="100%" stopColor="hsl(var(--primary))" />
-                </linearGradient>
-                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="hsl(var(--accent))" />
-                  <stop offset="100%" stopColor="hsl(var(--primary))" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
+          {/* Subtle glowing accents */}
+          <div className="absolute top-20 right-20 w-40 h-40 bg-gradient-to-br from-primary/20 to-accent/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-32 left-16 w-32 h-32 bg-gradient-to-br from-accent/15 to-primary/25 rounded-full blur-xl"></div>
         </div>
       </div>
       
@@ -77,7 +103,7 @@ const HeroSection = () => {
           </h1>
           
           {/* Subtitle */}
-          <p className="text-xl text-muted-foreground font-inter max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground font-inter max-w-3xl mx-auto leading-relaxed">
             Welcome to Delamain Software Solutions - Where cutting-edge AI meets
             <br />
             professional excellence to transform your digital vision into reality.

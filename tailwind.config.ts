@@ -101,6 +101,22 @@ export default {
 				'pulse-glow': {
 					'0%, 100%': { opacity: '0.5' },
 					'50%': { opacity: '1' }
+				},
+				'draw': {
+					'0%': { 
+						strokeDasharray: '1000',
+						strokeDashoffset: '1000',
+						opacity: '0.3'
+					},
+					'50%': {
+						strokeDashoffset: '0',
+						opacity: '0.8'
+					},
+					'100%': { 
+						strokeDasharray: '1000',
+						strokeDashoffset: '-1000',
+						opacity: '0.3'
+					}
 				}
 			},
 			animation: {
@@ -108,7 +124,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 6s ease-in-out infinite',
 				'gradient-x': 'gradient-x 15s ease infinite',
-				'pulse-glow': 'pulse-glow 4s ease-in-out infinite'
+				'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
+				'draw': 'draw 8s ease-in-out infinite'
 			}
 		}
 	},

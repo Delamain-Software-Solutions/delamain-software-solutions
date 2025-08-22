@@ -11,7 +11,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       attribute="class" 
       defaultTheme="light" 
       enableSystem={false}
-      storageKey="synapse-theme"
+      storageKey="delamain-theme"
     >
       {children}
     </NextThemesProvider>
