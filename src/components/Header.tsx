@@ -32,7 +32,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="flex items-center justify-center ms-5">
-              <img src="src/assets/Delamain-Logo.png" alt="Logo" height={200} width={200}/>
+              <img src="/Delamain-Logo.png" alt="Logo" height={200} width={200}/>
             </div>
           </div>
 

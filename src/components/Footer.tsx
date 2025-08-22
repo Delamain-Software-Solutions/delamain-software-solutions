@@ -22,7 +22,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <div>
-              <img src="/src/assets/Delamain-Logo.png" alt="Delamain Software Solutions" height={400} width={400}/>
+              <img src="/Delamain-Logo.png" alt="Delamain Software Solutions" height={400} width={400}/>
             </div>
             {/* <h3 className="text-3xl font-bold font-space-grotesk mb-4">
               <span className="text-primary">Delamain</span>{" "}
