@@ -63,7 +63,7 @@ const HeroSection = () => {
               <Zap className="h-8 w-8 text-primary" />
             </div>
             <h3 className="text-xl font-semibold font-space-grotesk mb-4 text-primary">
-              Robust Testing
+              Rigorous Testing
             </h3>
             <p className="text-muted-foreground font-inter leading-relaxed">
               We Only Take On 3 New High-Value Clients Per Month 

@@ -40,7 +40,7 @@ const ServicesSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-6 text-foreground">
-            Our Services
+            Our <span className="text-primary"> Services</span>
           </h2>
           
           <p className="text-xl text-muted-foreground font-inter max-w-2xl mx-auto leading-relaxed">

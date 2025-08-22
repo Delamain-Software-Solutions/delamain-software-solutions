@@ -46,7 +46,7 @@ const Portfolio = () => {
         <div className="text-center mb-16 space-y-4">
           <Badge variant="outline" className="text-sm">Portfolio</Badge>
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
-            Our Amazing Projects
+            Our <span className="text-primary"> Amazing </span>Projects
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Have a look at our best projects we have done in the recent years.
