@@ -6,13 +6,13 @@ const ComparisonTable = () => {
   const comparisons = [
     {
       aspect: 'Development Speed',
-      traditional: { value: '3-6 months', icon: Clock, color: 'text-muted-foreground', bgColor: 'bg-muted' },
+      traditional: { value: '1-6 months', icon: Clock, color: 'text-muted-foreground', bgColor: 'bg-muted' },
       ai: { value: '2-4 weeks', icon: Zap, color: 'text-primary dark:text-accent', bgColor: 'bg-primary/5 dark:bg-accent/5' }
     },
     {
       aspect: 'Cost Efficiency',
-      traditional: { value: '$50k - $200k', icon: DollarSign, color: 'text-muted-foreground', bgColor: 'bg-muted' },
-      ai: { value: '$5k - $25k', icon: CheckCircle, color: 'text-primary dark:text-accent', bgColor: 'bg-primary/5 dark:bg-accent/5' }
+      traditional: { value: '$1k - $50k', icon: DollarSign, color: 'text-muted-foreground', bgColor: 'bg-muted' },
+      ai: { value: '$50 - $5k', icon: CheckCircle, color: 'text-primary dark:text-accent', bgColor: 'bg-primary/5 dark:bg-accent/5' }
     },
     {
       aspect: 'Error Rate',

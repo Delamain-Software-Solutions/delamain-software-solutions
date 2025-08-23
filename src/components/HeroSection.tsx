@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play, Brain, Zap, TrendingUp } from 'lucide-react';
 import heroTechCity from '@/assets/hero-tech-city.jpg';
+import Typewriter from 'typewriter-effect';
 
 const HeroSection = () => {
   return (
@@ -22,9 +23,20 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Main Headline */}
           <h1 className="text-5xl lg:text-7xl font-bold font-space-grotesk leading-tight text-primary">
-            Developed by AI
-            <br />
-            <span className="text-foreground">Tested by Professionals</span>
+            <div className="min-h-[1.2em]">
+              <Typewriter
+                options={{
+                  strings: [
+                    '<span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Developed by AI,</span>',
+                    '<span class="text-foreground">Tested by Professionals</span>',
+                  ],
+                  autoStart: true,
+                  loop: true,
+                  delay: 50,
+                  deleteSpeed: 30,
+                }}
+              />
+            </div>
           </h1>
           
           {/* Subtitle */}
