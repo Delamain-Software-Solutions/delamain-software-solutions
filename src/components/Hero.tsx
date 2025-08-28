@@ -15,10 +15,10 @@ const HeroSection = () => {
           {/* Main Headline */}
           <h1 className="text-5xl lg:text-7xl font-bold font-space-grotesk leading-tight text-foreground">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Developed by AI,
+              Coded by AI,
             </span>
             <br />
-            <span className="text-foreground">Tested by Professionals</span>
+            <span className="text-foreground">Developed by Professionals</span>
           </h1>
           
           {/* Subtitle */}

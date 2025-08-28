@@ -20,15 +20,15 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/85"></div>
       <div className="container mx-auto px-6 py-40 text-center relative z-10">
         {/* Main Hero Content */}
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-5xl mx-auto space-y-8">
           {/* Main Headline */}
           <h1 className="text-5xl lg:text-7xl font-bold font-space-grotesk leading-tight text-primary">
             <div className="min-h-[1.2em]">
               <Typewriter
                 options={{
                   strings: [
-                    '<span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Developed by AI,</span>',
-                    '<span class="text-foreground">Tested by Professionals</span>',
+                    '<span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Coded by AI,</span>',
+                    '<span class="text-foreground">Developed by Professionals</span>',
                   ],
                   autoStart: true,
                   loop: true,
