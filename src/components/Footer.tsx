@@ -82,7 +82,7 @@ const Footer = () => {
         <div className="border-t border-primary/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-muted-foreground mb-4 md:mb-0">
-              © 2024 Delamain Software Solutions. All rights reserved.
+              © 2025 Delamain Software Solutions. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>

@@ -69,8 +69,7 @@ const HeroSection = () => {
               AI-Powered Development
             </h3>
             <p className="text-muted-foreground font-inter leading-relaxed">
-              Every Product Strategically Designed To Turn Website Visitors Into Paying Customers, Rather Than Just 
-              Looks, But On Improving Your KPIs.
+             We use AI-driven methods to build products that go beyond design, focusing on conversions, engagement, and measurable growth.
             </p>
           </div>
 
@@ -82,9 +81,7 @@ const HeroSection = () => {
               Rigorous Testing
             </h3>
             <p className="text-muted-foreground font-inter leading-relaxed">
-              We Only Take On 3 New High-Value Clients Per Month 
-              To Ensure They Receive Our Undivided Attention & Design
-              Services.
+              Every project is thoroughly tested for speed, security, and usability to ensure a reliable, high-quality experience.
             </p>
           </div>
 
@@ -96,9 +93,7 @@ const HeroSection = () => {
               Long Term Maintenance
             </h3>
             <p className="text-muted-foreground font-inter leading-relaxed">
-              Our Clients See An Average 40% Increase In
-              Conversions Within 90 Days, Compared To Their
-              Previous After Working With Us.
+              We offer ongoing updates and monitoring to keep your product secure, optimized, and ready to scale.
             </p>
           </div>
         </div>

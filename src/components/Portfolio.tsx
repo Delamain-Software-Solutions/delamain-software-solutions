@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Calculator, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import trackioImage from "@/assets/trackio-project.jpg";
 import accountingImage from "@/assets/accounting-assistant-project.jpg";
 import animeMatcherImage from "@/assets/anime-matcher-project.jpg";
@@ -58,7 +59,7 @@ const Portfolio = () => {
           </p>
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-2">
           {projects.map((project, index) => {
             const IconComponent = project.icon;
             const isEven = index % 2 === 0;
@@ -70,7 +71,7 @@ const Portfolio = () => {
                 className={`grid lg:grid-cols-2 gap-8 items-center group cursor-pointer transition-all duration-700 ease-out p-8 rounded-3xl ${
                   isHovered 
                     ? 'scale-90 bg-slate-900/95 shadow-2xl shadow-primary/20' 
-                    : 'scale-90 hover:bg-muted/30'
+                    : 'scale-90  bg-muted hover:bg-muted/30'
                 } ${isEven ? '' : 'lg:grid-cols-2'}`}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
@@ -176,10 +177,12 @@ const Portfolio = () => {
 
         {/* Explore More Button */}
         <div className="text-center mt-20">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full group">
-            Explore More Projects
-            <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-          </Button>
+          <Link to="/projects">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full group">
+              Explore More Projects
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

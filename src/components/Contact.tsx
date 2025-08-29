@@ -13,7 +13,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-background to-muted/30">
+    <section id="contact" className="py-24 bg-muted from-background to-muted/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <Badge variant="outline" className="text-sm mb-4">Get In Touch</Badge>
