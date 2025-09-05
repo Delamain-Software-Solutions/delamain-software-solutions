@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play, Brain, Zap, TrendingUp } from 'lucide-react';
 import heroTechCity from '@/assets/hero-tech-city.jpg';
 import Typewriter from 'typewriter-effect';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section 
       id="home" 
@@ -48,14 +50,17 @@ const HeroSection = () => {
 
           {/* CTA Button */}
           <div className="pt-4">
-            <Button size="lg" className="bg-secondary hover:bg-accent/90 text-black hover:text-primary-foreground px-8 py-4 text-lg rounded-full me-5 border-solid ">
+            <Button
+              size="lg"
+              className="bg-secondary hover:bg-accent/90 text-black hover:text-primary-foreground px-8 py-4 text-lg rounded-full me-5 border-solid "
+              onClick={() => navigate('/booking')}
+            >
               Book a Consultation
             </Button>
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg rounded-full">
               Get Project Quote
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-
           </div>
         </div>
 
