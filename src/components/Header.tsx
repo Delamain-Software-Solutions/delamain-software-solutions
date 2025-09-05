@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Circle } from 'lucide-react';
-import { useTheme } from 'next-themes';
+// Removed next-themes useTheme import to avoid SSR-only hook in SPA
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -18,8 +15,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  if (!mounted) return null;
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -32,7 +27,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="flex items-center justify-center ms-5">
-              <img src="/Delamain-Logo.png" alt="Logo" height={200} width={200}/>
+              <img src="/Delamain-Logo.png" alt="Delamain logo" height={200} width={200}/>
             </div>
           </div>
 
@@ -64,17 +59,6 @@ const Navbar = () => {
             >
               Book Call
             </Button>
-            {/* <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="relative inline-flex h-6 w-11 items-center rounded-full bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-            >
-              <span className="sr-only">Toggle theme</span>
-              <span
-                className={`${
-                  theme === 'dark' ? 'translate-x-6' : 'translate-x-1'
-                } inline-block h-4 w-4 transform rounded-full bg-foreground transition`}
-              />
-            </button> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,19 +86,6 @@ const Navbar = () => {
               <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
                 Contact Us
               </a>
-              {/* <div className="flex items-center justify-between pt-4">
-                <span className="text-sm text-muted-foreground">Theme</span>
-                <button
-                  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                  className="relative inline-flex h-6 w-11 items-center rounded-full bg-muted transition-colors"
-                >
-                  <span
-                    className={`${
-                      theme === 'dark' ? 'translate-x-6' : 'translate-x-1'
-                    } inline-block h-4 w-4 transform rounded-full bg-foreground transition`}
-                  />
-                </button>
-              </div> */}
             </div>
           </div>
         )}

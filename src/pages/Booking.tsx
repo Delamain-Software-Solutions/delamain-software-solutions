@@ -8,18 +8,59 @@ const Booking = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Load Cal.com embed script
-    const script = document.createElement('script');
-    script.src = 'https://app.cal.com/embed/embed.js';
-    script.async = true;
-    document.head.appendChild(script);
+    const initCal = () => {
+      const Cal = (window as any).Cal;
+      if (!Cal) return;
+      Cal('init', { origin: 'https://cal.com' });
+      // Inline embeds
+      Cal('inline', {
+        elementOrSelector: '#cal-15',
+        calLink: 'afnan-riaz/15min',
+        layout: 'month_view',
+        theme: 'auto',
+      });
+      Cal('inline', {
+        elementOrSelector: '#cal-30',
+        calLink: 'afnan-riaz/30min',
+        layout: 'month_view',
+        theme: 'auto',
+      });
+    };
+
+    const existing = document.querySelector('script[src="https://app.cal.com/embed/embed.js"]') as HTMLScriptElement | null;
+    if (existing) {
+      if ((window as any).Cal) initCal();
+    } else {
+      const script = document.createElement('script');
+      script.src = 'https://app.cal.com/embed/embed.js';
+      script.async = true;
+      script.onload = initCal;
+      document.head.appendChild(script);
+    }
+
+    // Basic SEO for this page
+    document.title = 'Book a Consultation | Delamain';
+    const ensureMeta = (name: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement('meta');
+        el.name = name;
+        document.head.appendChild(el);
+      }
+      return el;
+    };
+    const desc = ensureMeta('description');
+    desc.content = 'Book a 15 or 30-minute consultation with our team via Cal.com, right on our website.';
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = window.location.origin + '/booking';
 
     return () => {
-      // Cleanup script on component unmount
-      const existingScript = document.querySelector('script[src="https://app.cal.com/embed/embed.js"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
+      // Keeping script for reuse across routes; no cleanup needed
     };
   }, []);
 
@@ -55,8 +96,7 @@ const Booking = () => {
           <div className="grid md:grid-cols-2 gap-6 mb-12">
             <Card className="hover:shadow-lg transition-shadow cursor-pointer" 
                   onClick={() => {
-                    const cal15 = document.querySelector('[data-cal-namespace="15min"]') as any;
-                    if (cal15?.Cal) cal15.Cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+                    document.getElementById('cal-15')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }}>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -74,8 +114,7 @@ const Booking = () => {
 
             <Card className="hover:shadow-lg transition-shadow cursor-pointer"
                   onClick={() => {
-                    const cal30 = document.querySelector('[data-cal-namespace="30min"]') as any;
-                    if (cal30?.Cal) cal30.Cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+                    document.getElementById('cal-30')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
                   }}>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -104,10 +143,8 @@ const Booking = () => {
               </CardHeader>
               <CardContent>
                 <div 
-                  data-cal-namespace="15min"
-                  data-cal-link="afnan-riaz/15min"
-                  data-cal-config='{"layout":"month_view","theme":"auto"}'
-                  style={{ width: '100%', height: '600px', overflow: 'scroll' }}
+                  id="cal-15"
+                  style={{ width: '100%', height: '600px', overflow: 'hidden' }}
                 ></div>
               </CardContent>
             </Card>
@@ -122,10 +159,8 @@ const Booking = () => {
               </CardHeader>
               <CardContent>
                 <div 
-                  data-cal-namespace="30min"
-                  data-cal-link="afnan-riaz/30min"
-                  data-cal-config='{"layout":"month_view","theme":"auto"}'
-                  style={{ width: '100%', height: '600px', overflow: 'scroll' }}
+                  id="cal-30"
+                  style={{ width: '100%', height: '600px', overflow: 'hidden' }}
                 ></div>
               </CardContent>
             </Card>
