@@ -57,7 +57,11 @@ const Navbar = () => {
             <Button variant="outline" size="sm" className="text-sm">
               Get Quote
             </Button>
-            <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm">
+            <Button 
+              size="sm" 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm"
+              onClick={() => window.location.href = '/booking'}
+            >
               Book Call
             </Button>
             {/* <button
