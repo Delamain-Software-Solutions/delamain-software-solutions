@@ -8,63 +8,64 @@ const Booking = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Define Cal stub to queue calls BEFORE loading the embed script
-    const w = window as any;
-    w.Cal = w.Cal || function (...args: any[]) {
-      (w.Cal.q = w.Cal.q || []).push(args);
-    };
-
-    // Queue init and inline embeds
-    w.Cal('init', { origin: 'https://cal.com' });
-    w.Cal('inline', {
-      elementOrSelector: '#cal-15',
-      calLink: 'afnan-riaz/15min',
-      layout: 'month_view',
-      theme: 'auto',
-    });
-    w.Cal('inline', {
-      elementOrSelector: '#cal-30',
-      calLink: 'afnan-riaz/30min',
-      layout: 'month_view',
-      theme: 'auto',
-    });
-
-    // Load embed script once
-    if (!document.querySelector('script[src="https://app.cal.com/embed/embed.js"]')) {
-      const script = document.createElement('script');
-      script.src = 'https://app.cal.com/embed/embed.js';
-      script.async = true;
-      document.head.appendChild(script);
-    }
-
-    // Optional: load Cal's embed CSS for proper styling
-    if (!document.querySelector('link[href="https://app.cal.com/embed/embed.css"]')) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://app.cal.com/embed/embed.css';
-      document.head.appendChild(link);
-    }
-
-    // Basic SEO for this page
-    document.title = 'Book a Consultation | Delamain';
-    const ensureMeta = (name: string) => {
-      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
-      if (!el) {
-        el = document.createElement('meta');
-        el.name = name;
-        document.head.appendChild(el);
+    const initCalEmbed = () => {
+      // Setup Cal stub function to queue calls
+      const w = window as any;
+      if (!w.Cal) {
+        w.Cal = function (...args: any[]) {
+          (w.Cal.q = w.Cal.q || []).push(args);
+        };
       }
-      return el;
+
+      // Load the Cal.com script if not already loaded
+      if (!document.querySelector('script[src="https://app.cal.com/embed/embed.js"]')) {
+        const script = document.createElement('script');
+        script.src = 'https://app.cal.com/embed/embed.js';
+        script.async = true;
+        
+        script.onload = () => {
+          // Wait a bit for DOM to be ready, then initialize
+          setTimeout(() => {
+            const cal15Element = document.getElementById('cal-15');
+            const cal30Element = document.getElementById('cal-30');
+            
+            if (cal15Element && cal30Element) {
+              try {
+                w.Cal('init', { origin: 'https://cal.com' });
+                
+                w.Cal('inline', {
+                  elementOrSelector: '#cal-15',
+                  calLink: 'afnan-riaz/15min',
+                  layout: 'month_view',
+                  theme: 'auto'
+                });
+                
+                w.Cal('inline', {
+                  elementOrSelector: '#cal-30',
+                  calLink: 'afnan-riaz/30min',
+                  layout: 'month_view', 
+                  theme: 'auto'
+                });
+              } catch (error) {
+                console.error('Cal.com initialization error:', error);
+              }
+            }
+          }, 100);
+        };
+        
+        document.head.appendChild(script);
+      }
     };
-    const desc = ensureMeta('description');
-    desc.content = 'Book a 15 or 30-minute consultation with our team via Cal.com, right on our website.';
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.rel = 'canonical';
-      document.head.appendChild(canonical);
-    }
-    canonical.href = window.location.origin + '/booking';
+
+    // Initialize after component mounts
+    const timer = setTimeout(initCalEmbed, 50);
+
+    // Basic SEO
+    document.title = 'Book a Consultation | Delamain';
+    
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
