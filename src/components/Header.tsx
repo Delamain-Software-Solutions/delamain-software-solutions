@@ -60,7 +60,7 @@ const Navbar = () => {
             <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm">
               Book Call
             </Button>
-            <button
+            {/* <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="relative inline-flex h-6 w-11 items-center rounded-full bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
@@ -69,7 +69,7 @@ const Navbar = () => {
                 className={`${
                   theme === 'dark' ? 'translate-x-6' : 'translate-x-1'
                 } inline-block h-4 w-4 transform rounded-full bg-foreground transition`}
-              />
+              /> */}
             </button>
           </div>
 
@@ -98,7 +98,7 @@ const Navbar = () => {
               <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
                 Contact Us
               </a>
-              <div className="flex items-center justify-between pt-4">
+              {/* <div className="flex items-center justify-between pt-4">
                 <span className="text-sm text-muted-foreground">Theme</span>
                 <button
                   onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
@@ -110,7 +110,7 @@ const Navbar = () => {
                     } inline-block h-4 w-4 transform rounded-full bg-foreground transition`}
                   />
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         )}
