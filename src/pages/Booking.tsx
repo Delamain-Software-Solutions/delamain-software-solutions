@@ -8,34 +8,41 @@ const Booking = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const initCal = () => {
-      const Cal = (window as any).Cal;
-      if (!Cal) return;
-      Cal('init', { origin: 'https://cal.com' });
-      // Inline embeds
-      Cal('inline', {
-        elementOrSelector: '#cal-15',
-        calLink: 'afnan-riaz/15min',
-        layout: 'month_view',
-        theme: 'auto',
-      });
-      Cal('inline', {
-        elementOrSelector: '#cal-30',
-        calLink: 'afnan-riaz/30min',
-        layout: 'month_view',
-        theme: 'auto',
-      });
+    // Define Cal stub to queue calls BEFORE loading the embed script
+    const w = window as any;
+    w.Cal = w.Cal || function (...args: any[]) {
+      (w.Cal.q = w.Cal.q || []).push(args);
     };
 
-    const existing = document.querySelector('script[src="https://app.cal.com/embed/embed.js"]') as HTMLScriptElement | null;
-    if (existing) {
-      if ((window as any).Cal) initCal();
-    } else {
+    // Queue init and inline embeds
+    w.Cal('init', { origin: 'https://cal.com' });
+    w.Cal('inline', {
+      elementOrSelector: '#cal-15',
+      calLink: 'afnan-riaz/15min',
+      layout: 'month_view',
+      theme: 'auto',
+    });
+    w.Cal('inline', {
+      elementOrSelector: '#cal-30',
+      calLink: 'afnan-riaz/30min',
+      layout: 'month_view',
+      theme: 'auto',
+    });
+
+    // Load embed script once
+    if (!document.querySelector('script[src="https://app.cal.com/embed/embed.js"]')) {
       const script = document.createElement('script');
       script.src = 'https://app.cal.com/embed/embed.js';
       script.async = true;
-      script.onload = initCal;
       document.head.appendChild(script);
+    }
+
+    // Optional: load Cal's embed CSS for proper styling
+    if (!document.querySelector('link[href="https://app.cal.com/embed/embed.css"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://app.cal.com/embed/embed.css';
+      document.head.appendChild(link);
     }
 
     // Basic SEO for this page
@@ -58,10 +65,6 @@ const Booking = () => {
       document.head.appendChild(canonical);
     }
     canonical.href = window.location.origin + '/booking';
-
-    return () => {
-      // Keeping script for reuse across routes; no cleanup needed
-    };
   }, []);
 
   return (
