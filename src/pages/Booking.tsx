@@ -46,11 +46,11 @@ useEffect(() => {
             </p>
           </div>
           <Cal
-            calLink="delamain-software"  // your Cal.com username
+            calLink="delamain-software"
             style={{ width: "100%", height: "100%", border: "0" }}
             config={{
-              layout: "month_view", // optional: month_view, week_view
-              theme: "light", // or "dark"
+              layout: "month_view",
+              theme: "light",
             }}
           />
         </div>
