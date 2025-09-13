@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import AboutUs from "@/components/AboutUs";
 import Services from "@/components/Services";
-import Portfolio from "@/components/Portfolio";
+import FeaturedProjects from "@/components/FeaturedProjects";
 import ComparisonTable from "@/components/ComparisonTable";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -15,7 +15,7 @@ const Index = () => {
       <Services />
       <ComparisonTable />
       <div className="bg-secondary/10">
-        <Portfolio />
+        <FeaturedProjects />
       </div>
       <Contact />
       <Footer />
