@@ -19,10 +19,11 @@ const Portfolio = () => {
       title: "Accounting Assistant",
       category: "FinTech & Automation", 
       industry: "Financial Services",
-      shortDescription: "Intelligent financial automation tool",
+      shortDescription: "Intelligent financial automation tool that revolutionizes workflows",
       fullDescription: "An intelligent financial automation tool that revolutionizes accounting workflows by automatically generating balance sheets and income statements from Excel transaction data. Uses advanced algorithms to categorize transactions and ensure compliance with accounting standards.",
       image: accountingImage,
       icon: Calculator,
+      size: 3, // Large card
       technologies: ["Python", "Pandas", "React", "Machine Learning", "Excel API", "AWS"],
       highlights: ["Excel integration", "Auto categorization", "Compliance ready", "Real-time processing"],
       results: {
@@ -43,6 +44,7 @@ const Portfolio = () => {
       fullDescription: "A sophisticated big data application leveraging multiple machine learning models to match users with anime characters based on personality analysis. Features advanced quiz algorithms, character database with 10,000+ entries, and personality profiling using psychometric principles.",
       image: animeMatcherImage,
       icon: Sparkles,
+      size: 2, // Medium card
       technologies: ["Python", "TensorFlow", "React", "MongoDB", "Neo4j", "Docker"],
       highlights: ["ML personality matching", "10K+ character database", "Advanced analytics", "Real-time recommendations"],
       results: {
@@ -63,6 +65,7 @@ const Portfolio = () => {
       fullDescription: "A comprehensive web-based time and expense tracking application designed specifically for freelancers and small businesses. Features automated time tracking, project management, expense categorization, and detailed reporting with seamless invoice generation.",
       image: trackioImage,
       icon: Clock,
+      size: 1, // Small card
       technologies: ["React", "Node.js", "PostgreSQL", "TypeScript", "Stripe", "WebRTC"],
       highlights: ["Real-time tracking", "Invoice automation", "Multi-project support", "Team collaboration"],
       results: {
@@ -144,24 +147,64 @@ const Portfolio = () => {
           </div>
         </div>
 
-        {/* Creative Portfolio Grid */}
+        {/* Dynamic Irregular Portfolio Grid */}
         <div className="container mx-auto px-6 pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 auto-rows-fr">
+          {/* CSS Grid with custom layout */}
+          <div className="grid grid-cols-4 lg:grid-cols-8 gap-4 auto-rows-[100px]">
             {projects.map((project, index) => {
               const IconComponent = project.icon;
               
-              // Creative grid positioning
-              const gridClasses = [
-                "lg:col-span-7 lg:row-span-2", // Large card
-                "lg:col-span-5 lg:row-span-1", // Medium card  
-                "lg:col-span-5 lg:row-span-1 lg:col-start-8" // Medium card offset
-              ];
+              // Dynamic sizing system - single value controls everything
+              const getSizeClasses = (size: number) => {
+                const sizeMap = {
+                  1: { // Small cards
+                    colSpan: "col-span-2 lg:col-span-2",
+                    rowSpan: "row-span-2",
+                    textSize: "text-lg lg:text-xl",
+                    iconSize: "w-8 h-8",
+                    padding: "p-4"
+                  },
+                  2: { // Medium cards  
+                    colSpan: "col-span-3 lg:col-span-3",
+                    rowSpan: "row-span-3",
+                    textSize: "text-xl lg:text-2xl",
+                    iconSize: "w-10 h-10", 
+                    padding: "p-6"
+                  },
+                  3: { // Large cards
+                    colSpan: "col-span-4 lg:col-span-4",
+                    rowSpan: "row-span-4",
+                    textSize: "text-2xl lg:text-3xl",
+                    iconSize: "w-12 h-12",
+                    padding: "p-8"
+                  }
+                };
+                return sizeMap[size as keyof typeof sizeMap] || sizeMap[2];
+              };
+
+              const sizeConfig = getSizeClasses(project.size);
+              
+              // Irregular positioning for each project
+              const getGridPosition = (id: number) => {
+                const positions = {
+                  1: "lg:col-start-1 lg:row-start-1", // Large card top-left
+                  2: "lg:col-start-5 lg:row-start-1", // Medium card top-right  
+                  3: "lg:col-start-7 lg:row-start-3" // Small card offset
+                };
+                return positions[id as keyof typeof positions] || "";
+              };
 
               return (
                 <Card
                   key={project.id}
                   variant="glass"
-                  className={`${gridClasses[index]} group cursor-pointer overflow-hidden relative hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-[1.02] bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-primary/10`}
+                  className={`
+                    ${sizeConfig.colSpan} ${sizeConfig.rowSpan} ${getGridPosition(project.id)}
+                    group cursor-pointer overflow-hidden relative 
+                    hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-[1.02] 
+                    bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-primary/10
+                    hover:z-10
+                  `}
                   onClick={() => setSelectedProject(project.id)}
                 >
                   {/* Background Image with Parallax Effect */}
@@ -176,56 +219,75 @@ const Portfolio = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="relative p-8 h-full flex flex-col justify-between">
+                  <div className={`relative ${sizeConfig.padding} h-full flex flex-col justify-between`}>
                     {/* Top Section */}
                     <div>
-                      <div className="flex items-start justify-between mb-4">
-                        <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/30">
+                      <div className="flex items-start justify-between mb-2">
+                        <Badge 
+                          variant="secondary" 
+                          className={`bg-primary/20 text-primary border-primary/30 ${
+                            project.size === 1 ? 'text-xs' : project.size === 2 ? 'text-sm' : 'text-sm'
+                          }`}
+                        >
                           {project.category}
                         </Badge>
-                        <div className="w-12 h-12 bg-primary/90 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-                          <IconComponent className="w-6 h-6 text-primary-foreground" />
+                        <div className={`${sizeConfig.iconSize} bg-primary/90 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300`}>
+                          <IconComponent className={`${
+                            project.size === 1 ? 'w-4 h-4' : project.size === 2 ? 'w-5 h-5' : 'w-6 h-6'
+                          } text-primary-foreground`} />
                         </div>
                       </div>
 
-                      <h3 className="text-2xl lg:text-3xl font-bold font-space-grotesk mb-3 text-foreground group-hover:text-primary transition-colors">
+                      <h3 className={`${sizeConfig.textSize} font-bold font-space-grotesk mb-2 text-foreground group-hover:text-primary transition-colors line-clamp-2`}>
                         {project.title}
                       </h3>
                       
-                      <p className="text-muted-foreground font-inter leading-relaxed mb-6 group-hover:text-foreground/80 transition-colors">
-                        {project.shortDescription}
-                      </p>
+                      {/* Description - only show on medium and large cards */}
+                      {project.size > 1 && (
+                        <p className={`text-muted-foreground font-inter leading-relaxed mb-3 group-hover:text-foreground/80 transition-colors ${
+                          project.size === 2 ? 'text-sm line-clamp-2' : 'text-base line-clamp-3'
+                        }`}>
+                          {project.shortDescription}
+                        </p>
+                      )}
                     </div>
 
                     {/* Bottom Section */}
                     <div>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                      {/* Technologies - show more on larger cards */}
+                      <div className="flex flex-wrap gap-1 mb-3">
+                        {project.technologies.slice(0, project.size === 1 ? 2 : project.size === 2 ? 3 : 4).map((tech, techIndex) => (
                           <span 
                             key={techIndex} 
-                            className="text-xs px-3 py-1 bg-muted/50 text-muted-foreground rounded-full font-inter border border-border/50"
+                            className={`px-2 py-1 bg-muted/50 text-muted-foreground rounded-full font-inter border border-border/50 ${
+                              project.size === 1 ? 'text-xs' : 'text-xs'
+                            }`}
                           >
                             {tech}
                           </span>
                         ))}
-                        {project.technologies.length > 3 && (
-                          <span className="text-xs px-3 py-1 bg-primary/20 text-primary rounded-full font-inter border border-primary/30">
-                            +{project.technologies.length - 3} more
+                        {project.technologies.length > (project.size === 1 ? 2 : project.size === 2 ? 3 : 4) && (
+                          <span className={`px-2 py-1 bg-primary/20 text-primary rounded-full font-inter border border-primary/30 ${
+                            project.size === 1 ? 'text-xs' : 'text-xs'
+                          }`}>
+                            +{project.technologies.length - (project.size === 1 ? 2 : project.size === 2 ? 3 : 4)}
                           </span>
                         )}
                       </div>
 
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-muted-foreground font-inter">
+                        <span className={`text-muted-foreground font-inter ${
+                          project.size === 1 ? 'text-xs' : 'text-sm'
+                        }`}>
                           {project.year} • {project.duration}
                         </span>
                         <Button 
                           variant="ghost" 
-                          size="sm" 
+                          size={project.size === 1 ? "sm" : "sm"}
                           className="text-primary hover:text-primary-foreground hover:bg-primary group-hover:translate-x-1 transition-all duration-300"
                         >
-                          <Eye className="w-4 h-4 mr-2" />
-                          View Details
+                          <Eye className={`${project.size === 1 ? 'w-3 h-3' : 'w-4 h-4'} ${project.size > 1 ? 'mr-1' : ''}`} />
+                          {project.size > 1 && <span className="text-xs">Details</span>}
                         </Button>
                       </div>
                     </div>
