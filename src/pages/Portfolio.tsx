@@ -163,22 +163,22 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* Desktop: Dynamic irregular grid */}
-        <div className="hidden md:grid md:grid-cols-6 lg:grid-cols-12 gap-6 auto-rows-[160px]">
+        {/* Desktop: Dynamic flexible layout */}
+        <div className="hidden md:flex md:flex-wrap gap-6">
           {projects.map((project) => {
-            // Comprehensive sizing system (1-10)
+            // Comprehensive sizing system (1-10) for flex
             const getSizeConfig = (size: number) => {
               const configs = {
-                1: { col: "col-span-2", row: "row-span-2" },
-                2: { col: "col-span-2", row: "row-span-3" },
-                3: { col: "col-span-3", row: "row-span-2" },
-                4: { col: "col-span-3", row: "row-span-3" },
-                5: { col: "col-span-4", row: "row-span-2" },
-                6: { col: "col-span-4", row: "row-span-3" },
-                7: { col: "col-span-5", row: "row-span-3" },
-                8: { col: "col-span-5", row: "row-span-4" },
-                9: { col: "col-span-6", row: "row-span-4" },
-                10: { col: "col-span-6", row: "row-span-5" }
+                1: { width: "w-48", minHeight: "min-h-[280px]" },
+                2: { width: "w-56", minHeight: "min-h-[320px]" },
+                3: { width: "w-64", minHeight: "min-h-[300px]" },
+                4: { width: "w-72", minHeight: "min-h-[340px]" },
+                5: { width: "w-80", minHeight: "min-h-[320px]" },
+                6: { width: "w-96", minHeight: "min-h-[360px]" },
+                7: { width: "w-[420px]", minHeight: "min-h-[380px]" },
+                8: { width: "w-[480px]", minHeight: "min-h-[400px]" },
+                9: { width: "w-[540px]", minHeight: "min-h-[420px]" },
+                10: { width: "w-[600px]", minHeight: "min-h-[440px]" }
               };
               return configs[Math.min(10, Math.max(1, size)) as keyof typeof configs] || configs[4];
             };
@@ -188,7 +188,7 @@ const Portfolio = () => {
             return (
               <div
                 key={project.id}
-                className={`${config.col} ${config.row} group cursor-pointer flex flex-col`}
+                className={`${config.width} ${config.minHeight} group cursor-pointer flex flex-col flex-shrink-0`}
                 onClick={() => setSelectedProject(project.id)}
               >
                 {/* Image - takes most of the space */}
