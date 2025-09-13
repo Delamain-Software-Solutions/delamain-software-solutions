@@ -100,140 +100,110 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/10 relative">
-      {/* Animated Background */}
-      <div 
-        ref={containerRef}
-        className="absolute inset-0 overflow-hidden pointer-events-none"
-      >
-        <div 
-          className="absolute w-96 h-96 bg-gradient-to-r from-primary/5 to-accent/5 rounded-full blur-3xl transition-all duration-1000 ease-out"
-          style={{
-            left: `${mousePosition.x}%`,
-            top: `${mousePosition.y}%`,
-            transform: 'translate(-50%, -50%)'
-          }}
-        />
-        <div 
-          className="absolute w-64 h-64 bg-gradient-to-l from-accent/5 to-primary/5 rounded-full blur-2xl transition-all duration-1500 ease-out"
-          style={{
-            right: `${100 - mousePosition.x}%`,
-            bottom: `${100 - mousePosition.y}%`,
-            transform: 'translate(50%, 50%)'
-          }}
-        />
-      </div>
-
-      <div className="relative z-10">
-        {/* Header */}
-        <div className="container mx-auto px-6 py-12">
-          <div className="flex items-center gap-4 mb-8">
-            <Link to="/">
-              <Button variant="outline" size="sm" className="gap-2 hover:bg-accent/20 border-primary/20">
-                <ArrowLeft className="w-4 h-4" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
-
-          <div className="text-center mb-16">
-            <Badge variant="outline" className="text-sm mb-4 border-primary/30">Our Work</Badge>
-            <h1 className="text-5xl lg:text-7xl font-bold font-space-grotesk mb-6 bg-gradient-to-r from-primary via-foreground to-accent bg-clip-text text-transparent">
-              Portfolio
-            </h1>
-            <p className="text-xl text-muted-foreground font-inter max-w-3xl mx-auto leading-relaxed">
-              Explore our innovative solutions that push the boundaries of technology and design
-            </p>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/10">
+      {/* Header */}
+      <div className="container mx-auto px-6 py-12">
+        <div className="flex items-center gap-4 mb-8">
+          <Link to="/">
+            <Button variant="outline" size="sm" className="gap-2 hover:bg-accent/20 border-primary/20">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Button>
+          </Link>
         </div>
 
-        {/* Dynamic Irregular Portfolio Grid */}
-        <div className="container mx-auto px-6 pb-24">
-          {/* Responsive Grid - Uniform on mobile, irregular on desktop */}
-          <div className="space-y-6 md:hidden">
-            {/* Mobile: Uniform vertical cards */}
-            {projects.map((project) => {
-              return (
-                <Card
-                  key={project.id}
-                  className="group cursor-pointer overflow-hidden rounded-2xl hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 hover:scale-[1.02] border-0"
-                  onClick={() => setSelectedProject(project.id)}
-                >
-                  <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                    />
-                    
-                    {/* Opaque bottom overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-background/95 backdrop-blur-lg border-t border-border/20 p-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <Badge variant="secondary" className="bg-primary/15 text-primary border-primary/20 text-xs font-medium">
-                          {project.category}
-                        </Badge>
-                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <Calendar className="w-3 h-3" />
-                          {project.year}
-                        </div>
-                      </div>
-                      <h3 className="text-lg font-bold font-space-grotesk text-foreground group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                    </div>
+        <div className="text-center mb-16">
+          <Badge variant="outline" className="text-sm mb-4 border-primary/30">Our Work</Badge>
+          <h1 className="text-5xl lg:text-7xl font-bold font-space-grotesk mb-6 bg-gradient-to-r from-primary via-foreground to-accent bg-clip-text text-transparent">
+            Portfolio
+          </h1>
+          <p className="text-xl text-muted-foreground font-inter max-w-3xl mx-auto leading-relaxed">
+            Explore our innovative solutions that push the boundaries of technology and design
+          </p>
+        </div>
+      </div>
 
-                    {/* Subtle hover overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-
-          {/* Desktop: Dynamic irregular grid */}
-          <div className="hidden md:grid md:grid-cols-6 lg:grid-cols-12 gap-6 auto-rows-[160px]">
-            {projects.map((project) => {
-              // Comprehensive sizing system (1-10)
-              const getSizeConfig = (size: number) => {
-                const configs = {
-                  1: { col: "col-span-2", row: "row-span-2" },
-                  2: { col: "col-span-2", row: "row-span-3" },
-                  3: { col: "col-span-3", row: "row-span-2" },
-                  4: { col: "col-span-3", row: "row-span-3" },
-                  5: { col: "col-span-4", row: "row-span-2" },
-                  6: { col: "col-span-4", row: "row-span-3" },
-                  7: { col: "col-span-5", row: "row-span-3" },
-                  8: { col: "col-span-5", row: "row-span-4" },
-                  9: { col: "col-span-6", row: "row-span-4" },
-                  10: { col: "col-span-6", row: "row-span-5" }
-                };
-                return configs[Math.min(10, Math.max(1, size)) as keyof typeof configs] || configs[4];
-              };
-
-              const config = getSizeConfig(project.size);
+      {/* Portfolio Grid */}
+      <div className="container mx-auto px-6 pb-24">
+        {/* Mobile: Uniform vertical cards */}
+        <div className="space-y-6 md:hidden">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="group cursor-pointer"
+              onClick={() => setSelectedProject(project.id)}
+            >
+              {/* Image */}
+              <div className="overflow-hidden rounded-2xl mb-4">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
               
-              return (
-                <Card
-                  key={project.id}
-                  className={`
-                    ${config.col} ${config.row}
-                    group cursor-pointer overflow-hidden relative rounded-3xl
-                    hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 hover:scale-[1.02] hover:z-10 border-0
-                  `}
-                  onClick={() => setSelectedProject(project.id)}
-                >
-                  {/* Background Image */}
-                  <div className="absolute inset-0 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                    />
+              {/* Card Content */}
+              <Card className="bg-background border-0 shadow-none">
+                <div className="p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <Badge variant="secondary" className="bg-primary/15 text-primary border-primary/20 text-xs font-medium">
+                      {project.category}
+                    </Badge>
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <Calendar className="w-3 h-3" />
+                      {project.year}
+                    </div>
                   </div>
+                  <h3 className="text-lg font-bold font-space-grotesk text-foreground">
+                    {project.title}
+                  </h3>
+                </div>
+              </Card>
+            </div>
+          ))}
+        </div>
 
-                  {/* Opaque bottom overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-background/95 backdrop-blur-lg border-t border-border/20 p-4">
-                    <div className="flex items-center justify-between mb-2">
+        {/* Desktop: Dynamic irregular grid */}
+        <div className="hidden md:grid md:grid-cols-6 lg:grid-cols-12 gap-6 auto-rows-[160px]">
+          {projects.map((project) => {
+            // Comprehensive sizing system (1-10)
+            const getSizeConfig = (size: number) => {
+              const configs = {
+                1: { col: "col-span-2", row: "row-span-2" },
+                2: { col: "col-span-2", row: "row-span-3" },
+                3: { col: "col-span-3", row: "row-span-2" },
+                4: { col: "col-span-3", row: "row-span-3" },
+                5: { col: "col-span-4", row: "row-span-2" },
+                6: { col: "col-span-4", row: "row-span-3" },
+                7: { col: "col-span-5", row: "row-span-3" },
+                8: { col: "col-span-5", row: "row-span-4" },
+                9: { col: "col-span-6", row: "row-span-4" },
+                10: { col: "col-span-6", row: "row-span-5" }
+              };
+              return configs[Math.min(10, Math.max(1, size)) as keyof typeof configs] || configs[4];
+            };
+
+            const config = getSizeConfig(project.size);
+            
+            return (
+              <div
+                key={project.id}
+                className={`${config.col} ${config.row} group cursor-pointer flex flex-col`}
+                onClick={() => setSelectedProject(project.id)}
+              >
+                {/* Image - takes most of the space */}
+                <div className="flex-1 overflow-hidden rounded-2xl mb-4">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                
+                {/* Card Content - fixed height at bottom */}
+                <Card className="bg-background border-0 shadow-none">
+                  <div className="p-3">
+                    <div className="flex items-center justify-between mb-1">
                       <Badge variant="secondary" className="bg-primary/15 text-primary border-primary/20 text-xs font-medium">
                         {project.category}
                       </Badge>
@@ -242,19 +212,16 @@ const Portfolio = () => {
                         {project.year}
                       </div>
                     </div>
-                    <h3 className={`font-bold font-space-grotesk text-foreground group-hover:text-primary transition-colors ${
-                      project.size <= 3 ? 'text-base' : project.size <= 6 ? 'text-lg' : 'text-xl'
+                    <h3 className={`font-bold font-space-grotesk text-foreground ${
+                      project.size <= 3 ? 'text-sm' : project.size <= 6 ? 'text-base' : 'text-lg'
                     }`}>
                       {project.title}
                     </h3>
                   </div>
-
-                  {/* Subtle hover overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </Card>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
