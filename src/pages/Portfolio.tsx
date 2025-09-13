@@ -153,48 +153,37 @@ const Portfolio = () => {
           <div className="space-y-6 md:hidden">
             {/* Mobile: Uniform vertical cards */}
             {projects.map((project) => {
-              const IconComponent = project.icon;
-              
               return (
                 <Card
                   key={project.id}
-                  variant="glass"
-                  className="group cursor-pointer overflow-hidden relative hover:shadow-xl hover:shadow-primary/20 transition-all duration-500 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-primary/10"
+                  className="group cursor-pointer overflow-hidden rounded-2xl hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 hover:scale-[1.02] border-0"
                   onClick={() => setSelectedProject(project.id)}
                 >
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-64 overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent" />
-                    <div className="absolute top-4 right-4 w-10 h-10 bg-primary/90 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                      <IconComponent className="w-5 h-5 text-primary-foreground" />
-                    </div>
-                  </div>
-                  
-                  <div className="p-4">
-                    <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/30 text-xs mb-2">
-                      {project.category}
-                    </Badge>
-                    <h3 className="text-lg font-bold font-space-grotesk mb-2 text-foreground">{project.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{project.shortDescription}</p>
                     
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                        <span key={techIndex} className="text-xs px-2 py-1 bg-muted/50 text-muted-foreground rounded-full">
-                          {tech}
-                        </span>
-                      ))}
+                    {/* Opaque bottom overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-background/95 backdrop-blur-lg border-t border-border/20 p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <Badge variant="secondary" className="bg-primary/15 text-primary border-primary/20 text-xs font-medium">
+                          {project.category}
+                        </Badge>
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                          <Calendar className="w-3 h-3" />
+                          {project.year}
+                        </div>
+                      </div>
+                      <h3 className="text-lg font-bold font-space-grotesk text-foreground group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
                     </div>
-                    
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-muted-foreground">{project.year}</span>
-                      <Button variant="ghost" size="sm" className="text-primary">
-                        <Eye className="w-4 h-4" />
-                      </Button>
-                    </div>
+
+                    {/* Subtle hover overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 </Card>
               );
@@ -202,23 +191,21 @@ const Portfolio = () => {
           </div>
 
           {/* Desktop: Dynamic irregular grid */}
-          <div className="hidden md:grid md:grid-cols-6 lg:grid-cols-12 gap-4 auto-rows-[120px]">
+          <div className="hidden md:grid md:grid-cols-6 lg:grid-cols-12 gap-6 auto-rows-[160px]">
             {projects.map((project) => {
-              const IconComponent = project.icon;
-              
               // Comprehensive sizing system (1-10)
               const getSizeConfig = (size: number) => {
                 const configs = {
-                  1: { col: "col-span-2", row: "row-span-1", text: "text-sm", icon: "w-6 h-6", iconContainer: "w-8 h-8", padding: "p-3", badge: "text-xs", techs: 1 },
-                  2: { col: "col-span-2", row: "row-span-2", text: "text-base", icon: "w-6 h-6", iconContainer: "w-8 h-8", padding: "p-4", badge: "text-xs", techs: 2 },
-                  3: { col: "col-span-3", row: "row-span-2", text: "text-lg", icon: "w-7 h-7", iconContainer: "w-10 h-10", padding: "p-4", badge: "text-xs", techs: 2 },
-                  4: { col: "col-span-3", row: "row-span-3", text: "text-lg", icon: "w-7 h-7", iconContainer: "w-10 h-10", padding: "p-5", badge: "text-sm", techs: 3 },
-                  5: { col: "col-span-4", row: "row-span-2", text: "text-xl", icon: "w-8 h-8", iconContainer: "w-12 h-12", padding: "p-5", badge: "text-sm", techs: 3 },
-                  6: { col: "col-span-4", row: "row-span-3", text: "text-xl", icon: "w-8 h-8", iconContainer: "w-12 h-12", padding: "p-6", badge: "text-sm", techs: 4 },
-                  7: { col: "col-span-5", row: "row-span-3", text: "text-2xl", icon: "w-9 h-9", iconContainer: "w-14 h-14", padding: "p-6", badge: "text-sm", techs: 4 },
-                  8: { col: "col-span-5", row: "row-span-4", text: "text-2xl", icon: "w-10 h-10", iconContainer: "w-16 h-16", padding: "p-7", badge: "text-base", techs: 5 },
-                  9: { col: "col-span-6", row: "row-span-4", text: "text-3xl", icon: "w-11 h-11", iconContainer: "w-18 h-18", padding: "p-8", badge: "text-base", techs: 6 },
-                  10: { col: "col-span-6", row: "row-span-5", text: "text-3xl", icon: "w-12 h-12", iconContainer: "w-20 h-20", padding: "p-8", badge: "text-base", techs: 6 }
+                  1: { col: "col-span-2", row: "row-span-2" },
+                  2: { col: "col-span-2", row: "row-span-3" },
+                  3: { col: "col-span-3", row: "row-span-2" },
+                  4: { col: "col-span-3", row: "row-span-3" },
+                  5: { col: "col-span-4", row: "row-span-2" },
+                  6: { col: "col-span-4", row: "row-span-3" },
+                  7: { col: "col-span-5", row: "row-span-3" },
+                  8: { col: "col-span-5", row: "row-span-4" },
+                  9: { col: "col-span-6", row: "row-span-4" },
+                  10: { col: "col-span-6", row: "row-span-5" }
                 };
                 return configs[Math.min(10, Math.max(1, size)) as keyof typeof configs] || configs[4];
               };
@@ -228,12 +215,10 @@ const Portfolio = () => {
               return (
                 <Card
                   key={project.id}
-                  variant="glass"
                   className={`
                     ${config.col} ${config.row}
-                    group cursor-pointer overflow-hidden relative 
-                    hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-[1.02] hover:z-10
-                    bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-primary/10
+                    group cursor-pointer overflow-hidden relative rounded-3xl
+                    hover:shadow-2xl hover:shadow-primary/25 transition-all duration-700 hover:scale-[1.02] hover:z-10 border-0
                   `}
                   onClick={() => setSelectedProject(project.id)}
                 >
@@ -242,76 +227,30 @@ const Portfolio = () => {
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 mix-blend-overlay" />
                   </div>
 
-                  {/* Content */}
-                  <div className={`relative ${config.padding} h-full flex flex-col justify-between`}>
-                    {/* Top Section */}
-                    <div>
-                      <div className="flex items-start justify-between mb-2">
-                        <Badge variant="secondary" className={`bg-primary/20 text-primary border-primary/30 ${config.badge}`}>
-                          {project.category}
-                        </Badge>
-                        <div className={`${config.iconContainer} bg-primary/90 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300`}>
-                          <IconComponent className={`${config.icon} text-primary-foreground`} />
-                        </div>
-                      </div>
-
-                      <h3 className={`${config.text} font-bold font-space-grotesk mb-2 text-foreground group-hover:text-primary transition-colors line-clamp-2`}>
-                        {project.title}
-                      </h3>
-                      
-                      {/* Description - show on larger cards */}
-                      {project.size >= 3 && (
-                        <p className={`text-muted-foreground font-inter leading-relaxed mb-3 group-hover:text-foreground/80 transition-colors ${
-                          project.size <= 4 ? 'text-sm line-clamp-2' : project.size <= 7 ? 'text-base line-clamp-3' : 'text-base line-clamp-4'
-                        }`}>
-                          {project.shortDescription}
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Bottom Section */}
-                    <div className="mt-auto">
-                      {/* Technologies */}
-                      <div className="flex flex-wrap gap-1 mb-2">
-                        {project.technologies.slice(0, config.techs).map((tech, techIndex) => (
-                          <span 
-                            key={techIndex} 
-                            className="text-xs px-2 py-1 bg-muted/50 text-muted-foreground rounded-full font-inter border border-border/50"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.technologies.length > config.techs && (
-                          <span className="text-xs px-2 py-1 bg-primary/20 text-primary rounded-full font-inter border border-primary/30">
-                            +{project.technologies.length - config.techs}
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-muted-foreground font-inter">
-                          {project.year} • {project.duration}
-                        </span>
-                        <Button 
-                          variant="ghost" 
-                          size="sm"
-                          className="text-primary hover:text-primary-foreground hover:bg-primary group-hover:translate-x-1 transition-all duration-300"
-                        >
-                          <Eye className={`${project.size >= 5 ? 'w-4 h-4 mr-1' : 'w-3 h-3'}`} />
-                          {project.size >= 5 && <span className="text-xs">Details</span>}
-                        </Button>
+                  {/* Opaque bottom overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-background/95 backdrop-blur-lg border-t border-border/20 p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <Badge variant="secondary" className="bg-primary/15 text-primary border-primary/20 text-xs font-medium">
+                        {project.category}
+                      </Badge>
+                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                        <Calendar className="w-3 h-3" />
+                        {project.year}
                       </div>
                     </div>
+                    <h3 className={`font-bold font-space-grotesk text-foreground group-hover:text-primary transition-colors ${
+                      project.size <= 3 ? 'text-base' : project.size <= 6 ? 'text-lg' : 'text-xl'
+                    }`}>
+                      {project.title}
+                    </h3>
                   </div>
 
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  {/* Subtle hover overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </Card>
               );
             })}
