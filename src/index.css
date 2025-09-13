@@ -163,6 +163,15 @@
   .shadow-accent {
     box-shadow: var(--shadow-accent);
   }
+  .align-self-start {
+    align-self: flex-start;
+  }
+  .align-self-center {
+    align-self: center;
+  }
+  .align-self-end {
+    align-self: flex-end;
+  }
 
   .glass-effect {
     background: rgba(255, 255, 255, 0.1);

@@ -23,7 +23,8 @@ const Portfolio = () => {
       fullDescription: "An intelligent financial automation tool that revolutionizes accounting workflows by automatically generating balance sheets and income statements from Excel transaction data. Uses advanced algorithms to categorize transactions and ensure compliance with accounting standards.",
       image: accountingImage,
       icon: Calculator,
-      size: 7, // Large prominent card
+      size: 7,
+      align: "start", // Large prominent card
       technologies: ["Python", "Pandas", "React", "Machine Learning", "Excel API", "AWS"],
       highlights: ["Excel integration", "Auto categorization", "Compliance ready", "Real-time processing"],
       results: {
@@ -44,7 +45,8 @@ const Portfolio = () => {
       fullDescription: "A sophisticated big data application leveraging multiple machine learning models to match users with anime characters based on personality analysis. Features advanced quiz algorithms, character database with 10,000+ entries, and personality profiling using psychometric principles.",
       image: animeMatcherImage,
       icon: Sparkles,
-      size: 4, // Medium card
+      size: 7,
+      align: "end", // Medium card
       technologies: ["Python", "TensorFlow", "React", "MongoDB", "Neo4j", "Docker"],
       highlights: ["ML personality matching", "10K+ character database", "Advanced analytics", "Real-time recommendations"],
       results: {
@@ -65,7 +67,74 @@ const Portfolio = () => {
       fullDescription: "A comprehensive web-based time and expense tracking application designed specifically for freelancers and small businesses. Features automated time tracking, project management, expense categorization, and detailed reporting with seamless invoice generation.",
       image: trackioImage,
       icon: Clock,
-      size: 2, // Small card
+      size: 6,
+      align: "center", // Small card
+      technologies: ["React", "Node.js", "PostgreSQL", "TypeScript", "Stripe", "WebRTC"],
+      highlights: ["Real-time tracking", "Invoice automation", "Multi-project support", "Team collaboration"],
+      results: {
+        productivity: "60% faster invoicing",
+        accuracy: "95% time tracking accuracy",
+        revenue: "200% increase in billing efficiency"
+      },
+      duration: "5 months",
+      team: "5 developers", 
+      year: "2023"
+    },
+    {
+      id: 4,
+      title: "Accounting Assistant",
+      category: "FinTech & Automation", 
+      industry: "Financial Services",
+      shortDescription: "Intelligent financial automation tool that revolutionizes workflows",
+      fullDescription: "An intelligent financial automation tool that revolutionizes accounting workflows by automatically generating balance sheets and income statements from Excel transaction data. Uses advanced algorithms to categorize transactions and ensure compliance with accounting standards.",
+      image: accountingImage,
+      icon: Calculator,
+      size: 5,
+      align: "start", // Large prominent card
+      technologies: ["Python", "Pandas", "React", "Machine Learning", "Excel API", "AWS"],
+      highlights: ["Excel integration", "Auto categorization", "Compliance ready", "Real-time processing"],
+      results: {
+        efficiency: "85% faster processing",
+        accuracy: "99.7% categorization accuracy", 
+        savings: "$50k+ annual savings"
+      },
+      duration: "3 months",
+      team: "4 developers",
+      year: "2024"
+    },
+    {
+      id: 5,
+      title: "Anime Persona Matcher",
+      category: "Big Data & AI/ML",
+      industry: "Entertainment Technology",
+      shortDescription: "ML-powered personality matching system",
+      fullDescription: "A sophisticated big data application leveraging multiple machine learning models to match users with anime characters based on personality analysis. Features advanced quiz algorithms, character database with 10,000+ entries, and personality profiling using psychometric principles.",
+      image: animeMatcherImage,
+      icon: Sparkles,
+      size: 10,
+      align: "center", // Medium card
+      technologies: ["Python", "TensorFlow", "React", "MongoDB", "Neo4j", "Docker"],
+      highlights: ["ML personality matching", "10K+ character database", "Advanced analytics", "Real-time recommendations"],
+      results: {
+        users: "50k+ active users",
+        accuracy: "92% match satisfaction",
+        engagement: "40% increase in user retention"
+      },
+      duration: "4 months", 
+      team: "6 developers",
+      year: "2024"
+    },
+    {
+      id: 6,
+      title: "Trackio",
+      category: "SaaS & Productivity",
+      industry: "Freelancing & Time Management",
+      shortDescription: "Comprehensive time tracking solution",
+      fullDescription: "A comprehensive web-based time and expense tracking application designed specifically for freelancers and small businesses. Features automated time tracking, project management, expense categorization, and detailed reporting with seamless invoice generation.",
+      image: trackioImage,
+      icon: Clock,
+      size: 6,
+      align: "center", // Small card
       technologies: ["React", "Node.js", "PostgreSQL", "TypeScript", "Stripe", "WebRTC"],
       highlights: ["Real-time tracking", "Invoice automation", "Multi-project support", "Team collaboration"],
       results: {
@@ -164,21 +233,21 @@ const Portfolio = () => {
         </div>
 
         {/* Desktop: Dynamic flexible layout */}
-        <div className="hidden md:flex md:flex-wrap gap-6">
+        <div className="hidden md:flex md:flex-wrap gap-x-6 gap-y-10">
           {projects.map((project) => {
             // Comprehensive sizing system (1-10) for flex
             const getSizeConfig = (size: number) => {
               const configs = {
-                1: { width: "w-48", minHeight: "min-h-[280px]" },
-                2: { width: "w-56", minHeight: "min-h-[320px]" },
-                3: { width: "w-64", minHeight: "min-h-[300px]" },
-                4: { width: "w-72", minHeight: "min-h-[340px]" },
-                5: { width: "w-80", minHeight: "min-h-[320px]" },
-                6: { width: "w-96", minHeight: "min-h-[360px]" },
-                7: { width: "w-[420px]", minHeight: "min-h-[380px]" },
-                8: { width: "w-[480px]", minHeight: "min-h-[400px]" },
-                9: { width: "w-[540px]", minHeight: "min-h-[420px]" },
-                10: { width: "w-[600px]", minHeight: "min-h-[440px]" }
+                1: { width: "w-48"},
+                2: { width: "w-56"},
+                3: { width: "w-64"},
+                4: { width: "w-72"},
+                5: { width: "w-80"},
+                6: { width: "w-96"},
+                7: { width: "w-[420px]"},
+                8: { width: "w-[480px]"},
+                9: { width: "w-[540px]"},
+                10: { width: "w-[600px]"}
               };
               return configs[Math.min(10, Math.max(1, size)) as keyof typeof configs] || configs[4];
             };
@@ -188,7 +257,7 @@ const Portfolio = () => {
             return (
               <div
                 key={project.id}
-                className={`${config.width} ${config.minHeight} group cursor-pointer flex flex-col flex-shrink-0`}
+                className={`${config.width} ${project.align === 'start' ? 'self-start' : project.align === 'end' ? 'self-end' : 'self-center'} h-fit group cursor-pointer flex flex-col flex-shrink-0`}
                 onClick={() => setSelectedProject(project.id)}
               >
                 {/* Image - takes most of the space */}
@@ -196,7 +265,7 @@ const Portfolio = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 
