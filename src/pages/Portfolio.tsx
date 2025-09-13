@@ -23,7 +23,7 @@ const Portfolio = () => {
       fullDescription: "An intelligent financial automation tool that revolutionizes accounting workflows by automatically generating balance sheets and income statements from Excel transaction data. Uses advanced algorithms to categorize transactions and ensure compliance with accounting standards.",
       image: accountingImage,
       icon: Calculator,
-      size: 3, // Large card
+      size: 7, // Large prominent card
       technologies: ["Python", "Pandas", "React", "Machine Learning", "Excel API", "AWS"],
       highlights: ["Excel integration", "Auto categorization", "Compliance ready", "Real-time processing"],
       results: {
@@ -44,7 +44,7 @@ const Portfolio = () => {
       fullDescription: "A sophisticated big data application leveraging multiple machine learning models to match users with anime characters based on personality analysis. Features advanced quiz algorithms, character database with 10,000+ entries, and personality profiling using psychometric principles.",
       image: animeMatcherImage,
       icon: Sparkles,
-      size: 2, // Medium card
+      size: 4, // Medium card
       technologies: ["Python", "TensorFlow", "React", "MongoDB", "Neo4j", "Docker"],
       highlights: ["ML personality matching", "10K+ character database", "Advanced analytics", "Real-time recommendations"],
       results: {
@@ -65,7 +65,7 @@ const Portfolio = () => {
       fullDescription: "A comprehensive web-based time and expense tracking application designed specifically for freelancers and small businesses. Features automated time tracking, project management, expense categorization, and detailed reporting with seamless invoice generation.",
       image: trackioImage,
       icon: Clock,
-      size: 1, // Small card
+      size: 2, // Small card
       technologies: ["React", "Node.js", "PostgreSQL", "TypeScript", "Stripe", "WebRTC"],
       highlights: ["Real-time tracking", "Invoice automation", "Multi-project support", "Team collaboration"],
       results: {
@@ -149,65 +149,95 @@ const Portfolio = () => {
 
         {/* Dynamic Irregular Portfolio Grid */}
         <div className="container mx-auto px-6 pb-24">
-          {/* CSS Grid with custom layout */}
-          <div className="grid grid-cols-4 lg:grid-cols-8 gap-4 auto-rows-[100px]">
-            {projects.map((project, index) => {
+          {/* Responsive Grid - Uniform on mobile, irregular on desktop */}
+          <div className="space-y-6 md:hidden">
+            {/* Mobile: Uniform vertical cards */}
+            {projects.map((project) => {
               const IconComponent = project.icon;
               
-              // Dynamic sizing system - single value controls everything
-              const getSizeClasses = (size: number) => {
-                const sizeMap = {
-                  1: { // Small cards
-                    colSpan: "col-span-2 lg:col-span-2",
-                    rowSpan: "row-span-2",
-                    textSize: "text-lg lg:text-xl",
-                    iconSize: "w-8 h-8",
-                    padding: "p-4"
-                  },
-                  2: { // Medium cards  
-                    colSpan: "col-span-3 lg:col-span-3",
-                    rowSpan: "row-span-3",
-                    textSize: "text-xl lg:text-2xl",
-                    iconSize: "w-10 h-10", 
-                    padding: "p-6"
-                  },
-                  3: { // Large cards
-                    colSpan: "col-span-4 lg:col-span-4",
-                    rowSpan: "row-span-4",
-                    textSize: "text-2xl lg:text-3xl",
-                    iconSize: "w-12 h-12",
-                    padding: "p-8"
-                  }
-                };
-                return sizeMap[size as keyof typeof sizeMap] || sizeMap[2];
-              };
+              return (
+                <Card
+                  key={project.id}
+                  variant="glass"
+                  className="group cursor-pointer overflow-hidden relative hover:shadow-xl hover:shadow-primary/20 transition-all duration-500 bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-primary/10"
+                  onClick={() => setSelectedProject(project.id)}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent" />
+                    <div className="absolute top-4 right-4 w-10 h-10 bg-primary/90 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                      <IconComponent className="w-5 h-5 text-primary-foreground" />
+                    </div>
+                  </div>
+                  
+                  <div className="p-4">
+                    <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/30 text-xs mb-2">
+                      {project.category}
+                    </Badge>
+                    <h3 className="text-lg font-bold font-space-grotesk mb-2 text-foreground">{project.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{project.shortDescription}</p>
+                    
+                    <div className="flex flex-wrap gap-1 mb-3">
+                      {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                        <span key={techIndex} className="text-xs px-2 py-1 bg-muted/50 text-muted-foreground rounded-full">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs text-muted-foreground">{project.year}</span>
+                      <Button variant="ghost" size="sm" className="text-primary">
+                        <Eye className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
 
-              const sizeConfig = getSizeClasses(project.size);
+          {/* Desktop: Dynamic irregular grid */}
+          <div className="hidden md:grid md:grid-cols-6 lg:grid-cols-12 gap-4 auto-rows-[120px]">
+            {projects.map((project) => {
+              const IconComponent = project.icon;
               
-              // Irregular positioning for each project
-              const getGridPosition = (id: number) => {
-                const positions = {
-                  1: "lg:col-start-1 lg:row-start-1", // Large card top-left
-                  2: "lg:col-start-5 lg:row-start-1", // Medium card top-right  
-                  3: "lg:col-start-7 lg:row-start-3" // Small card offset
+              // Comprehensive sizing system (1-10)
+              const getSizeConfig = (size: number) => {
+                const configs = {
+                  1: { col: "col-span-2", row: "row-span-1", text: "text-sm", icon: "w-6 h-6", iconContainer: "w-8 h-8", padding: "p-3", badge: "text-xs", techs: 1 },
+                  2: { col: "col-span-2", row: "row-span-2", text: "text-base", icon: "w-6 h-6", iconContainer: "w-8 h-8", padding: "p-4", badge: "text-xs", techs: 2 },
+                  3: { col: "col-span-3", row: "row-span-2", text: "text-lg", icon: "w-7 h-7", iconContainer: "w-10 h-10", padding: "p-4", badge: "text-xs", techs: 2 },
+                  4: { col: "col-span-3", row: "row-span-3", text: "text-lg", icon: "w-7 h-7", iconContainer: "w-10 h-10", padding: "p-5", badge: "text-sm", techs: 3 },
+                  5: { col: "col-span-4", row: "row-span-2", text: "text-xl", icon: "w-8 h-8", iconContainer: "w-12 h-12", padding: "p-5", badge: "text-sm", techs: 3 },
+                  6: { col: "col-span-4", row: "row-span-3", text: "text-xl", icon: "w-8 h-8", iconContainer: "w-12 h-12", padding: "p-6", badge: "text-sm", techs: 4 },
+                  7: { col: "col-span-5", row: "row-span-3", text: "text-2xl", icon: "w-9 h-9", iconContainer: "w-14 h-14", padding: "p-6", badge: "text-sm", techs: 4 },
+                  8: { col: "col-span-5", row: "row-span-4", text: "text-2xl", icon: "w-10 h-10", iconContainer: "w-16 h-16", padding: "p-7", badge: "text-base", techs: 5 },
+                  9: { col: "col-span-6", row: "row-span-4", text: "text-3xl", icon: "w-11 h-11", iconContainer: "w-18 h-18", padding: "p-8", badge: "text-base", techs: 6 },
+                  10: { col: "col-span-6", row: "row-span-5", text: "text-3xl", icon: "w-12 h-12", iconContainer: "w-20 h-20", padding: "p-8", badge: "text-base", techs: 6 }
                 };
-                return positions[id as keyof typeof positions] || "";
+                return configs[Math.min(10, Math.max(1, size)) as keyof typeof configs] || configs[4];
               };
 
+              const config = getSizeConfig(project.size);
+              
               return (
                 <Card
                   key={project.id}
                   variant="glass"
                   className={`
-                    ${sizeConfig.colSpan} ${sizeConfig.rowSpan} ${getGridPosition(project.id)}
+                    ${config.col} ${config.row}
                     group cursor-pointer overflow-hidden relative 
-                    hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-[1.02] 
+                    hover:shadow-2xl hover:shadow-primary/20 transition-all duration-700 hover:scale-[1.02] hover:z-10
                     bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl border-primary/10
-                    hover:z-10
                   `}
                   onClick={() => setSelectedProject(project.id)}
                 >
-                  {/* Background Image with Parallax Effect */}
+                  {/* Background Image */}
                   <div className="absolute inset-0 overflow-hidden">
                     <img
                       src={project.image}
@@ -219,33 +249,26 @@ const Portfolio = () => {
                   </div>
 
                   {/* Content */}
-                  <div className={`relative ${sizeConfig.padding} h-full flex flex-col justify-between`}>
+                  <div className={`relative ${config.padding} h-full flex flex-col justify-between`}>
                     {/* Top Section */}
                     <div>
                       <div className="flex items-start justify-between mb-2">
-                        <Badge 
-                          variant="secondary" 
-                          className={`bg-primary/20 text-primary border-primary/30 ${
-                            project.size === 1 ? 'text-xs' : project.size === 2 ? 'text-sm' : 'text-sm'
-                          }`}
-                        >
+                        <Badge variant="secondary" className={`bg-primary/20 text-primary border-primary/30 ${config.badge}`}>
                           {project.category}
                         </Badge>
-                        <div className={`${sizeConfig.iconSize} bg-primary/90 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300`}>
-                          <IconComponent className={`${
-                            project.size === 1 ? 'w-4 h-4' : project.size === 2 ? 'w-5 h-5' : 'w-6 h-6'
-                          } text-primary-foreground`} />
+                        <div className={`${config.iconContainer} bg-primary/90 backdrop-blur-sm rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300`}>
+                          <IconComponent className={`${config.icon} text-primary-foreground`} />
                         </div>
                       </div>
 
-                      <h3 className={`${sizeConfig.textSize} font-bold font-space-grotesk mb-2 text-foreground group-hover:text-primary transition-colors line-clamp-2`}>
+                      <h3 className={`${config.text} font-bold font-space-grotesk mb-2 text-foreground group-hover:text-primary transition-colors line-clamp-2`}>
                         {project.title}
                       </h3>
                       
-                      {/* Description - only show on medium and large cards */}
-                      {project.size > 1 && (
+                      {/* Description - show on larger cards */}
+                      {project.size >= 3 && (
                         <p className={`text-muted-foreground font-inter leading-relaxed mb-3 group-hover:text-foreground/80 transition-colors ${
-                          project.size === 2 ? 'text-sm line-clamp-2' : 'text-base line-clamp-3'
+                          project.size <= 4 ? 'text-sm line-clamp-2' : project.size <= 7 ? 'text-base line-clamp-3' : 'text-base line-clamp-4'
                         }`}>
                           {project.shortDescription}
                         </p>
@@ -253,41 +276,35 @@ const Portfolio = () => {
                     </div>
 
                     {/* Bottom Section */}
-                    <div>
-                      {/* Technologies - show more on larger cards */}
-                      <div className="flex flex-wrap gap-1 mb-3">
-                        {project.technologies.slice(0, project.size === 1 ? 2 : project.size === 2 ? 3 : 4).map((tech, techIndex) => (
+                    <div className="mt-auto">
+                      {/* Technologies */}
+                      <div className="flex flex-wrap gap-1 mb-2">
+                        {project.technologies.slice(0, config.techs).map((tech, techIndex) => (
                           <span 
                             key={techIndex} 
-                            className={`px-2 py-1 bg-muted/50 text-muted-foreground rounded-full font-inter border border-border/50 ${
-                              project.size === 1 ? 'text-xs' : 'text-xs'
-                            }`}
+                            className="text-xs px-2 py-1 bg-muted/50 text-muted-foreground rounded-full font-inter border border-border/50"
                           >
                             {tech}
                           </span>
                         ))}
-                        {project.technologies.length > (project.size === 1 ? 2 : project.size === 2 ? 3 : 4) && (
-                          <span className={`px-2 py-1 bg-primary/20 text-primary rounded-full font-inter border border-primary/30 ${
-                            project.size === 1 ? 'text-xs' : 'text-xs'
-                          }`}>
-                            +{project.technologies.length - (project.size === 1 ? 2 : project.size === 2 ? 3 : 4)}
+                        {project.technologies.length > config.techs && (
+                          <span className="text-xs px-2 py-1 bg-primary/20 text-primary rounded-full font-inter border border-primary/30">
+                            +{project.technologies.length - config.techs}
                           </span>
                         )}
                       </div>
 
                       <div className="flex items-center justify-between">
-                        <span className={`text-muted-foreground font-inter ${
-                          project.size === 1 ? 'text-xs' : 'text-sm'
-                        }`}>
+                        <span className="text-xs text-muted-foreground font-inter">
                           {project.year} • {project.duration}
                         </span>
                         <Button 
                           variant="ghost" 
-                          size={project.size === 1 ? "sm" : "sm"}
+                          size="sm"
                           className="text-primary hover:text-primary-foreground hover:bg-primary group-hover:translate-x-1 transition-all duration-300"
                         >
-                          <Eye className={`${project.size === 1 ? 'w-3 h-3' : 'w-4 h-4'} ${project.size > 1 ? 'mr-1' : ''}`} />
-                          {project.size > 1 && <span className="text-xs">Details</span>}
+                          <Eye className={`${project.size >= 5 ? 'w-4 h-4 mr-1' : 'w-3 h-3'}`} />
+                          {project.size >= 5 && <span className="text-xs">Details</span>}
                         </Button>
                       </div>
                     </div>
