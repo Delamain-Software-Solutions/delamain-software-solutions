@@ -411,9 +411,7 @@ const Projects = () => {
                         <Card key={index} className="p-4 bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20 hover:border-primary/30 transition-colors">
                           <div className="flex items-center gap-4">
                             <div className="flex-shrink-0">
-                              <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
-                                <TrendingUp className="w-5 h-5 text-primary" />
-                              </div>
+                              <div className="w-3 h-3 bg-primary rounded-full"></div>
                             </div>
                             <div className="flex-1">
                               <div className="font-medium text-foreground capitalize">
