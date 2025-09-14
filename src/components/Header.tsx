@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Circle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 // Removed next-themes useTheme import to avoid SSR-only hook in SPA
 
 const Navbar = () => {
@@ -27,7 +28,9 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="flex items-center justify-center ms-5">
-              <img src="/Delamain-Logo.png" alt="Delamain logo" height={200} width={200}/>
+              <Link to="/">
+                <img src="/Delamain-Logo.png" alt="Delamain logo" height={200} width={200}/>
+              </Link>
             </div>
           </div>
 
