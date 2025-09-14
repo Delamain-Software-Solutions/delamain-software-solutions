@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft, ExternalLink, Github, Calendar, Users, TrendingUp, Clock, Calculator, Sparkles, Eye, X, Timer } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Calendar, Users, TrendingUp, Clock, Calculator, Sparkles, Eye, X, Timer, Circle, SendHorizonal } from "lucide-react";
 import { Link } from "react-router-dom";
 import trackioImage from "@/assets/trackio-project.jpg";
 import accountingImage from "@/assets/accounting-assistant-project.jpg";
@@ -419,7 +419,7 @@ const Projects = () => {
                               <div className="font-medium text-foreground capitalize">
                                 {key.replace(/([A-Z])/g, ' $1').trim()}
                               </div>
-                              <div className="text-lg font-semibold text-primary mt-1">
+                              <div className="text-primary mt-1">
                                 {value}
                               </div>
                             </div>
