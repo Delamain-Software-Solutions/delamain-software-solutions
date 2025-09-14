@@ -169,6 +169,20 @@ const Projects = () => {
     }
   }, []);
 
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/10 pt-28">
       {/* Header */}
@@ -391,13 +405,26 @@ const Projects = () => {
 
                   {/* Results */}
                   <div>
-                    <h3 className="text-xl font-semibold mb-4 text-foreground">Development Impact</h3>
-                    <div className="space-y-3">
+                    <h3 className="text-xl font-semibold mb-6 text-foreground">Development Impact</h3>
+                    <div className="grid gap-4">
                       {Object.entries(selectedProjectData.results).map(([key, value], index) => (
-                        <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border/50">
-                          <span className="capitalize font-medium text-primary">{key.replace(/([A-Z])/g, ' $1').trim()}</span>
-                          <span className="text-muted-foreground font-normal">{value}</span>
-                        </div>
+                        <Card key={index} className="p-4 bg-gradient-to-r from-primary/5 to-primary/10 border-primary/20 hover:border-primary/30 transition-colors">
+                          <div className="flex items-center gap-4">
+                            <div className="flex-shrink-0">
+                              <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                                <TrendingUp className="w-5 h-5 text-primary" />
+                              </div>
+                            </div>
+                            <div className="flex-1">
+                              <div className="font-medium text-foreground capitalize">
+                                {key.replace(/([A-Z])/g, ' $1').trim()}
+                              </div>
+                              <div className="text-lg font-semibold text-primary mt-1">
+                                {value}
+                              </div>
+                            </div>
+                          </div>
+                        </Card>
                       ))}
                     </div>
                   </div>
