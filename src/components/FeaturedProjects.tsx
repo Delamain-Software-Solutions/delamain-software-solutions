@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calculator, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import accountingImage from "@/assets/accounting-assistant-project.jpg";
 import animeMatcherImage from "@/assets/anime-matcher-project.jpg";
@@ -16,8 +16,8 @@ const FeaturedProjects = () => {
       category: "FinTech & Automation", 
       description: "Intelligent financial automation tool that revolutionizes accounting workflows by automatically generating balance sheets from Excel data.",
       image: accountingImage,
-      icon: Calculator,
       technologies: ["Python", "Pandas", "React", "ML"],
+      results: "50% faster processing",
     },
     {
       id: 2,
@@ -25,8 +25,8 @@ const FeaturedProjects = () => {
       category: "Big Data & AI/ML",
       description: "Sophisticated big data application leveraging ML models to match users with anime characters based on personality analysis.",
       image: animeMatcherImage,
-      icon: Sparkles,
       technologies: ["Python", "TensorFlow", "React", "MongoDB"],
+      results: "95% accuracy rate",
     }
   ];
 
@@ -45,68 +45,67 @@ const FeaturedProjects = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
           {featuredProjects.map((project, index) => {
-            const IconComponent = project.icon;
             const isHovered = hoveredProject === project.id;
             
             return (
               <div
                 key={project.id}
                 className={`group cursor-pointer transition-all duration-500 ${
-                  isHovered ? 'scale-105' : 'hover:scale-102'
+                  isHovered ? 'scale-[1.02]' : 'hover:scale-[1.01]'
                 }`}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                <div className={`relative overflow-hidden rounded-2xl transition-all duration-500 ${
+                <div className={`relative overflow-hidden rounded-2xl border transition-all duration-500 ${
                   isHovered 
-                    ? 'shadow-2xl shadow-primary/20 bg-gradient-to-br from-primary/5 to-accent/5' 
-                    : 'shadow-lg hover:shadow-xl bg-card'
+                    ? 'shadow-2xl shadow-primary/20 border-primary/20 bg-gradient-to-br from-card to-secondary/10' 
+                    : 'shadow-lg hover:shadow-xl border-border bg-card'
                 }`}>
                   {/* Image */}
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-48 overflow-hidden">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className={`w-full h-full object-cover transition-all duration-700 ${
-                        isHovered ? 'scale-110 blur-sm' : 'scale-105'
+                      className={`w-full h-full object-cover transition-all duration-500 ${
+                        isHovered ? 'scale-110' : 'scale-105'
                       }`}
                     />
-                    <div className={`absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent transition-opacity duration-500 ${
-                      isHovered ? 'opacity-90' : 'opacity-60'
-                    }`} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                     
-                    {/* Icon */}
-                    <div className="absolute top-4 right-4 w-12 h-12 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center">
-                      <IconComponent className="w-6 h-6 text-primary-foreground" />
+                    {/* Results Badge */}
+                    <div className="absolute top-4 right-4">
+                      <Badge variant="secondary" className="bg-background/90 backdrop-blur-sm text-primary border-primary/20">
+                        {project.results}
+                      </Badge>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <Badge variant="secondary" className="mb-3 text-xs">
-                      {project.category}
-                    </Badge>
+                  <div className="p-6 space-y-4">
+                    <div className="flex items-center justify-between">
+                      <Badge variant="outline" className="text-xs border-primary/20 text-primary">
+                        {project.category}
+                      </Badge>
+                    </div>
                     
-                    <h3 className={`font-bold font-space-grotesk mb-3 transition-all duration-300 ${
-                      isHovered ? 'text-2xl text-primary' : 'text-xl text-foreground'
-                    }`}>
-                      {project.title}
-                    </h3>
-                    
-                    <p className={`text-sm font-inter leading-relaxed mb-4 transition-all duration-500 ${
-                      isHovered ? 'opacity-100 text-muted-foreground' : 'opacity-80 text-muted-foreground/80'
-                    }`}>
-                      {project.description}
-                    </p>
+                    <div>
+                      <h3 className="text-2xl font-bold font-space-grotesk mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                        {project.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground font-inter leading-relaxed mb-4">
+                        {project.description}
+                      </p>
+                    </div>
 
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, techIndex) => (
                         <span 
                           key={techIndex} 
-                          className={`text-xs px-2 py-1 rounded-md font-inter transition-all duration-300 ${
+                          className={`text-xs px-3 py-1.5 rounded-full font-inter font-medium transition-all duration-300 ${
                             isHovered 
-                              ? 'bg-primary/20 text-primary border border-primary/30' 
-                              : 'bg-muted/50 text-muted-foreground'
+                              ? 'bg-primary/10 text-primary border border-primary/20' 
+                              : 'bg-secondary text-secondary-foreground'
                           }`}
                         >
                           {tech}
