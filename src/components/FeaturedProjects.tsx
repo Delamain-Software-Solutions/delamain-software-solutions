@@ -70,14 +70,6 @@ const FeaturedProjects = () => {
                         isHovered ? 'scale-110' : 'scale-105'
                       }`}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
-                    
-                    {/* Results Badge */}
-                    <div className="absolute top-4 right-4">
-                      <Badge variant="secondary" className="bg-background/90 backdrop-blur-sm text-primary border-primary/20">
-                        {project.results}
-                      </Badge>
-                    </div>
                   </div>
 
                   {/* Content */}

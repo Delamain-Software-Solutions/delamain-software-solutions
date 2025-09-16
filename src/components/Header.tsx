@@ -52,7 +52,12 @@ const Navbar = () => {
 
           {/* Action Buttons & Theme Toggle */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm" className="text-sm">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="text-sm"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Get Quote
             </Button>
             <Button 

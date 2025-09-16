@@ -71,11 +71,18 @@ const Contact = () => {
 
             {/* Action Buttons */}
             <div className="space-y-4">
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button 
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={() => window.location.href = '/booking'}
+              >
                 <Calendar className="mr-2 h-5 w-5" />
                 Book a Consultation Call
               </Button>
-              <Button variant="outline" className="w-full">
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => window.location.href = 'mailto:contact@delamainsoftware.com'}
+              >
                 <Mail className="mr-2 h-5 w-5" />
                 Send us an Email
               </Button>

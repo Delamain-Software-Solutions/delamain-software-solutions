@@ -101,7 +101,10 @@ const ServicesSection = () => {
                 <p className="text-muted-foreground font-inter leading-relaxed">
                   {service.description}
                 </p>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                <Button 
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   Get Quote
                 </Button>
               </CardContent>
