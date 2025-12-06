@@ -3,7 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
 import { MapPin, Mail, Phone, Calendar, Send } from 'lucide-react';
 
 const Contact = () => {
@@ -16,7 +15,6 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-muted from-background to-muted/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="text-sm mb-4">Get In Touch</Badge>
           <h2 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-6">
             Ready to Start Your <span className="text-primary">Project?</span>
           </h2>

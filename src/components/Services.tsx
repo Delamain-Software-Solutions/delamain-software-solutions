@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Smartphone, Globe, Monitor } from 'lucide-react';
 
 const services = [
@@ -13,12 +12,12 @@ const services = [
   {
     icon: Monitor,
     title: 'Desktop Applications',
-    description: 'Robust desktop solutions built with AI assistance for Windows, macOS, and Linux platforms with enhanced performance.',
+    description: 'Robust desktop solutions built for Windows, macOS, and Linux platforms with enhanced performance.',
   },
   {
     icon: Smartphone,
     title: 'Mobile Development',
-    description: 'Native and cross-platform mobile applications powered by AI for intelligent user experiences and faster development.',
+    description: 'Native and cross-platform mobile applications having intuitive interfaces and consistently smooth performance.',
   }
 ];
 
@@ -60,17 +59,16 @@ const ServicesSection = () => {
     <section id="services" className="py-24 bg-gradient-to-br from-muted/80 to-secondary/90">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="text-sm mb-4">Our Expertise</Badge>
           <h2 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-6 text-primary">
             Services <span className="text-foreground">We Offer</span>
           </h2>
           
           <p className="text-xl text-muted-foreground font-inter max-w-2xl mx-auto leading-relaxed">
-            Every solution we deliver is AI-powered, ensuring faster development, superior quality, and cutting-edge innovation for your business.
+            Every solution we deliver combines AI acceleration with expert precision—ensuring faster development and uncompromised quality.
           </p>
         </div>
 
-{/* Technology Logos */}
+        {/* Technology Logos */}
         <div className="mb-16 overflow-hidden relative">
           <div className="flex animate-scroll-left">
             {[...technologies, ...technologies].map((tech, index) => (

@@ -19,19 +19,17 @@ useEffect(() => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background mt-24">
       {/* Navigation Header */}
-      <div className="border-b border-border">
-        <div className="container mx-auto px-6 py-4">
-          <Button
-            variant="ghost"
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Button>
-        </div>
+      <div className="container mx-auto px-6">
+        <Button
+          variant="ghost"
+          onClick={() => navigate('/')}
+          className="flex items-center gap-2"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to Home
+        </Button>
       </div>
 
       <div className="container mx-auto px-6 py-12">

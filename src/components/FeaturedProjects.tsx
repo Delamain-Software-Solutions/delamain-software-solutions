@@ -34,7 +34,6 @@ const FeaturedProjects = () => {
     <section className="py-24 bg-gradient-to-b from-background to-secondary/5">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="text-sm mb-4 border-primary/20">Featured Work</Badge>
           <h2 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-6">
             <span className="text-primary">Spotlight</span> Projects
           </h2>
@@ -113,7 +112,7 @@ const FeaturedProjects = () => {
 
         {/* View Full Portfolio */}
         <div className="text-center">
-          <Link to="/portfolio">
+          <Link to="/work">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full group">
               View Full Portfolio
               <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />

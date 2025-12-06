@@ -1,197 +1,106 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, X, Clock, Users, Code, Zap } from "lucide-react";
-
-const comparisonData = [
-  {
-    feature: "Development Speed",
-    traditional: {
-      icon: Clock,
-      text: "Weeks to months",
-      status: "slow",
-    },
-    aiPowered: {
-      icon: Zap,
-      text: "Days to weeks",
-      status: "fast",
-    },
-  },
-  {
-    feature: "Code Quality",
-    traditional: {
-      icon: Users,
-      text: "Varies by developer skill",
-      status: "variable",
-    },
-    aiPowered: {
-      icon: Check,
-      text: "Consistent, optimized patterns",
-      status: "excellent",
-    },
-  },
-  {
-    feature: "Error Reduction",
-    traditional: {
-      icon: X,
-      text: "Human error prone",
-      status: "poor",
-    },
-    aiPowered: {
-      icon: Check,
-      text: "AI-assisted error prevention",
-      status: "excellent",
-    },
-  },
-  {
-    feature: "Scalability",
-    traditional: {
-      icon: Users,
-      text: "Limited by team size",
-      status: "limited",
-    },
-    aiPowered: {
-      icon: Code,
-      text: "AI scales infinitely",
-      status: "unlimited",
-    },
-  },
-  {
-    feature: "Cost Efficiency",
-    traditional: {
-      icon: X,
-      text: "High labor costs",
-      status: "expensive",
-    },
-    aiPowered: {
-      icon: Check,
-      text: "Optimized resource usage",
-      status: "efficient",
-    },
-  },
-  {
-    feature: "Innovation",
-    traditional: {
-      icon: Clock,
-      text: "Gradual improvements",
-      status: "slow",
-    },
-    aiPowered: {
-      icon: Zap,
-      text: "Rapid experimentation",
-      status: "fast",
-    },
-  },
-];
+import React from 'react';
+import { CheckCircle, XCircle, Clock, DollarSign, AlertTriangle, Zap } from 'lucide-react';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 const Comparison = () => {
+  const comparisons = [
+    {
+      aspect: 'Development Speed',
+      traditional: { value: 'Slower Iteration', icon: Clock },
+      ai: { value: 'Faster Delivery', icon: Zap }
+    },
+    {
+      aspect: 'Cost Efficiency',
+      traditional: { value: 'Higher Costs', icon: DollarSign },
+      ai: { value: 'Reduced Costs', icon: CheckCircle }
+    },
+    {
+      aspect: 'Error Rate',
+      traditional: { value: 'Moderate Risk', icon: AlertTriangle },
+      ai: { value: 'Lower Risk', icon: CheckCircle }
+    },
+    {
+      aspect: 'Scalability',
+      traditional: { value: 'Limited Growth', icon: XCircle },
+      ai: { value: 'Easier Scaling', icon: CheckCircle }
+    }
+  ];
+
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
+    <section className="py-24 pb-32 bg-slate-900 dark:bg-slate-900 relative overflow-hidden">
+      {/* Background AI Developer Image */}
+      <div className="absolute inset-0 opacity-10">
+        <img 
+          src="/hero-ai-development.jpg" 
+          alt="AI Development" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-slate-900/80"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Why Choose <span className="text-foreground">AI-Powered</span>{" "}
-            Development?
+          <h2 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-6">
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Why Choose <span className="text-primary">AI-Accelerated</span>
+            </span>
+            <br />
+            <span className="text-white">Development?</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            See how our innovative approach compares to traditional development
-            methods
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            See how our AI-powered development approach outperforms traditional methods in every key metric.
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="grid grid-cols-3 gap-8 mb-8">
-            <div></div>
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-slate mb-2">
-                Traditional Development
-              </h3>
-              <p className="text-slate">The old way</p>
-            </div>
-            <div className="text-center">
-              <h3 className="text-2xl font-bold mb-2">
-                <span className="text-foreground">
-                  AI-Powered Development
-                </span>
-              </h3>
-              <p className="text-muted-foreground">The future is here</p>
-            </div>
-          </div>
-
-          {/* Comparison Grid */}
-          <div className="space-y-4">
-            {comparisonData.map((item, index) => (
-              <Card key={index} className="shadow-soft border-border/50">
-                <CardContent className="p-6">
-                  <div className="grid grid-cols-3 gap-8 items-center">
-                    {/* Feature Name */}
-                    <div>
-                      <h4 className="font-semibold text-lg">{item.feature}</h4>
-                    </div>
-
-                    {/* Traditional */}
-                    <div className="flex items-center space-x-3">
-                      <div
-                        className={`p-2 rounded-lg ${
-                          item.traditional.status === "poor"
-                            ? "bg-destructive/10"
-                            : item.traditional.status === "slow"
-                            ? "bg-muted"
-                            : item.traditional.status === "expensive"
-                            ? "bg-destructive/10"
-                            : item.traditional.status === "limited"
-                            ? "bg-muted"
-                            : "bg-muted"
-                        }`}
-                      >
-                        <item.traditional.icon
-                          className={`h-5 w-5 ${
-                            item.traditional.status === "poor"
-                              ? "text-destructive"
-                              : item.traditional.status === "expensive"
-                              ? "text-destructive"
-                              : "text-muted-foreground"
-                          }`}
-                        />
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white dark:bg-slate-100 rounded-2xl shadow-xl border border-slate-200 overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative">
+            <Table>
+              <TableHeader>
+                <TableRow className="border-b border-slate-200">
+                  <TableHead className="text-left py-6 px-8 text-lg font-semibold text-slate-800">
+                    Development Aspect
+                  </TableHead>
+                  <TableHead className="text-center py-6 px-8 text-lg font-semibold text-slate-600">
+                    Traditional Development
+                  </TableHead>
+                  <TableHead className="text-center py-6 px-8 text-lg font-semibold text-primary">
+                    AI-Assisted Development
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {comparisons.map((item, index) => (
+                  <TableRow 
+                    key={index} 
+                    className="border-b border-slate-100 hover:bg-slate-50 transition-colors duration-200"
+                  >
+                    <TableCell className="py-8 px-8">
+                      <div className="font-semibold text-lg text-slate-800">
+                        {item.aspect}
                       </div>
-                      <span className="text-muted-foreground">
-                        {item.traditional.text}
-                      </span>
-                    </div>
-
-                    {/* AI-Powered */}
-                    <div className="flex items-center space-x-3">
-                      <div
-                        className={`p-2 rounded-lg ${
-                          item.aiPowered.status === "excellent"
-                            ? "bg-primary"
-                            : item.aiPowered.status === "fast"
-                            ? "bg-primary"
-                            : item.aiPowered.status === "unlimited"
-                            ? "bg-primary"
-                            : item.aiPowered.status === "efficient"
-                            ? "bg-primary"
-                            : "bg-primary/10"
-                        }`}
-                      >
-                        <item.aiPowered.icon className="h-5 w-5 text-white" />
+                    </TableCell>
+                    <TableCell className="py-8 px-8">
+                      <div className={`flex items-center justify-center gap-3 p-4 rounded-xl bg-muted`}>
+                        <item.traditional.icon className={`h-6 w-6 text-muted-foreground`} />
+                        <span className={`font-semibold text-md text-muted-foreground`}>
+                          {item.traditional.value}
+                        </span>
                       </div>
-                      <span className="font-medium">{item.aiPowered.text}</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                    </TableCell>
+                    <TableCell className="py-8 px-8">
+                      <div className={`flex items-center justify-center gap-3 p-4 rounded-xl bg-primary/10`}>
+                        <item.ai.icon className={`h-6 w-6 text-primary`} />
+                        <span className={`font-semibold text-md text-primary`}>
+                          {item.ai.value}
+                        </span>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </div>
 
-          {/* Bottom CTA */}
-          <div className="text-center mt-12">
-            <p className="text-lg text-muted-foreground mb-4">
-              Ready to experience the difference?
-            </p>
-            <button className="bg-primary text-white px-8 py-3 rounded-lg font-semibold shadow-professional hover:shadow-lg transition-all duration-300">
-              Start Your AI-Powered Project
-            </button>
-          </div>
         </div>
       </div>
     </section>

@@ -29,13 +29,13 @@ const HeroSection = () => {
               <Typewriter
                 options={{
                   strings: [
-                    '<span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Coded by AI,</span>',
-                    '<span class="text-foreground">Developed by Professionals</span>',
+                    '<span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">AI Accelerated,</span>',
+                    '<span class="text-foreground">Expertly Perfected</span>',
                   ],
                   autoStart: true,
                   loop: true,
-                  delay: 50,
-                  deleteSpeed: 30,
+                  delay: 100,
+                  deleteSpeed: 50,
                 }}
               />
             </div>
@@ -43,9 +43,10 @@ const HeroSection = () => {
           
           {/* Subtitle */}
           <p className="text-xl text-muted-foreground font-inter max-w-3xl mx-auto leading-relaxed">
-            Welcome to Delamain Software Solutions - Where cutting-edge AI meets
+            Welcome to Delamain Software — where advanced AI technology and
             <br />
-            professional excellence to transform your digital vision into reality.
+            expert engineering come together to bring your digital vision to life.
+          
           </p>
 
           {/* CTA Button */}

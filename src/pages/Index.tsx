@@ -3,7 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutUs from "@/components/AboutUs";
 import Services from "@/components/Services";
 import FeaturedProjects from "@/components/FeaturedProjects";
-import ComparisonTable from "@/components/ComparisonTable";
+import Comparison from "@/components/Comparison";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -12,7 +12,7 @@ const Index = () => {
     <div className="min-h-screen">
       <HeroSection />
       <Services />
-      <ComparisonTable />
+      <Comparison />
       <div className="bg-secondary/10">
         <FeaturedProjects />
       </div>
