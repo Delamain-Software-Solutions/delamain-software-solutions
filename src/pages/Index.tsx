@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/home/HeroSection";
 import AboutUs from "@/components/AboutUs";
 import Services from "@/components/home/Services";
-import FeaturedProjects from "@/components/FeaturedProjects";
+import FeaturedProjects from "@/components/home/FeaturedProjects";
 import Comparison from "@/components/home/Comparison";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";

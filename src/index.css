@@ -66,7 +66,7 @@
     /* Base colors - Clean minimal palette */
     --background: 230 27% 96%;
     --foreground: 0 0% 9%;
-    --dummy: hsl(230, 30%, 96%);
+    --dummy: hsl(215 19% 35%);
     /* Card and popover */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 9%;
@@ -221,7 +221,20 @@
     background: #eef0f5;
   }
 
+  /* Featured project card gradients - soft fade */
+  .gradient-card-default {
+    background: linear-gradient(
+      to bottom right,
+      transparent 50%,
+      rgb(191 219 254) 200%
+    );
+  }
 
-
-
+  .gradient-card-hover {
+    background: linear-gradient(
+      to top left,
+      transparent 50%,
+      rgb(191 219 254) 200%
+    );
+  }
 }
