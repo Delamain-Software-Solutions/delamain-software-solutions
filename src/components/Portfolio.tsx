@@ -51,10 +51,10 @@ const Portfolio = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <Badge variant="outline" className="text-sm mb-4">Portfolio</Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-6 text-primary">
+          <h2 className="text-4xl lg:text-5xl font-bold font-poppins mb-6 text-primary">
             Our Amazing <span className="text-foreground">Projects</span>
           </h2>
-          <p className="text-xl text-muted-foreground font-inter max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground font-quicksand max-w-2xl mx-auto leading-relaxed">
             Have a look at our best projects we have done in the recent years
           </p>
         </div>
@@ -118,7 +118,7 @@ const Portfolio = () => {
                       </Badge>
                     </div>
                     
-                      <h3 className={`font-bold font-space-grotesk transition-colors transition-all duration-300 ${
+                      <h3 className={`font-bold font-poppins transition-colors transition-all duration-300 ${
                       isHovered ? 'text-white text-3xl' : 'text-primary text-5xl'
                     }`}>
                       {project.title}
@@ -129,7 +129,7 @@ const Portfolio = () => {
                   <div className={`transition-all duration-500 ${
                     isHovered ? 'opacity-100 max-h-40' : 'opacity-0 max-h-0 overflow-hidden'
                   }`}>
-                    <p className={`text-base font-inter leading-relaxed transition-colors duration-300 ${
+                    <p className={`text-base font-quicksand leading-relaxed transition-colors duration-300 ${
                       isHovered ? 'text-gray-300' : 'text-muted-foreground'
                     }`}>
                       {project.description}
@@ -144,7 +144,7 @@ const Portfolio = () => {
                       {project.technologies.map((tech, techIndex) => (
                         <span 
                           key={techIndex} 
-                          className={`text-xs px-2.5 py-1 rounded-md font-inter transition-colors duration-300 ${
+                          className={`text-xs px-2.5 py-1 rounded-md font-quicksand transition-colors duration-300 ${
                             isHovered 
                               ? 'bg-primary/20 text-primary-foreground border border-primary/30' 
                               : 'bg-muted text-muted-foreground'
@@ -162,7 +162,7 @@ const Portfolio = () => {
                   }`}>
                     <div className="space-y-2">
                       {project.highlights.map((highlight, highlightIndex) => (
-                        <div key={highlightIndex} className="flex items-center justify-center lg:justify-start text-sm text-gray-400 font-inter">
+                        <div key={highlightIndex} className="flex items-center justify-center lg:justify-start text-sm text-gray-400 font-quicksand">
                           <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 flex-shrink-0" />
                           {highlight}
                         </div>

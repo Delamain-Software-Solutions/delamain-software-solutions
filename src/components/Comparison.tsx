@@ -40,7 +40,7 @@ const Comparison = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold font-poppins mb-6">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Why Choose <span className="text-primary">AI-Accelerated</span>
             </span>

@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/home/HeroSection";
 import AboutUs from "@/components/AboutUs";
-import Services from "@/components/Services";
+import Services from "@/components/home/Services";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import Comparison from "@/components/Comparison";
 import Contact from "@/components/Contact";
@@ -13,9 +13,7 @@ const Index = () => {
       <HeroSection />
       <Services />
       <Comparison />
-      <div className="bg-secondary/10">
-        <FeaturedProjects />
-      </div>
+      <FeaturedProjects />
       <Contact />
     </div>
   );

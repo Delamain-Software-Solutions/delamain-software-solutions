@@ -5,6 +5,8 @@ import './index.css'
 
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider>
-    <App />
+    <div className='bg-background'>
+      <App />
+    </div>
   </ThemeProvider>
 );

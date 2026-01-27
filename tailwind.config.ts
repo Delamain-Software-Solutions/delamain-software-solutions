@@ -19,9 +19,10 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'space-grotesk': ['Space Grotesk', 'sans-serif'],
-				'inter': ['Inter', 'sans-serif'],
-				'sans': ['Space Grotesk', 'Inter', 'sans-serif'],
+				'poppins': ['Poppins', 'sans-serif'],
+				'open': ['Open Sans', 'sans-serif'],
+				'quicksand': ['Quicksand', 'sans-serif'],
+				
 			},
 			colors: {
 				border: 'hsl(var(--border))',

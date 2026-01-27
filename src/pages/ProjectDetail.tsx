@@ -139,10 +139,10 @@ const ProjectDetail = () => {
           {/* Right Column - Details */}
           <div className="space-y-8">
             <div>
-              <h1 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-4 text-foreground">
+              <h1 className="text-4xl lg:text-5xl font-bold font-poppins mb-4 text-foreground">
                 {project.title}
               </h1>
-              <p className="text-lg font-inter leading-relaxed text-foreground/90">
+              <p className="text-lg font-quicksand leading-relaxed text-foreground/90">
                 {project.fullDescription}
               </p>
             </div>

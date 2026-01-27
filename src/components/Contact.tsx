@@ -15,10 +15,10 @@ const Contact = () => {
     <section id="contact" className="py-24 bg-muted from-background to-muted/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold font-poppins mb-6">
             Ready to Start Your <span className="text-primary">Project?</span>
           </h2>
-          <p className="text-xl text-muted-foreground font-inter max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground font-quicksand max-w-2xl mx-auto leading-relaxed">
             Let's discuss how AI-powered development can transform your business. Get in touch today.
           </p>
         </div>
@@ -27,7 +27,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold font-space-grotesk mb-6 text-primary">
+              <h3 className="text-2xl font-bold font-poppins mb-6 text-primary">
                 Contact Information
               </h3>
               <div className="space-y-6">
@@ -90,7 +90,7 @@ const Contact = () => {
           {/* Contact Form */}
           <Card className="shadow-lg border-border">
             <CardHeader>
-              <CardTitle className="text-2xl font-space-grotesk text-primary">
+              <CardTitle className="text-2xl font-poppins text-primary">
                 Send us a Message
               </CardTitle>
             </CardHeader>

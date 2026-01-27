@@ -34,10 +34,10 @@ const FeaturedProjects = () => {
     <section className="py-24 bg-gradient-to-b from-background to-secondary/5">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold font-space-grotesk mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold font-poppins mb-6">
             <span className="text-primary">Spotlight</span> Projects
           </h2>
-          <p className="text-xl text-muted-foreground font-inter max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground font-quicksand max-w-2xl mx-auto leading-relaxed">
             A glimpse of our most innovative solutions that transform businesses
           </p>
         </div>
@@ -80,11 +80,11 @@ const FeaturedProjects = () => {
                     </div>
                     
                     <div>
-                      <h3 className="text-2xl font-bold font-space-grotesk mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-2xl font-bold font-poppins mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
                         {project.title}
                       </h3>
                       
-                      <p className="text-muted-foreground font-inter leading-relaxed mb-4">
+                      <p className="text-muted-foreground font-quicksand leading-relaxed mb-4">
                         {project.description}
                       </p>
                     </div>
@@ -93,7 +93,7 @@ const FeaturedProjects = () => {
                       {project.technologies.map((tech, techIndex) => (
                         <span 
                           key={techIndex} 
-                          className={`text-xs px-3 py-1.5 rounded-full font-inter font-medium transition-all duration-300 ${
+                          className={`text-xs px-3 py-1.5 rounded-full font-quicksand font-medium transition-all duration-300 ${
                             isHovered 
                               ? 'bg-primary/10 text-primary border border-primary/20' 
                               : 'bg-secondary text-secondary-foreground'

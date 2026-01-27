@@ -36,7 +36,7 @@ useEffect(() => {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold font-space-grotesk mb-4">
+            <h1 className="text-4xl font-bold font-poppins mb-4">
               Book a Consultation
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

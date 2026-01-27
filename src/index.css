@@ -2,20 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Quicksand";
+  src: url("./fonts/quicksand/Quicksand-VariableFont.ttf") format("truetype");
+  font-weight: 300 700; /* variable range */
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("./fonts/opensans/OpenSans-VariableFont.ttf") format("truetype");
+  font-weight: 300 700; /* variable range */
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/poppins/Poppins-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/poppins/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 @layer base {
   :root {
     /* Base colors - Clean minimal palette */
-    --background: 0 0% 98%;
+    --background: 230 27% 96%;
     --foreground: 0 0% 9%;
-
+    --dummy: hsl(230, 30%, 96%);
     /* Card and popover */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 9%;
 
-    /* Primary - Red/Orange theme */
-    --primary: 14 100% 57%;
+    --primary: 222, 47%, 11%;
     --primary-foreground: 0 0% 98%;
     --primary-glow: 14 100% 67%;
 
@@ -25,7 +83,7 @@
 
     /* Muted - Very light gray */
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted-foreground: 0 0% 40%;
 
     /* Accent - Darker red/orange */
     --accent: 8 100% 60%;
@@ -37,7 +95,7 @@
     --destructive-foreground: 0 0% 98%;
 
     /* Borders and inputs */
-    --border: 0 0% 90%;
+    --border: 217 90% 89%;
     --input: 0 0% 90%;
     --ring: 14 100% 57%;
 
@@ -91,69 +149,14 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-
-  .dark {
-    /* Base colors - Dark theme */
-    --background: 220 47% 8%;
-    --foreground: 210 40% 98%;
-
-    --card: 220 47% 10%;
-    --card-foreground: 210 40% 98%;
-    --popover: 220 47% 10%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 220 47% 17%;
-    --primary-glow: 210 40% 88%;
-
-    --secondary: 215 25% 20%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 215 25% 15%;
-    --muted-foreground: 215 16% 65%;
-
-    --accent: 14 100% 57%;
-    --accent-foreground: 0 0% 98%;
-    --accent-glow: 14 100% 67%;
-
-    --destructive: 0 84% 55%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 215 25% 20%;
-    --input: 215 25% 20%;
-    --ring: 210 40% 98%;
-
-    /* Dark theme gradients */
-    --gradient-primary: linear-gradient(
-      135deg,
-      hsl(220 47% 17%) 0%,
-      hsl(220 47% 8%) 100%
-    );
-    --gradient-hero: linear-gradient(
-      135deg,
-      hsl(220 47% 8%) 0%,
-      hsl(215 25% 15%) 100%
-    );
-    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
-    --shadow-glow: 0 0 40px hsl(220 47% 25% / 0.3);
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
 }
-
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground font-inter;
+    @apply bg-background text-foreground font-quicksand;
   }
 
   html {

@@ -1,22 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Menu, X, Circle } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-// Removed next-themes useTheme import to avoid SSR-only hook in SPA
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Handle hash navigation on location change
   useEffect(() => {
@@ -33,87 +21,171 @@ const Navbar = () => {
     }
   }, [location]);
 
+  const isActive = (path: string) => {
+    if (path === '/' && location.pathname === '/') return true;
+    if (path === '/work' && location.pathname === '/work') return true;
+    if (path.includes('#') && location.hash === path.split('#')[1]) return true;
+    return false;
+  };
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-card/95 backdrop-blur-md border-b border-border shadow-sm' 
-        : 'bg-transparent'
-    }`}>
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="flex items-center justify-center ms-5">
-              <Link to="/">
-                <img src="/Delamain-Logo.png" alt="Delamain logo" height={200} width={200}/>
-              </Link>
-            </div>
-          </div>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-[0_4px_4px_rgba(0,0,0,0.1)]">
+      <div className=" mx-auto px-5 sm:px-10 py-2.5 flex items-center justify-between gap-2.5">
+        {/* Logo */}
+        <div className="flex items-center">
+          <img src="/logo.svg" alt="Logo" className="w-[86px] h-[29px]" />
+        </div>
 
-          {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
-            <Link to="/#home" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-              About Us
-            </Link>
-            <Link to="/#services" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-              Services
-            </Link>
-            <Link to="/work" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-              Our Work
-            </Link>
-            <Link to="/#contact" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-              Contact Us
-            </Link>
-          </div>
-
-          {/* Action Buttons & Theme Toggle */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className="text-sm"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Get Quote
-            </Button>
-            <Button 
-              size="sm" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm"
-              onClick={() => window.location.href = '/booking'}
-            >
-              Book Call
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        {/* Desktop Navigation - Centered Pill */}
+        <div className="hidden md:flex items-center justify-center bg-slate-50 rounded-full p-1 gap-2.5">
+          <Link 
+            to="/" 
+            className={`px-1.5 py-px rounded-xl text-center font-quicksand font-normal text-base transition-colors ${
+              isActive('/') 
+                ? 'bg-[#EDF4FF] text-[#3B82F6]' 
+                : 'text-black hover:bg-gray-100'
+            }`}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            Home
+          </Link>
+          <Link 
+            to="/#home" 
+            className={`px-1.5 py-px rounded-xl text-center font-quicksand font-normal text-base transition-colors ${
+              isActive('/#home') 
+                ? 'bg-[#EDF4FF] text-[#3B82F6]' 
+                : 'text-black hover:bg-gray-100'
+            }`}
+          >
+            About Us
+          </Link>
+          <Link 
+            to="/#services" 
+            className={`px-1.5 py-px rounded-xl text-center font-quicksand font-normal text-base transition-colors ${
+              isActive('/#services') 
+                ? 'bg-[#EDF4FF] text-[#3B82F6]' 
+                : 'text-black hover:bg-gray-100'
+            }`}
+          >
+            Services
+          </Link>
+          <Link 
+            to="/work" 
+            className={`px-1.5 py-px rounded-xl text-center font-quicksand font-normal text-base transition-colors ${
+              isActive('/work') 
+                ? 'bg-[#EDF4FF] text-[#3B82F6]' 
+                : 'text-black hover:bg-gray-100'
+            }`}
+          >
+            Our Work
+          </Link>
+          <Link 
+            to="/#contact" 
+            className={`px-1.5 py-px rounded-xl text-center font-quicksand font-normal text-base transition-colors ${
+              isActive('/#contact') 
+                ? 'bg-[#EDF4FF] text-[#3B82F6]' 
+                : 'text-black hover:bg-gray-100'
+            }`}
+          >
+            Contact Us
+          </Link>
+        </div>
+
+        {/* Let's Talk Button */}
+        <div className="hidden md:flex">
+          <button 
+            onClick={() => window.location.href = '/booking'}
+            className="flex items-center gap-10 pl-3 pr-0.5 py-0.5 bg-[#0F172A] rounded-full shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#1e293b] transition-colors"
+          >
+            <span className="font-open font-medium text-base text-white leading-tight">
+              Let's Talk
+            </span>
+            <div className="flex items-center justify-center m-1.5 w-8 h-8 bg-white rounded-full">
+              <img src='/arrow.svg' width={10}/>
+            </div>
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-border">
-            <div className="flex flex-col space-y-4">
-              <Link to="/#home" className="text-muted-foreground hover:text-foreground transition-colors text-sm" onClick={() => setIsMobileMenuOpen(false)}>
-                About Us
-              </Link>
-              <Link to="/#services" className="text-muted-foreground hover:text-foreground transition-colors text-sm" onClick={() => setIsMobileMenuOpen(false)}>
-                Services
-              </Link>
-              <Link to="/work" className="text-muted-foreground hover:text-foreground transition-colors text-sm" onClick={() => setIsMobileMenuOpen(false)}>
-                Our Work
-              </Link>
-              <Link to="/#contact" className="text-muted-foreground hover:text-foreground transition-colors text-sm" onClick={() => setIsMobileMenuOpen(false)}>
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        )}
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-black"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden px-5 py-4 bg-white border-t border-gray-200">
+          <div className="flex flex-col space-y-3">
+            <Link 
+              to="/" 
+              className={`px-3 py-2 rounded-xl text-center font-quicksand font-normal text-base ${
+                isActive('/') 
+                  ? 'bg-[#EDF4FF] text-[#3B82F6]' 
+                  : 'text-black'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link 
+              to="/#home" 
+              className={`px-3 py-2 rounded-xl text-center font-quicksand font-normal text-base ${
+                isActive('/#home') 
+                  ? 'bg-[#EDF4FF] text-[#3B82F6]' 
+                  : 'text-black'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About Us
+            </Link>
+            <Link 
+              to="/#services" 
+              className={`px-3 py-2 rounded-xl text-center font-quicksand font-normal text-base ${
+                isActive('/#services') 
+                  ? 'bg-[#EDF4FF] text-[#3B82F6]' 
+                  : 'text-black'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Services
+            </Link>
+            <Link 
+              to="/work" 
+              className={`px-3 py-2 rounded-xl text-center font-quicksand font-normal text-base ${
+                isActive('/work') 
+                  ? 'bg-[#EDF4FF] text-[#3B82F6]' 
+                  : 'text-black'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Our Work
+            </Link>
+            <Link 
+              to="/#contact" 
+              className={`px-3 py-2 rounded-xl text-center font-quicksand font-normal text-base ${
+                isActive('/#contact') 
+                  ? 'bg-[#EDF4FF] text-[#3B82F6]' 
+                  : 'text-black'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contact Us
+            </Link>
+            <button 
+              onClick={() => {
+                window.location.href = '/booking';
+                setIsMobileMenuOpen(false);
+              }}
+              className="flex items-center justify-center gap-4 px-4 py-2 bg-[#0F172A] rounded-full text-white font-open text-base"
+            >
+              Let's Talk
+              <ArrowUpRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

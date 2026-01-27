@@ -24,7 +24,7 @@ const Footer = () => {
             <div>
               <img src="/Delamain-Logo.png" alt="Delamain Software Solutions" height={400} width={400}/>
             </div>
-            {/* <h3 className="text-3xl font-bold font-space-grotesk mb-4">
+            {/* <h3 className="text-3xl font-bold font-poppins mb-4">
               <span className="text-primary">Delamain</span>{" "}
               <span className="text-foreground">Software Solutions</span>
             </h3> */}
@@ -55,7 +55,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-primary font-space-grotesk mb-6 text-lg">Quick Links</h4>
+            <h4 className="font-bold text-primary font-poppins mb-6 text-lg">Quick Links</h4>
             <ul className="space-y-3">
               <li><a href="#services" className="text-muted-foreground hover:text-primary transition-colors">Our Services</a></li>
               <li><a href="#about" className="text-muted-foreground hover:text-primary transition-colors">About Us</a></li>
@@ -67,7 +67,7 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-primary font-space-grotesk mb-6 text-lg">Services</h4>
+            <h4 className="font-bold text-primary font-poppins mb-6 text-lg">Services</h4>
             <ul className="space-y-3">
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Web Development</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Mobile Apps</a></li>

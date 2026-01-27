@@ -33,10 +33,10 @@ const Projects = () => {
       <div className="container mx-auto px-6 py-12">
 
         <div className="text-center mb-4 sm:mb-16">
-          <h1 className="text-5xl lg:text-6xl font-bold font-space-grotesk mb-6">
+          <h1 className="text-5xl lg:text-6xl font-bold font-poppins mb-6">
             Case Studies
           </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground font-inter max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-muted-foreground font-quicksand max-w-3xl mx-auto leading-relaxed">
             A closer look at the projects we've built — from idea to working solution.
           </p>
         </div>
@@ -72,7 +72,7 @@ const Projects = () => {
                       {project.year}
                     </div>
                   </div>
-                  <h3 className="text-lg font-bold font-space-grotesk text-foreground">
+                  <h3 className="text-lg font-bold font-poppins text-foreground">
                     {project.title}
                   </h3>
                 </div>
@@ -130,7 +130,7 @@ const Projects = () => {
                         {project.year}
                       </div>
                     </div>
-                    <h3 className={`font-medium font-space-grotesk text-foreground ${
+                    <h3 className={`font-medium font-poppins text-foreground ${
                       project.size <= 3 ? 'text-lg' : project.size <= 6 ? 'text-xl' : 'text-2xl'
                     }`}>
                       {project.title}
