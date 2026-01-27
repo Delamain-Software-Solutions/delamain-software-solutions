@@ -79,7 +79,7 @@
 
     /* Secondary - Light gray */
     --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 45%;
+    --secondary-foreground: 215 19% 35%;
 
     /* Muted - Very light gray */
     --muted: 0 0% 96%;
@@ -181,4 +181,47 @@
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
+  .comparison-table {
+    position: relative;
+    background: #f2f3f8;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: background 0.25s ease;
+    box-shadow:
+      /* main depth */
+      8px 8px 18px rgba(0, 0, 0, 0.07),
+    -18px -18px 38px rgba(255, 255, 255, 0.9),
+
+      /* ambient softness */
+      2px 2px 6px rgba(0, 0, 0, 0.04),
+    -2px -2px 6px rgba(255, 255, 255, 0.6);
+  }
+
+
+  /* inset layer */
+  .neumo-inner {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+
+    box-shadow:
+      inset 6px 6px 12px rgba(0, 0, 0, 0.08),
+      inset -6px -6px 12px rgba(255, 255, 255, 0.7);
+
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+
+  .comparison-table:hover .neumo-inner {
+    opacity: 1;
+  }
+
+  .comparison-table:hover {
+    background: #eef0f5;
+  }
+
+
+
+
 }

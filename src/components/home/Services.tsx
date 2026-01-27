@@ -155,7 +155,7 @@ const technologies = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-24">
+    <section id="services" className="pt-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-6xl font-semibold font-poppins mb-6 text-primary">

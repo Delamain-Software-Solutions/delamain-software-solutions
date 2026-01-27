@@ -3,7 +3,7 @@ import HeroSection from "@/components/home/HeroSection";
 import AboutUs from "@/components/AboutUs";
 import Services from "@/components/home/Services";
 import FeaturedProjects from "@/components/FeaturedProjects";
-import Comparison from "@/components/Comparison";
+import Comparison from "@/components/home/Comparison";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
