@@ -4,7 +4,7 @@ import AboutUs from "@/components/AboutUs";
 import Services from "@/components/home/Services";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import Comparison from "@/components/home/Comparison";
-import Contact from "@/components/Contact";
+import Contact from "@/components/home/Contact";
 import Footer from "@/components/Footer";
 
 const Index = () => {
