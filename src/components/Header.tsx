@@ -90,17 +90,16 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Let's Talk Button */}
         <div className="hidden md:flex">
           <button 
             onClick={() => window.location.href = '/booking'}
-            className="flex items-center gap-10 pl-3 pr-0.5 py-0.5 bg-[#0F172A] rounded-full shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#1e293b] transition-colors"
+            className="flex items-center lg:gap-10 gap-4 lg:pl-3 pl-2.5 pr-0.5 py-0.5 bg-[#0F172A] rounded-full shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:bg-[#1e293b] transition-colors"
           >
-            <span className="font-open font-medium text-base text-white leading-tight">
+            <span className="font-open font-medium lg:text-base text-sm text-white leading-tight">
               Let's Talk
             </span>
-            <div className="flex items-center justify-center m-1.5 w-8 h-8 bg-white rounded-full">
-              <img src='/arrow.svg' width={10}/>
+            <div className="flex items-center justify-center lg:m-1.5 m-1 lg:w-8 lg:h-8 w-6 h-6 bg-white rounded-full">
+              <img src='/arrow.svg' width={10} className="max-lg:w-2"/>
             </div>
           </button>
         </div>

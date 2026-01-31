@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0F172A] text-white py-16">
+    <footer className="bg-[#0F172A] text-white py-8 sm:py-16">
       <div className="container mx-auto px-6">
-        <div className="flex justify-between gap-12 mb-12">
+        <div className="flex flex-col sm:flex-row justify-between gap-12 mb-12">
           {/* Brand Section */}
-          <div className="">
+          <div className='flex-1'>
             <div className="flex justify-start">
               <div className="mb-4 flex flex-col justify-center items-center">
                 <h2 className="text-[32px] font-semibold font-open">Delamain</h2>
@@ -38,7 +38,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='flex gap-40'>
+          <div className='flex justify-between flex-1'>
             {/* Quick Links */}
             <div>
               <h4 className="font-semibold text-[#5A96F7] font-poppins mb-6 text-2xl">Quick Links</h4>
@@ -64,17 +64,10 @@ const Footer = () => {
           </div>
         </div>
         {/* Bottom Section */}
-        <div className="border-t border-gray-700 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              @2025 Delamain. All rights reserved
-            </p>
-            <div className="flex space-x-6 text-sm text-gray-100 [&_a]:hover:text-white [&_a]:transition-colors">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of service</a>
-              <a href="#">Cookies Settings</a>
-            </div>
-          </div>
+        <div className="border-t border-gray-700 pt-4">
+          <p className="text-gray-400 text-sm text-center">
+            @2025 Delamain. All rights reserved
+          </p>
         </div>
       </div>
     </footer>

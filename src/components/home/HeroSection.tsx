@@ -11,7 +11,6 @@ import {
   ArrowUpRightFromCircle,
   CircleArrowOutUpRight,
 } from "lucide-react";
-import Typewriter from "typewriter-effect";
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -23,11 +22,11 @@ const HeroSection = () => {
       className="min-h-screen bg-gradient-to-b from-background to-[#e3e4f9] flex items-center justify-center relative overflow-hidden"
     >
       {/* Gradient Overlay */}
-      <div className="container mx-auto px-6 py-40 relative z-10">
+      <div className="container mx-auto sm:px-6 py-10 sm:py-20 md:py-40 relative z-10">
         {/* Main Hero Content */}
-        <div className="mx-auto py-8 text-center">
+        <div className="mx-auto pt-20 sm:py-8 text-center">
           {/* Main Headline */}
-          <h1 className="text-5xl lg:text-6xl font-semibold font-poppins leading-tight text-primary">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold font-poppins leading-tight text-primary">
             <div className="min-h-[1.2em]">
               <span className="text-[#3B82F6]">AI Accelerated, </span>{" "}
               <span>Expertly Perfected!</span>
@@ -35,14 +34,14 @@ const HeroSection = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl mt-4 text-muted-foreground font-quicksand max-w-5xl mx-auto leading-relaxed">
+          <p className="sm:text-xl mt-4 text-muted-foreground font-quicksand max-w-5xl mx-auto leading-relaxed">
             We build and provide AI, Data, and Cloud engineering solutions that
             automate processes, improve decision-making, and help enterprises
             scale while empowering startups to grow.
           </p>
           <Button
             onClick={() => navigate("/booking")}
-            className="flex items-center mx-auto mt-12 gap-10 pl-3 pr-0.5 py-0.5 bg-gradient-to-r from-[#3B82F6] to-[#4C4FF0] rounded-full transition-colors"
+            className="flex items-center mx-auto mt-6 sm:mt-12 gap-10 pl-3 pr-0.5 py-0.5 bg-gradient-to-r from-[#3B82F6] to-[#4C4FF0] rounded-full transition-colors"
           >
             <span className="font-open font-medium text-base text-white leading-tight">
               Let's Talk
@@ -53,10 +52,10 @@ const HeroSection = () => {
           </Button>
         </div>
         {/* Feature divs */}
-        <section className="w-full max-w-7xl mx-auto px-4 font-open">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <section className="w-full max-w-7xl mx-auto sm:px-4 font-open mt-6 sm:mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto max-md:max-w-sm gap-6">
             {/* LEFT COLUMN */}
-            <div className="flex flex-col justify-end gap-6">
+            <div className="order-2 md:order-2 md:col-span-2 lg:order-1 lg:col-span-1 grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-col lg:justify-end gap-6">
               <div className="flex justify-around items-center text-center bg-white rounded-xl shadow-md border border-gray-100 px-5 py-3">
                 <div className="flex flex-col items-center gap-2">
                   <div className="bg-[#E9EFFE] p-3 rounded-full">
@@ -115,7 +114,7 @@ const HeroSection = () => {
             </div>
 
             {/* CENTER COLUMN */}
-            <div className="flex flex-col gap-6 bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+            <div className="order-1 md:order-1 md:w-fit mx-auto md:col-span-2 lg:order-2 lg:col-span-1 flex flex-col gap-6 bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
               <div>
                 <h3 className="text-lg font-semibold">Services</h3>
                 <p className="text-sm text-gray-500">
@@ -149,8 +148,8 @@ const HeroSection = () => {
             </div>
 
             {/* RIGHT COLUMN */}
-            <div className="flex flex-col gap-6">
-              <div className="flex items-center justify-between bg-white rounded-2xl shadow-sm border border-gray-100 p-3 pr-12 w-fit">
+            <div className="order-3 md:order-3 md:col-span-2 lg:order-3 lg:col-span-1 grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-col gap-6">
+              <div className="flex items-center justify-between bg-white rounded-2xl shadow-sm border border-gray-100 p-3 pr-12 w-full lg:w-fit">
                 <div>
                   <p className="font-semibold text-lg underline decoration-dotted underline-offset-2 mb-4">Overall Reviews <ArrowUpRightFromCircle className="w-5 h-5 inline ml-2"/> </p>
                   <img src="/stars.svg" width={100} alt="Star Rating" />

@@ -28,198 +28,225 @@ const dumpsterAppImages = import.meta.glob('@/assets/dumpster-rental-application
 });
 
 
-export type Project = {
-  id: number;
+export type ProjectImage = {
+  src: string;
   title: string;
+  description: string;
+  bulletHeading?: string;
+  bullets?: string[];
+};
+
+export type Project = {
   slug: string;
-  category: string;
-  fullDescription: string;
-  thumbnail: string;
-  images: string[];
-  size: number;
-  align: 'start' | 'end' | 'center';
-  technologies: string[];
-  highlights: string[];
-  results: Record<string, string>;
-  duration: string;
-  team: string;
+  client: string;
   year: string;
-  demoLink?: string;
-  codeLink?: string;
+  scopeOfWork: string[];
+  techStack: string[];
+  industry: string;
+  liveLink?: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  thumbnailDescription: string;
+  images: ProjectImage[];
 };
 
 export const projects: Project[] = [
   {
-    id: 1,
-    title: "Accounting Assistant",
     slug: "accounting-assistant",
-    category: "FinTech & Automation", 
-    fullDescription: "An intelligent financial automation tool that revolutionizes accounting workflows by automatically generating balance sheets and income statements from Excel transaction data. Uses advanced algorithms to categorize transactions and ensure compliance with accounting standards.",
+    client: "Internal Product",
+    year: "2024",
+    scopeOfWork: ["Financial Automation", "Data Processing", "Reporting Systems"],
+    techStack: ["Python", "Pandas", "React", "Machine Learning", "Excel API", "AWS"],
+    industry: "FinTech & Accounting",
+    liveLink: "https://delamainsoftware.com/",
+    title: "Accounting Assistant",
+    description:
+      "An intelligent financial automation tool designed to generate balance sheets and income statements directly from Excel transaction data. The system automatically categorizes entries and applies accounting rules to support structured, compliance-ready reporting.",
     thumbnail: accountingImage,
-    images: [accountingImage, accountingImage, accountingImage],
-    size: 5,
-    align: "center",
-    technologies: ["Python", "Pandas", "React", "Machine Learning", "Excel API", "AWS"],
-    highlights: ["Excel integration", "Auto categorization", "Compliance ready", "Real-time processing"],
-    results: {
-      "Efficiency": "Reduced manual data entry and report generation from hours to minutes",
-      "Error Reduction": "Minimized human mistakes in transaction categorization through automated checks.",
-      "Clarity": "Enabled real-time financial insights for quicker business decision-making."
-    },
-    duration: "3 months",
-    team: "3 developers",
-    year: "2024",
+    thumbnailDescription:
+      "A financial automation dashboard that converts raw Excel transaction data into structured accounting reports through intelligent categorization.",
+    images: [
+      {
+        src: accountingImage,
+        title: "Automated Financial Reporting",
+        description:
+          "Transforms Excel-based transaction data into organized financial statements with minimal manual input.",
+        bulletHeading: "Core Capabilities",
+        bullets: ["Excel data ingestion", "Automated categorization", "Real-time summaries"],
+      },
+    ],
   },
+
   {
-    id: 2,
-    title: "Anime Persona Matcher",
     slug: "anime-persona-matcher",
-    category: "Big Data & AI/ML",
-    fullDescription: "A sophisticated big data application leveraging multiple machine learning models to match users with anime characters based on personality analysis. Features advanced quiz algorithms, character database with 10,000+ entries, and personality profiling using psychometric principles.",
-    thumbnail: animeMatcherImage,
-    images: [animeMatcherImage, animeMatcherImage],
-    size: 7,
-    align: "end",
-    technologies: ["Python", "TensorFlow", "React", "MongoDB", "Neo4j", "Docker"],
-    highlights: ["ML personality matching", "10K+ character database", "Advanced analytics", "Real-time recommendations"],
-    results: {
-      "Speed": "Deliver instant results with sub-second response time.",
-      "Scale": "Efficiently handles 10,000+ character dataset.",
-      "Accuracy": "Improved match precision using psychometric-based ML models."
-    },
-    duration: "2 months", 
-    team: "3 developers",
+    client: "Internal Product",
     year: "2024",
+    scopeOfWork: ["Machine Learning", "Personality Analysis", "Big Data Processing"],
+    techStack: ["Python", "TensorFlow", "React", "MongoDB", "Neo4j", "Docker"],
+    industry: "Entertainment & AI",
+    title: "Anime Persona Matcher",
+    description:
+      "A personality-based recommendation system that matches users with anime characters using quiz-driven analysis and machine learning models. Built to handle large character datasets with fast, real-time inference.",
+    thumbnail: animeMatcherImage,
+    thumbnailDescription:
+      "An AI-powered personality matching interface connecting users with anime characters based on behavioral traits.",
+    images: [
+      {
+        src: animeMatcherImage,
+        title: "Personality-Based Matching",
+        description:
+          "Uses psychometric-style questions and ML models to determine character alignment.",
+        bulletHeading: "System Highlights",
+        bullets: [
+          "Quiz-driven personality analysis",
+          "Large-scale character dataset",
+          "Graph-based relationship modeling",
+        ],
+      },
+      {
+        src: animeMatcherImage,
+        title: "Personality-Based Matching",
+        description:
+          "Uses psychometric-style questions and ML models to determine character alignment.",
+        bulletHeading: "System Highlights",
+        bullets: [
+          "Quiz-driven personality analysis",
+          "Large-scale character dataset",
+          "Graph-based relationship modeling",
+        ],
+      },
+    ],
   },
+
   {
-    id: 3,
-    title: "Break Into PCs - PC and Games Marketplace",
     slug: "break-into-pcs",
-    category: "Computers and Gaming",
-    fullDescription: "A cutting-edge e-commerce platform specifically for gamers. With features like an integrated tech blog and a bespoke PC builder for customizing components, the project's main goal was to provide an easy-to-use user experience. Although it is mostly front-end oriented, it has some backend support for necessary features.",
+    client: "Break Into PCs",
+    year: "2024",
+    scopeOfWork: ["Frontend Development", "UI/UX Design", "E-commerce Interfaces"],
+    techStack: ["Next.js", "MongoDB", "TypeScript", "Framer Motion"],
+    industry: "Gaming & E-commerce",
+    title: "Break Into PCs Marketplace",
+    description:
+      "A gamer-focused e-commerce platform featuring a custom PC builder, product catalog, and integrated tech blog. The project prioritizes usability, performance, and a visually engaging shopping experience.",
     thumbnail: breakIntoPcImage,
-    images: Object.values(breakIntoPcImages) as string[],
-    size: 9,
-    align: "end",
-    technologies: ["Next.js", "MongoDB", "TypeScript", "Framer Motion"],
-    highlights: ["Custom PC Builder", "Tech Blog", "Modern Design", "Product Catalog"],
-    results: {
-      "Product Discovery": "Simplified browsing and filtering for gaming components.",
-      "Configuration": "Quick and easy custom PC configuration.",
-      "Maintenance": "Modular architecture for easier updates and management."
-    },
-    duration: "2 weeks",
-    team: "3 developers",
-    year: "2024"
+    thumbnailDescription:
+      "A gaming marketplace interface featuring custom PC configuration and modern storefront design.",
+    images: Object.values(breakIntoPcImages).map((img) => ({
+      src: img as string,
+      title: "Custom PC Builder",
+      description:
+        "Allows users to configure PC components interactively with real-time visual feedback.",
+    })),
   },
+
   {
-    id: 4,
-    title: "Trackio",
     slug: "trackio",
-    category: "SaaS & Productivity",
-    fullDescription: "A comprehensive web-based time and expense tracking application designed specifically for freelancers and small businesses. Features automated time tracking, project management, expense categorization, and detailed reporting with seamless invoice generation.",
-    thumbnail: trackioImage,
-    images: [trackioImage, trackioImage, trackioImage, trackioImage],
-    size: 4,
-    align: "center",
-    technologies: ["React", "Node.js", "PostgreSQL", "TypeScript", "Stripe", "WebRTC"],
-    highlights: ["Real-time tracking", "Invoice automation", "Multi-project support", "Team collaboration"],
-    results: {
-      "Error Reduction": "Reduced tracking errors with real-time monitoring.",
-      "Efficiency": "Automated invoice generation saves hours of manual work.",
-      "Collaboration": "Enabled smooth multi-project collaboration for teams."
-    },
-    duration: "5 months",
-    team: "5 developers", 
+    client: "Internal Product",
     year: "2023",
-    codeLink: "https://github.com/example/trackio"
+    scopeOfWork: ["SaaS Development", "Billing Systems", "Collaboration Tools"],
+    techStack: ["React", "Node.js", "PostgreSQL", "TypeScript", "Stripe", "WebRTC"],
+    industry: "SaaS & Productivity",
+    title: "Trackio",
+    description:
+      "A web-based time and expense tracking application built for freelancers and small teams. Includes project tracking, expense categorization, and automated invoice generation within a collaborative workspace.",
+    thumbnail: trackioImage,
+    thumbnailDescription:
+      "A productivity-focused SaaS dashboard for tracking time, expenses, and invoices across multiple projects.",
+    images: [
+      {
+        src: trackioImage,
+        title: "Time & Expense Tracking",
+        description:
+          "Tracks work sessions and expenses in real time with structured project grouping.",
+        bulletHeading: "Platform Features",
+        bullets: [
+          "Live time tracking",
+          "Invoice-ready reporting",
+          "Multi-project workflows",
+        ],
+      },
+    ],
   },
+
   {
-    id: 5,
-    title: "Alpha Care Education - An Online Course Platform",
     slug: "alpha-care-education",
-    category: "E-Learning & Education",
-    fullDescription: "A full-stack web application built with React and Supabase, designed to connect students and instructors seamlessly. Students can securely access purchased courses, watch video lectures, complete quizzes and labs, and track their learning progress. Instructors can create, organize, and manage course content with videos, quizzes, and labs. The platform also features a professional home page to showcase featured courses and platform information, offering a complete end-to-end solution for online learning.",
+    client: "Alpha Care",
+    year: "2025",
+    scopeOfWork: ["Full-Stack Development", "Learning Platforms", "Content Management"],
+    techStack: ["React", "Supabase", "Supabase Auth", "ShadCN UI", "Vite"],
+    industry: "E-Learning & Education",
+    title: "Alpha Care Education Platform",
+    description:
+      "A full-featured online learning platform connecting students and instructors. Supports video-based courses, quizzes, labs, progress tracking, and instructor-led content management.",
     thumbnail: alphaCareImage,
-    images: Object.values(alphaCareImages) as string[],
-    size: 10, 
-    align: "center",
-    technologies: ["React", "Supabase", "Supabase Auth", "ShadCN UI", "Vite"],
-    highlights: [
-      "Secure student and instructor dashboards",
-      "Video lectures with progress tracking",
-      "Interactive quizzes and practical labs",
-      "Course creation and content management tools"
-    ],
-    results: {
-      experience: "Smooth and intuitive learning experience across devices",
-      reliability: "Stable content delivery and consistent platform performance",
-      engagement: "Designed to encourage continuous learning and interaction"
-    },
-    duration: "1 month",
-    team: "2 developers",
-    year: "2025"
+    thumbnailDescription:
+      "An online education platform designed for structured learning and instructor-led course delivery.",
+    images: Object.values(alphaCareImages).map((img) => ({
+      src: img as string,
+      title: "Course Learning Interface",
+      description:
+        "Students can access lectures, complete assessments, and track learning progress in one place.",
+      bulletHeading: "Learning Tools",
+      bullets: [
+        "Video lectures",
+        "Quizzes and labs",
+        "Progress tracking",
+      ],
+    })),
   },
+
   {
-    id: 6,
-    title: "Weather Forecast Application",
     slug: "weather-forecast-application",
-    category: "Desktop & Utilities",
-    fullDescription: "A JavaFX-based desktop weather application that delivers real-time weather data using the OpenWeather API. Features include a 5-day forecast, air quality index monitoring, pollutant-level insights, and location-based weather detection. User preferences are stored in a MySQL database, with support for city and coordinate-based searches. The application also includes an email notification service and intelligent caching to reduce unnecessary API requests.",
+    client: "Academic Project",
+    year: "2023",
+    scopeOfWork: ["Desktop Application", "API Integration", "Data Persistence"],
+    techStack: ["Java", "JavaFX", "MySQL", "OpenWeather API"],
+    industry: "Utilities & Weather Services",
+    title: "Weather Forecast Application",
+    description:
+      "A JavaFX desktop application providing real-time weather updates, 5-day forecasts, air quality metrics, and pollutant insights. Includes location-based detection, caching, and email notifications.",
     thumbnail: weatherAppImage,
-    images: Object.values(weatherAppImages) as string[],
-    size: 6,
-    align: "center",
-    technologies: ["Java", "JavaFX", "MySQL", "OpenWeather API"],
-    highlights: [
-      "Real-time weather data",
-      "5-day forecast",
-      "Air quality monitoring",
-      "Location-based detection"
-    ],
-    results: {
-      performance: "Reduced redundant API calls by caching data",
-      reliability: "Consistent real-time data delivery",
-      usability: "Faster city-based weather lookup across the globe"
-    },
-    duration: "2 weeks",
-    team: "3 developers",
-    year: "2023"
+    thumbnailDescription:
+      "A desktop weather application displaying real-time forecasts and air quality insights.",
+    images: Object.values(weatherAppImages).map((img) => ({
+      src: img as string,
+      title: "Weather & Air Quality View",
+      description:
+        "Displays forecast data, AQI levels, and pollutant breakdowns in a clean desktop UI.",
+      bulletHeading: "Application Features",
+      bullets: [
+        "5-day weather forecast",
+        "Air quality index monitoring",
+        "City and coordinate search",
+      ],
+    })),
   },
+
   {
-    id: 7,
-    title: "Dumpster Rental Application",
-    slug: "dumpster-rental-application",
-    category: "Logistics & Services",
-    fullDescription:
-      "A full-stack web application designed for waste-management and dumpster rental companies. The platform streamlines daily dispatch operations with an advanced drag-and-drop scheduling system for deliveries, pickups, and swaps. It includes customer management, order handling, driver assignment, real-time truck schedules, dynamic time-slot management, and automated invoice generation. The system provides a highly responsive UI, optimized data queries, and precise business logic for logistics workflows.",
+    slug: "dumpster-rental-management-system",
+    client: "Logistics Provider",
+    year: "2025",
+    scopeOfWork: ["Logistics Systems", "Scheduling Tools", "Invoice Automation"],
+    techStack: ["React", "Node.js", "Supabase", "Clover API", "Adobe EchoSign API"],
+    industry: "Logistics & Waste Management",
+    title: "Dumpster Rental Management System",
+    description:
+      "A full-stack logistics platform designed for dumpster rental companies. Provides drag-and-drop dispatch scheduling, customer and order management, automated invoicing, and real-time truck planning.",
     thumbnail: dumpsterAppImage,
-    images: Object.values(dumpsterAppImages) as string[],
-    size: 10,
-    align: "center",
-    technologies: [
-      "React",
-      "Node.js",
-      "Supabase",
-      "Clover API",
-      "Adobe EchoSign API",
-    ],
-    highlights: [
-      "Drag-and-drop truck scheduling grid",
-      "Time-slot based automated dispatching",
-      "Dynamic invoice PDF generation",
-      "Optimized Postgres schema for logistics workflows"
-    ],
-    results: {
-      workflow:
-        "Reduced dispatcher workload by enabling instant scheduling and order assignment.",
-      efficiency:
-        "Improved daily routing efficiency with clear visual time-slot planning.",
-      reliability:
-        "Consistent and accurate dispatch management with timezone-safe scheduling."
-    },
-    duration: "4-6 weeks",
-    team: "2 developers",
-    year: "2025"
-  }
+    thumbnailDescription:
+      "A logistics management dashboard built for scheduling, dispatching, and billing operations.",
+    images: Object.values(dumpsterAppImages).map((img) => ({
+      src: img as string,
+      title: "Dispatch & Scheduling Grid",
+      description:
+        "Visual scheduling system for managing deliveries, pickups, and swaps efficiently.",
+      bulletHeading: "Operational Tools",
+      bullets: [
+        "Drag-and-drop scheduling",
+        "Automated invoice generation",
+        "Time-slot based dispatching",
+      ],
+    })),
+  },
 ];

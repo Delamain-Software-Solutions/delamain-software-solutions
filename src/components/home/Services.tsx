@@ -155,21 +155,21 @@ const technologies = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="pt-24">
+    <section id="services" className="pt-10 sm:pt-16 md:pt-24">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-6xl font-semibold font-poppins mb-6 text-primary">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-semibold font-poppins mb-6 text-primary">
             Services We Offer
           </h2>
 
-          <p className="text-2xl text-muted-foreground font-quicksand max-w-5xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground font-quicksand max-w-5xl mx-auto leading-relaxed">
             Every solution we deliver combines AI acceleration with expert
             precision—ensuring faster development and uncompromised quality.
           </p>
         </div>
 
         {/* Technology Logos */}
-        <div className="mb-16 overflow-hidden relative">
+        <div className="mb-8 sm:mb-16 overflow-hidden relative">
           <div className="flex animate-scroll-left">
             {[...technologies, ...technologies].map((tech, index) => (
               <div
@@ -186,14 +186,14 @@ const ServicesSection = () => {
             ))}
           </div>
         </div>
-        <div className="grid md:grid-cols-3 gap-4 max-w-7xl mx-auto my-16">
+        <div className="grid justify-items-center md:grid-cols-3 gap-4 max-w-7xl mx-auto my-8 sm:my-16">
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-[#fefeff] to-[#dae6fa] border-border hover:border-border/80"
+              className="group hover:shadow-lg max-w-md transition-all duration-300 bg-gradient-to-br from-[#fefeff] to-[#dae6fa] border-border hover:border-border/80"
             >
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 bg-[#3B82F6] rounded-xl flex items-center justify-center mb-4">
+              <CardHeader className="max-sm:p-4">
+                <div className="w-12 h-12 bg-[#3B82F6] rounded-xl flex items-center justify-center mb-2 sm:mb-4">
                   <service.icon className="h-7 w-7 text-white" />
                 </div>
                 <CardTitle className="text-xl font-poppins text-foreground mb-3">
@@ -201,7 +201,7 @@ const ServicesSection = () => {
                 </CardTitle>
               </CardHeader>
 
-              <CardContent className="space-y-8">
+              <CardContent className="space-y-4 sm:space-y-8 max-sm:px-4">
                 <p className="font-poppins text-sm text-muted-foreground leading-relaxed">
                   {service.description}
                 </p>
