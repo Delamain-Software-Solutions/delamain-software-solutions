@@ -16,23 +16,10 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "Poppins";
-  src: url("./fonts/poppins/Poppins-Thin.ttf") format("truetype");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Poppins";
-  src: url("./assets/fonts/poppins/Poppins-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Poppins";
-  src: url("./assets/fonts/poppins/Poppins-Regular.ttf") format("truetype");
+  src: url("./fonts/poppins/Poppins-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -40,7 +27,7 @@
 
 @font-face {
   font-family: "Poppins";
-  src: url("./assets/fonts/poppins/Poppins-Medium.ttf") format("truetype");
+  src: url("./fonts/poppins/Poppins-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -48,7 +35,7 @@
 
 @font-face {
   font-family: "Poppins";
-  src: url("./assets/fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
+  src: url("./fonts/poppins/Poppins-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -56,11 +43,12 @@
 
 @font-face {
   font-family: "Poppins";
-  src: url("./assets/fonts/poppins/Poppins-Bold.ttf") format("truetype");
+  src: url("./fonts/poppins/Poppins-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
+
 @layer base {
   :root {
     /* Base colors - Clean minimal palette */
@@ -156,7 +144,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-quicksand;
+    @apply bg-background text-foreground font-poppins;
   }
 
   html {

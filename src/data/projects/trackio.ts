@@ -15,14 +15,14 @@ const getImageUrl = (name: string) => {
 
 export const trackioProject: Project = {
     slug: "trackio",
-    client: "Internal Product",
-    year: "2023",
+    client: "Internal Tool",
+    year: "2025",
     scopeOfWork: ["SaaS Development", "Billing Systems", "Collaboration Tools"],
-    techStack: ["React", "Node.js", "PostgreSQL", "TypeScript", "Stripe", "WebRTC"],
+    techStack: ["React", "Python", "PostgreSQL", "ReCaptcha", "Stripe"],
     industry: "SaaS & Productivity",
     title: "Trackio",
     description:
-        "A web-based time and expense tracking application built for freelancers and small teams. Includes project tracking, expense categorization, and automated invoice generation within a collaborative workspace.",
+        "A web-based time and expense tracking application built for freelancers and small teams. Includes project tracking, income and expense tracking, and automated invoice generation.",
     thumbnail: getImageUrl('cover'),
     thumbnailDescription:
         "A productivity-focused SaaS dashboard for tracking time, expenses, and invoices across multiple projects.",

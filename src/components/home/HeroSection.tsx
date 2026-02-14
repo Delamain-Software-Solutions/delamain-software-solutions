@@ -53,7 +53,12 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 sm:mt-12">
             <Button
-              onClick={() => navigate("/booking")}
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="flex items-center gap-10 pl-3 pr-0.5 py-0.5 bg-gradient-to-r from-[#3B82F6] to-[#4C4FF0] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
             >
               <span className="font-open font-medium text-base text-white leading-tight">
@@ -65,7 +70,7 @@ const HeroSection = () => {
             </Button>
 
             <Button
-              onClick={() => window.open("https://calendly.com/", "_blank")}
+              onClick={() => navigate("/booking")}
               variant="outline"
               className="flex items-center gap-3 px-6 h-[42px] border-[#3B82F6] text-[#3B82F6] hover:bg-[#3B82F6]/5 hover:text-[#3B82F6] rounded-full transition-all duration-300 hover:scale-105 font-medium"
             >

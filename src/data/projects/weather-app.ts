@@ -15,32 +15,22 @@ const getImageUrl = (name: string) => {
 
 export const weatherProject: Project = {
     slug: "weather-forecast-application",
-    client: "Academic Project",
-    year: "2023",
+    client: "Internal",
+    year: "2025",
     scopeOfWork: ["Desktop Application", "API Integration", "Data Persistence"],
     techStack: ["Java", "JavaFX", "MySQL", "OpenWeather API"],
     industry: "Utilities & Weather Services",
-    title: "Weather Forecast Application",
+    title: "Weather Forecast & Alert System",
     description:
-        "A JavaFX desktop application providing real-time weather updates, 5-day forecasts, air quality metrics, and pollutant insights. Includes location-based detection, caching, and email notifications.",
+        "A JavaFX desktop application providing real-time weather updates, 5-day forecasts, air quality metrics, and pollutant insights and weather alerts. Includes location-based detection, caching, and email notifications.",
     thumbnail: getImageUrl('cover'),
     thumbnailDescription:
         "A desktop weather application displaying real-time forecasts and air quality insights.",
     images: [
         {
             src: getImageUrl('1'),
-            title: "Real-time Conditions",
-            description: "Current weather details with temperature, humidity, and wind speed.",
-        },
-        {
-            src: getImageUrl('2'),
-            title: "5-Day Forecast",
-            description: "Extended weather patterns and predicted conditions for travel planning.",
-        },
-        {
-            src: getImageUrl('3'),
-            title: "Air Quality Index",
-            description: "Detailed pollutant data and safety recommendations based on AQI.",
+            title: "Weather Alerts",
+            description: "Realtime email alerts and desktop notifications for harsh weather conditions. Can be set for any number of locations.",
         },
     ].filter(img => img.src),
 };

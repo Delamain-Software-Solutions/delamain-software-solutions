@@ -19,8 +19,8 @@ export const animeProject: Project = {
     client: "Internal Product",
     year: "2024",
     scopeOfWork: ["Machine Learning", "Personality Analysis", "Big Data Processing"],
-    techStack: ["Python", "TensorFlow", "React", "MongoDB", "Neo4j", "Docker"],
-    industry: "Entertainment & AI",
+    techStack: ["Python", "TensorFlow", "React", "SQL", "Docker"],
+    industry: "Entertainment & Big Data",
     title: "Anime Persona Matcher",
     description:
         "A personality-based recommendation system that matches users with anime characters using quiz-driven analysis and machine learning models. Built to handle large character datasets with fast, real-time inference.",
@@ -31,17 +31,17 @@ export const animeProject: Project = {
         {
             src: getImageUrl('1'),
             title: "Personality Assessment",
-            description: "Quiz-driven character matching system.",
+            description: "Quiz-driven character matching system. The user gives a short quiz and is asked about his behavorial traits.",
         },
         {
             src: getImageUrl('2'),
             title: "Large Scale Datasets",
-            description: "Fast real-time character inference and management.",
+            description: "Fast real-time character inference and management. The system is built to handle large datasets of anime characters and their traits.",
         },
         {
             src: getImageUrl('3'),
             title: "Psychometric Analysis",
-            description: "User trait analysis based on behavioral metrics.",
+            description: "User trait analysis based on behavioral metrics. The system uses its algorithm to analyze the user's answers and determine his personality traits and matches them to the huge dataset of the anime characters.",
         },
-    ].filter(img => img.src), // Only include images that exist
+    ].filter(img => img.src),
 };

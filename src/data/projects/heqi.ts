@@ -14,33 +14,33 @@ const getImageUrl = (name: string) => {
 };
 
 export const heqiProject: Project = {
-    slug: "heqi-industrial-solutions",
-    client: "HEQI Heavy Industries",
+    slug: "heqi-education-platform",
+    client: "HEQI Edu Consultancy",
     year: "2025",
-    scopeOfWork: ["Industrial Web Design", "Service Portfolios", "Client Portals"],
+    scopeOfWork: ["Education Platform", "Service Portfolios", "Client Portals"],
     techStack: ["Next.js", "TypeScript", "Sanity CMS", "Framer Motion"],
-    industry: "Industrial Manufacturing",
-    title: "HEQI Heavy Industries Digital Presence",
+    industry: "Education & Training",
+    title: "HEQI Education Consultant Website",
     description:
-        "A sophisticated digital environment for HEQI, showcasing their industrial expertise and large-scale manufacturing capabilities. Includes service catalogs, case studies, and partner portals.",
+        "HEQI is a web platform created for an education consultancy based in Hong Kong. It establishes an online presence for the consultancy and enables seamless content management through an intuitive admin panel.",
     thumbnail: getImageUrl('cover'),
     thumbnailDescription:
-        "A professional corporate portal highlighting heavy industrial solutions and manufacturing power.",
+        "Offers a static website experience while allowing dynamic updates to content, ensuring flexibility to adapt to changing needs.",
     images: [
         {
             src: getImageUrl('1'),
-            title: "Industrial Portfolio",
-            description: "Detailed catalog of heavy machinery and manufacturing services.",
+            title: "Consultant Business Services",
+            description: "The website highlights the services provided by the HEQI Education Consultancy, including past success stories and their approach to delivering results.",
         },
         {
             src: getImageUrl('2'),
-            title: "Case Study Insights",
-            description: "Showcasing successful large-scale industrial projects globally.",
+            title: "Success stories and Steps",
+            description: "Showcasing successful case studies and insights into the education industry.",
         },
         {
-            src: getImageUrl('3'),
-            title: "Technical Documentation",
-            description: "Integrated resource center for partners and industrial clients.",
+            src: getImageUrl('3'),  
+            title: "Admin Portal",
+            description: "The admin portal provides a secure and user-friendly interface for managing the list of universities and other related information, that is shown in the main website.",
         },
     ].filter(img => img.src),
 };
