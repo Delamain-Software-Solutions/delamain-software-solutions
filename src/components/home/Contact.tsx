@@ -9,7 +9,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { ArrowUpRight, Mail, Phone, MapPin, Send } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone, MapPin, Send, Handshake } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -48,19 +48,29 @@ const Contact = () => {
   return (
     <section id="contact" className="py-16 sm:py-24 bg-white border-t-4 border-[#6366F1]">
       <div className="container mx-auto px-6">
+
+        {/* Top Section: Centered Headings */}
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
+          {/* Icon */}
+          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#3B82F6] rounded-full flex items-center justify-center mb-4 sm:mb-8">
+            <Handshake className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-semibold font-poppins mb-4 sm:mb-6 text-foreground">
+            Tell Us About Your Next Creative Project
+          </h2>
+
+          {/* Subtitle */}
+          <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+            Let's create something amazing together! 
+          </p>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
 
           {/* Left Column: Contact Info & CTA */}
           <div className="flex flex-col space-y-8">
-            <div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins text-foreground mb-6">
-                Tell Us About Your Next Creative Project
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Let's create captivating digital experiences that engage audiences and drive meaningful brand interactions across diverse platforms.
-              </p>
-            </div>
-
             <div className="space-y-6">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center shrink-0">
@@ -93,7 +103,7 @@ const Contact = () => {
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">Visit Us</p>
                   <p className="text-lg font-semibold text-foreground">
-                    Block B, Milaad Street, Faisal Town, Lahore, Pakistan 
+                    Block B, Milaad Street, Faisal Town, Lahore, Pakistan
                   </p>
                 </div>
               </div>

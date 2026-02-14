@@ -14,7 +14,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-muted text-sm leading-relaxed mb-6 max-w-md">
-              Delamain is a software agency delivering scalable AI-powered solutions built for long-term growth.
+              Delivering robust software solutions for business growth!
             </p>
             <div className="flex space-x-3">
               {/* Instagram */}
@@ -66,7 +66,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="border-t border-gray-700 pt-4">
           <p className="text-gray-400 text-sm text-center">
-            @2025 Delamain. All rights reserved
+            @2026 Delamain. All rights reserved
           </p>
         </div>
       </div>
