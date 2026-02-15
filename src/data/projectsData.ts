@@ -5,7 +5,7 @@ import { gymClothingProject } from "./projects/gym-clothing";
 import { heqiProject } from "./projects/heqi";
 import { trackioProject } from "./projects/trackio";
 import { weatherProject } from "./projects/weather-app";
-
+import { breakIntoPcProject } from "./projects/break-into-pc";
 export type ProjectImage = {
   src: string;
   title: string;
@@ -31,6 +31,7 @@ export type Project = {
 
 export const projects: Project[] = [
   dumpsterProject,
+  breakIntoPcProject,
   heqiProject,
   animeProject,
   freelancingProject,

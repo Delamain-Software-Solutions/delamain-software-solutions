@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { projects } from "@/data/projectsData";
+import ZoomableImage from "@/components/shared/ZoomableImage";
 
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -127,11 +128,11 @@ const ProjectDetail = () => {
 
         {/* Big Thumbnail */}
         <div className="mb-12 md:mb-16">
-          <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-[#DEE2E6] bg-white shadow-sm mb-6 md:mb-8">
+          <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-[#DEE2E6] shadow-sm mb-6 md:mb-8">
             <img 
               src={project.thumbnail} 
               alt={project.title} 
-              className="w-full h-auto object-cover max-h-[400px] sm:max-h-[700px]"
+              className="w-full h-auto aspect-[4/3] object-contain max-h-[400px] sm:max-h-[700px]"
             />
           </div>
           <p className="text-lg sm:text-xl md:text-3xl text-center text-[#495057] font-poppins max-w-4xl mx-auto leading-relaxed px-2">
@@ -150,10 +151,10 @@ const ProjectDetail = () => {
             >
               <div className={`w-full order-1 ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
                 <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-[#DEE2E6] bg-white shadow-sm">
-                  <img 
+                  <ZoomableImage 
                     src={imgSection.src} 
                     alt={imgSection.title} 
-                    className="w-full h-auto object-cover"
+                    imgClassName="object-cover"
                   />
                 </div>
               </div>

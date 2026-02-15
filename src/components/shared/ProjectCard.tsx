@@ -26,7 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <img
             src={project.thumbnail}
             alt={project.title}
-            className="w-full sm:h-[450px] object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full aspect-[4/3] object-contain transition-transform duration-500 group-hover:scale-105"
           />
         </div>
 
@@ -40,7 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               <ArrowUpRight className="w-5 h-5 text-white" />
             </div>
           </div>
-          <p className="text-muted-foreground font-poppins text-sm leading-relaxed sm:mb-4">
+          <p className="text-muted-foreground font-poppins text-sm leading-relaxed sm:mb-4 line-clamp-3">
             {project.description}
           </p>
 
