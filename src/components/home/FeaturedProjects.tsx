@@ -3,30 +3,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import accountingImage from "@/assets/accounting-assistant-project.jpg";
-import animeMatcherImage from "@/assets/anime-matcher-project.jpg";
+import { projects } from "@/data/projectsData";
 import ProjectCard from "../shared/ProjectCard";
 
 const FeaturedProjects = () => {
-
-  const featuredProjects = [
-    {
-      title: "Accounting Assistant",
-      slug: "accounting-assistant",
-      industry: "FinTech & Automation", 
-      description: "Intelligent financial automation tool that revolutionizes accounting workflows by automatically generating balance sheets from Excel data.",
-      thumbnail: accountingImage,
-      year: "2026"
-    },
-    {
-      title: "Anime Persona Matcher",
-      slug: "anime-persona-matcher",
-      industry: "Big Data & AI/ML",
-      description: "Sophisticated big data application leveraging ML models to match users with anime characters based on personality analysis.",
-      thumbnail: animeMatcherImage,
-      year: "2025"
-    }
-  ];
+  const featuredProjects = projects.slice(0, 2);
 
   return (
     <section className="pt-10 sm:pt-16 md:pt-24 bg-gradient-to-b from-background to-secondary/5">
@@ -50,9 +31,9 @@ const FeaturedProjects = () => {
 
         <div className="grid justify-items-center lg:grid-cols-2 gap-x-2 gap-y-8 mb-12">
           {featuredProjects.map((project) => (
-            <ProjectCard 
-              key={project.slug} 
-              project={project} 
+            <ProjectCard
+              key={project.slug}
+              project={project}
             />
           ))}
         </div>

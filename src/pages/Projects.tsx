@@ -11,7 +11,7 @@ const Projects = () => {
             Case Studies
           </h1>
           <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground font-quicksand max-w-3xl mx-auto leading-relaxed">
-            A closer look at the projects we've built — from idea to working solution.
+            A closer look at the projects we've built, from idea to solution.
           </p>
         </div>
       </div>
