@@ -36,13 +36,37 @@ const Contact = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "b63690ae-b1c2-43d5-9715-7730fd8c2170",
+          ...values,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        toast({
+          title: "Message Sent!",
+          description: "We'll get back to you as soon as possible.",
+        });
+        form.reset();
+      } else {
+        throw new Error(result.message);
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (
@@ -63,7 +87,7 @@ const Contact = () => {
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
-            Let's create something amazing together! 
+            Let's create something amazing together!
           </p>
         </div>
 
