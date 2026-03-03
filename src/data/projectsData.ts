@@ -33,13 +33,13 @@ export type Project = {
 
 export const projects: Project[] = [
   dumpsterProject,
-  breakIntoPcProject,
-  heqiProject,
+  arcScaleProject,
   animeProject,
+  heqiProject,
   freelancingProject,
   gymClothingProject,
   trackioProject,
   weatherProject,
   fitnessAppProject,
-  arcScaleProject,
+  breakIntoPcProject,
 ];
