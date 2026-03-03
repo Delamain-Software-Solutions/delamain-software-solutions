@@ -7,6 +7,7 @@ import { trackioProject } from "./projects/trackio";
 import { weatherProject } from "./projects/weather-app";
 import { breakIntoPcProject } from "./projects/break-into-pc";
 import { fitnessAppProject } from "./projects/fitness-app";
+import { arcScaleProject } from "./projects/arc-scale-software";
 export type ProjectImage = {
   src: string;
   title: string;
@@ -40,4 +41,5 @@ export const projects: Project[] = [
   trackioProject,
   weatherProject,
   fitnessAppProject,
+  arcScaleProject,
 ];
