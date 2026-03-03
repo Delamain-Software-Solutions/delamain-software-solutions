@@ -15,7 +15,7 @@ const getImageUrl = (name: string) => {
 
 export const freelancingProject: Project = {
     slug: "skillforge",
-    client: "Personal Project",
+    client: "Delamain Software Solutions",
     year: "2025",
     scopeOfWork: [
         "Product Design",

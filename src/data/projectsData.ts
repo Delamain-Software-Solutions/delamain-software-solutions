@@ -6,6 +6,7 @@ import { heqiProject } from "./projects/heqi";
 import { trackioProject } from "./projects/trackio";
 import { weatherProject } from "./projects/weather-app";
 import { breakIntoPcProject } from "./projects/break-into-pc";
+import { fitnessAppProject } from "./projects/fitness-app";
 export type ProjectImage = {
   src: string;
   title: string;
@@ -38,4 +39,5 @@ export const projects: Project[] = [
   gymClothingProject,
   trackioProject,
   weatherProject,
+  fitnessAppProject,
 ];
