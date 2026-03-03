@@ -29,18 +29,36 @@ export const dumpsterProject: Project = {
     images: [
         {
             src: getImageUrl('1'),
-            title: "Scheduling Dashboard",
-            description: "Interactive calendar for managing rentals, pickups and other types of services.",
+            title: "Create Orders",
+            description: "A comprehensive interface to create new orders, capture customer information, and configure job-specific details including pricing and delivery locations.",
+            bulletHeading: "Key Features",
+            bullets: [
+                "Detailed customer information capture",
+                "Job address and location mapping",
+                "Advanced pricing configurations"
+            ]
         },
         {
             src: getImageUrl('2'),
-            title: "Inventory Tracking",
-            description: "Real-time updates on dumpster locations and availability. The system also tracks the inventory of dumpsters and their availability.",
+            title: "Dispatch Board",
+            description: "A central dispatch board designed for operational efficiency, providing a clear overview to manage dispatch schedules and monitor fleet performance.",
+            bulletHeading: "Key Features",
+            bullets: [
+                "Interactive board for assigned tasks",
+                "Real-time dispatch updates",
+                "Efficiency and route tracking"
+            ]
         },
         {
             src: getImageUrl('3'),
-            title: "Automated Billing",
-            description: "Integrated invoicing and payment processing system. The system also handles the payment processing and billing for the customers.",
+            title: "Orders List",
+            description: "A complete tabular view of all active and past orders, alongside essential data like customer lists and current dumpster inventories for capacity planning.",
+            bulletHeading: "Key Features",
+            bullets: [
+                "Searchable and filterable orders list",
+                "Detailed customer records",
+                "Live dumpster inventory status"
+            ]
         },
     ].filter(img => img.src),
 };
