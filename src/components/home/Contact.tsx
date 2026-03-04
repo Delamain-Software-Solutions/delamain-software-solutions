@@ -113,7 +113,7 @@ const Contact = () => {
                   <Phone className="w-5 h-5 text-[#3B82F6]" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground">Call Us</p>
+                  <p className="text-sm font-medium text-muted-foreground">Call/Message us on WhatsApp</p>
                   <a href="tel:+92 302 4072240" className="text-lg font-semibold text-foreground hover:text-[#3B82F6] transition-colors">
                     +92 302 4072240
                   </a>
