@@ -1,0 +1,3 @@
+A full-stack SaaS platform that streamlines logistics, dispatching, and daily operations for dumpster rental businesses. Built with React, Node.js, and Supabase, it replaces fragmented manual workflows with a single operational dashboard.
+
+It enables teams to manage orders, fleets, inventories, and dispatch operations from a single, centralized system, while offering flexible configuration to match different business workflows.

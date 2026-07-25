@@ -1,0 +1,1 @@
+CI/CD, GitHub Actions, DevOps, Continuous Deployment, Electron, Build Automation, Continuous Integration, JavaScript, Supabase, API Integration, Web Application, Node.js, Cloud Deployment, Full-Stack Development, REST API

@@ -1,0 +1,1 @@
+Full-Stack Development, React, Node.js, Supabase, API Integration, SaaS Development, CRM, Real-Time Applications, Payment Integration, Dashboard, ExpressJS, JavaScript, Web Application, REST API, Third-Party Integration

@@ -1,0 +1,1 @@
+Full-Stack Development, React, Supabase, Web Application, SaaS Development, API Integration, Dashboard, JavaScript, TypeScript, Role-Based Access Control, Elearning, Course Creation, Video Streaming, Responsive Design, Database Design

@@ -1,0 +1,1 @@
+Full-Stack Development, React, Python, Django, Machine Learning, Computer Vision, AI Development, REST API, Web Application, JavaScript, API Integration, Database Design, Artificial Intelligence, Microservices, Responsive Design

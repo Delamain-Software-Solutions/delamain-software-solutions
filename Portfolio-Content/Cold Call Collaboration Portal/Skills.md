@@ -1,0 +1,1 @@
+Amazon Web Services, AWS Lambda, Amazon DynamoDB, Serverless Architecture, React, API Development, Real-Time Applications, WebSocket, Amazon CloudFront, Amazon S3, CI/CD, GitHub Actions, NoSQL, Cloud Architecture, Full-Stack Development

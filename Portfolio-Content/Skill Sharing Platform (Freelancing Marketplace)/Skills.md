@@ -1,0 +1,1 @@
+Full-Stack Development, React, Node.js, PostgreSQL, Socket.io, SaaS Development, Real-Time Applications, Web Application, API Development, JavaScript, TypeScript, ExpressJS, Database Design, REST API, Authentication

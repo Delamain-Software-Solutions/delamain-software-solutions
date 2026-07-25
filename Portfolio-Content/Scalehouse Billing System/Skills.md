@@ -1,0 +1,1 @@
+Full-Stack Development, React, Node.js, Supabase, ExpressJS, JavaScript, Web Application, Dashboard, API Integration, Billing System, SaaS Development, Database Design, Enterprise Software Development, REST API, Reporting

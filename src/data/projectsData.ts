@@ -1,13 +1,10 @@
-import { animeProject } from "./projects/anime";
-import { dumpsterProject } from "./projects/dumpster-rental-app";
-import { freelancingProject } from "./projects/freelancing-platform";
-import { gymClothingProject } from "./projects/gym-clothing";
-import { heqiProject } from "./projects/heqi";
+import { coldCallPortalProject } from "./projects/cold-call-portal";
+import { dumpsterRentalSystemProject } from "./projects/dumpster-rental-system";
+import { oratorAiProject } from "./projects/orator-ai";
+import { scalehouseBillingSystemProject } from "./projects/scalehouse-billing-system";
 import { trackioProject } from "./projects/trackio";
-import { weatherProject } from "./projects/weather-app";
-import { breakIntoPcProject } from "./projects/break-into-pc";
-import { fitnessAppProject } from "./projects/fitness-app";
-import { arcScaleProject } from "./projects/arc-scale-software";
+import { animeProject } from "./projects/anime";
+
 export type ProjectImage = {
   src: string;
   title: string;
@@ -32,14 +29,10 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  dumpsterProject,
-  arcScaleProject,
-  animeProject,
-  heqiProject,
-  freelancingProject,
-  gymClothingProject,
+  dumpsterRentalSystemProject,
+  oratorAiProject,
+  coldCallPortalProject,
+  scalehouseBillingSystemProject,
   trackioProject,
-  weatherProject,
-  fitnessAppProject,
-  breakIntoPcProject,
+  animeProject,
 ];
