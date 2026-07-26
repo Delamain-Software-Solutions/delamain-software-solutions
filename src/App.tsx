@@ -10,6 +10,9 @@ import Booking from "./pages/Booking";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ScrollProgressBar from "./components/shared/ScrollProgressBar";
+import GlobalBackground from "./components/shared/GlobalBackground";
+import ServicesPage from "./pages/ServicesPage";
 
 const queryClient = new QueryClient();
 
@@ -19,15 +22,20 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/work" element={<Projects />} />
-          <Route path="/work/:slug" element={<ProjectDetail />} />
-          <Route path="/booking" element={<Booking />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
+        <GlobalBackground />
+        <ScrollProgressBar />
+        <div className="relative" style={{ zIndex: 1 }}>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/work" element={<Projects />} />
+            <Route path="/work/:slug" element={<ProjectDetail />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

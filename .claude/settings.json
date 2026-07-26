@@ -4,7 +4,18 @@
       "Bash(command -v chromium-cli)",
       "Bash(npm ls *)",
       "Bash(git show *)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(mkdir -p \"/c/Users/MAAZAH~1/AppData/Local/Temp/claude/d--Work-Agency-Delamain-Software-Solutions/39b67b6f-6983-4414-b67f-2696612ceddb/scratchpad/fonts\" && curl -sL \"https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400..800&display=swap\" -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\" -o \"/c/Users/MAAZAH~1/AppData/Local/Temp/claude/d--Work-Agency-Delamain-Software-Solutions/39b67b6f-6983-4414-b67f-2696612ceddb/scratchpad/fonts/hanken.css\" && cat \"/c/Users/MAAZAH~1/AppData/Local/Temp/claude/d--Work-Agency-Delamain-Software-Solutions/39b67b6f-6983-4414-b67f-2696612ceddb/scratchpad/fonts/hanken.css\")",
+      "Bash(curl -sL \"https://fonts.gstatic.com/s/hankengrotesk/v12/ieVn2YZDLWuGJpnzaiwFXS9tYtpd59A.woff2\" -o \"d:/Work/Agency/Delamain-Software-Solutions/src/fonts/hankengrotesk/HankenGrotesk-VariableFont.woff2\")",
+      "Bash(timeout 30 bash -c 'until curl -sf http://localhost:5173 >/dev/null 2>&1 || curl -sf http://localhost:8080 >/dev/null 2>&1; do sleep 1; done')",
+      "Bash(lsof -ti:8080 -sTCP:LISTEN)",
+      "Bash(xargs -r kill)",
+      "Bash(identify public/Delamain-Logo.png)",
+      "Bash(node -e ' *)",
+      "Bash(npx --version)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\MAAZAH~1\\AppData\\Local\\Temp\\claude\\d--Work-Agency-Delamain-Software-Solutions\\39b67b6f-6983-4414-b67f-2696612ceddb\\scratchpad"
     ]
   }
 }

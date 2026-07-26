@@ -2,21 +2,18 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0F172A] text-white py-8 sm:py-16">
+    <footer data-bg="dark" className="bg-black text-[#a1a1a6] py-12 sm:py-20">
       <div className="container mx-auto px-6">
         <div className="flex flex-col sm:flex-row justify-between gap-12 mb-12">
           {/* Brand Section */}
-          <div className='flex-1'>
-            <div className="flex justify-start">
-              <div className="mb-4 flex flex-col justify-center items-center">
-                <h2 className="text-[32px] font-semibold font-open">Delamain</h2>
-                <p className="text-xs font-open font-semibold text-white uppercase">Software Solutions</p>
-              </div>
-            </div>
-            <p className="text-muted text-sm leading-relaxed mb-6 max-w-md">
-              Delivering robust software solutions for business growth!
-            </p>
-            <div className="flex space-x-3">
+          <div className='flex-1 max-w-md'>
+            <Link to="/" className="flex items-center">
+              <img src="/logo-full.svg" alt="Delamain Software Solutions" className="h-20 w-auto invert" />
+            </Link>
+            {/* <p className="text-sm leading-relaxed mt-4 mb-6 max-w-md">
+              Developed by Professionals, Coded by AI!
+            </p> */}
+            <div className="flex space-x-3 pt-20">
               {/* Instagram */}
               <a href="#" className="w-10 h-10 bg-[#1E293B] rounded-full flex items-center justify-center hover:bg-[#334155] transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -38,35 +35,33 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='flex justify-between flex-1'>
+          <div className='flex justify-between flex-1 gap-12'>
             {/* Quick Links */}
             <div>
-              <h4 className="font-semibold text-[#5A96F7] font-poppins mb-6 text-2xl">Quick Links</h4>
-              <ul className="space-y-3 text-gray-100 text-sm [&_a]:hover:text-white [&_a]:transition-colors">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About Us</Link></li>
-                <li><Link to="/services">Services</Link></li>
-                <li><Link to="/work">Our Work</Link></li>
-                <li><Link to="/contact">Contact Us</Link></li>
+              <h4 className="font-hanken font-bold text-white mb-6 text-lg">Quick Links</h4>
+              <ul className="space-y-3 text-sm">
+                <li><Link to="/" className="hover:text-white hover:underline underline-offset-4 transition-colors">Home</Link></li>
+                <li><Link to="/#home" className="hover:text-white hover:underline underline-offset-4 transition-colors">About Us</Link></li>
+                <li><Link to="/services" className="hover:text-white hover:underline underline-offset-4 transition-colors">Services</Link></li>
+                <li><Link to="/work" className="hover:text-white hover:underline underline-offset-4 transition-colors">Our Work</Link></li>
+                <li><Link to="/#contact" className="hover:text-white hover:underline underline-offset-4 transition-colors">Contact Us</Link></li>
               </ul>
             </div>
-            {/* Services */}
+            {/* Contact */}
             <div>
-              <h4 className="font-semibold text-[#5A96F7] font-poppins mb-6 text-2xl">Services</h4>
-              <ul className="space-y-3 text-gray-100 text-sm [&_a]:hover:text-white [&_a]:transition-colors">
-                <li><a href="#">Web Development</a></li>
-                <li><a href="#">Mobile Apps</a></li>
-                <li><a href="#">Desktop Software</a></li>
-                <li><a href="#">AI Integration</a></li>
-                <li><a href="#">Consulting</a></li>
+              <h4 className="font-hanken font-bold text-white mb-6 text-lg">Contact</h4>
+              <ul className="space-y-3 text-sm">
+                <li><a href="mailto:contact@delamainsoftware.com" className="hover:text-white hover:underline underline-offset-4 transition-colors">Email</a></li>
+                <li><a href="https://wa.me/923024072240" className="hover:text-white hover:underline underline-offset-4 transition-colors">WhatsApp</a></li>
+                <li><Link to="/#contact" className="hover:text-white hover:underline underline-offset-4 transition-colors">Get in touch</Link></li>
               </ul>
             </div>
           </div>
         </div>
         {/* Bottom Section */}
-        <div className="border-t border-gray-700 pt-4">
-          <p className="text-gray-400 text-sm text-center">
-            @2026 Delamain. All rights reserved
+        <div className="border-t border-white/10 pt-6">
+          <p className="text-sm text-center">
+            &copy; 2026 Delamain Software Solutions. All rights reserved.
           </p>
         </div>
       </div>

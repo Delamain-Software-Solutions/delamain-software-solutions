@@ -1,203 +1,224 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  Play,
-  Brain,
-  Zap,
-  TrendingUp,
-  ArrowUpRight,
-  ArrowUpRightFromCircle,
-  CircleArrowOutUpRight,
-} from "lucide-react";
+import { ArrowUpRight, ArrowUpRightFromCircle, Landmark, Cloud, HeartPulse, Gamepad2, Building2, GraduationCap, Compass, Workflow, Bot, ShieldCheck } from "lucide-react";
+
+const AI_CARDS = [
+  { title: "AI Discovery & Roadmap", desc: "Find where AI pays off first.", icon: Compass },
+  { title: "Workflow Automation", desc: "Automate the busywork.", icon: Workflow },
+  { title: "AI Agents", desc: "Autonomous helpers in your stack.", icon: Bot },
+  { title: "AI Ops & Governance", desc: "Run models safely, at scale.", icon: ShieldCheck },
+];
+
+const CLIENT_CARDS = [
+  { name: "America's Bin Company", logo: "/americas-bin-co.png" },
+  { name: "America's Recycling Company", logo: "/americas-recycling-co.png" },
+  { name: "Delta Technologies", logo: "/delta-tech-logo.svg" },
+];
+
+const INDUSTRIES = [
+  { name: "FinTech", icon: Landmark },
+  { name: "SaaS", icon: Cloud },
+  { name: "Healthcare", icon: HeartPulse },
+  { name: "Gaming", icon: Gamepad2 },
+  { name: "Enterprise", icon: Building2 },
+  { name: "EdTech", icon: GraduationCap },
+];
+
+const SLIDE_INTERVAL = 7000;
 
 const HeroSection = () => {
   const navigate = useNavigate();
+  const [slide, setSlide] = useState(0);
+  const pausedRef = useRef(false);
 
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (!pausedRef.current) setSlide((s) => (s + 1) % 2);
+    }, SLIDE_INTERVAL);
+    return () => clearInterval(id);
+  }, []);
+
+  const goToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) contactSection.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const goToServices = () => {
+    const servicesSection = document.getElementById("services");
+    if (servicesSection) servicesSection.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section
       id="home"
-      className="min-h-screen bg-gradient-to-b from-background to-[#e3e4f9] flex items-center justify-center relative overflow-hidden"
+      className="relative min-h-[min(920px,100vh)] overflow-hidden"
+      onMouseEnter={() => (pausedRef.current = true)}
+      onMouseLeave={() => (pausedRef.current = false)}
     >
-
-      {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 z-0 opacity-[0.15] pointer-events-none"
-        style={{ backgroundImage: 'radial-gradient(circle, #3B82F6 1px, transparent 1px)', backgroundSize: '48px 48px' }}>
-      </div>
-
-      {/* AI Glow elements (refined and subtle) */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-blue-100/30 blur-[120px] rounded-full animate-pulse"></div>
-        <div className="absolute top-[20%] -right-[5%] w-[40%] h-[40%] bg-indigo-100/20 blur-[100px] rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
-      </div>
-
-      {/* Gradient Overlay */}
-      <div className="container mx-auto sm:px-6 py-10 sm:py-20 md:py-40 relative z-10">
-        {/* Main Hero Content */}
-        <div className="mx-auto pt-20 sm:py-8 text-center">
-          {/* Main Headline */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold font-poppins leading-tight text-primary">
-            <div className="min-h-[1.2em]">
-              <span className="text-[#3B82F6]">AI Accelerated, </span>{" "}
-              <span>Expertly Perfected!</span>
+      <div className="relative grid min-h-[min(920px,100vh)] items-start">
+        {/* SLIDE 0 : AI */}
+        <div
+          className="[grid-area:1/1] pt-[clamp(112px,13vw,140px)] px-[clamp(20px,6vw,64px)] pb-[clamp(64px,6vw,84px)] transition-all duration-700 ease-out"
+          style={{
+            opacity: slide === 0 ? 1 : 0,
+            transform: slide === 0 ? "translateY(0)" : "translateY(18px)",
+            pointerEvents: slide === 0 ? "auto" : "none",
+          }}
+        >
+          <div className="w-full max-w-[1180px] sm:mx-auto lg:ml-24">
+            <div className="text-accent text-[13px] font-bold uppercase tracking-[.24em] mb-5">
+              AI Automation Solutions
             </div>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="sm:text-xl mt-4 text-muted-foreground font-quicksand max-w-5xl mx-auto leading-relaxed">
-            We build and provide AI, Data, and Cloud engineering solutions that
-            automate processes, improve decision-making, and help enterprises
-            scale while empowering startups to grow.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 sm:mt-12">
-            <Button
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="flex items-center gap-10 pl-3 pr-0.5 py-0.5 bg-gradient-to-r from-[#3B82F6] to-[#4C4FF0] rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
-            >
-              <span className="font-open font-medium text-base text-white leading-tight">
-                Let's Talk
-              </span>
-              <div className="flex items-center justify-center m-1.5 w-8 h-8 bg-white rounded-full">
-                <ArrowUpRight className="w-5 h-5 text-[#0F172A]" />
-              </div>
-            </Button>
-
-            <Button
-              onClick={() => navigate("/booking")}
-              variant="outline"
-              className="flex items-center gap-3 px-6 h-[42px] border-[#3B82F6] text-[#3B82F6] hover:bg-[#3B82F6]/5 hover:text-[#3B82F6] rounded-full transition-all duration-300 hover:scale-105 font-medium"
-            >
-              <Zap className="w-5 h-5" />
-              Schedule Call
-            </Button>
-          </div>
-        </div>
-        {/* Feature divs */}
-        <section className="w-full max-w-7xl mx-auto sm:px-4 font-open mt-6 sm:mt-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto max-md:max-w-sm gap-6">
-            {/* LEFT COLUMN */}
-            <div className="order-2 md:order-2 md:col-span-2 lg:order-1 lg:col-span-1 grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-col lg:justify-end gap-6">
-              <div className="flex justify-around items-center text-center bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-gray-100 px-5 py-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-blue-100">
-                <div className="flex flex-col items-center gap-2">
-                  <div className="bg-[#E9EFFE] p-3 rounded-full">
-                    <img
-                      src="/ai-ml.svg"
-                      width={18}
-                      height={18}
-                      alt="AI / ML Solutions"
-                    />
-                  </div>
-                  <p className="text-xs font-medium text-gray-700 text-center">
-                    AI / ML <br /> Solutions
-                  </p>
-                </div>
-                <div className="flex flex-col items-center gap-2">
-                  <div className="bg-[#E9EFFE] p-3 rounded-full">
-                    <img
-                      src="/full-stack.svg"
-                      width={18}
-                      height={18}
-                      alt="Full-Stack Engineering"
-                    />
-                  </div>
-                  <p className="text-xs font-medium text-gray-700 text-center">
-                    Full-Stack <br /> Engineering
-                  </p>
-                </div>
-
-                <div className="flex flex-col items-center gap-2">
-                  <div className="bg-[#E9EFFE] p-3 rounded-full">
-                    <img
-                      src="/cloud.svg"
-                      width={18}
-                      height={18}
-                      alt="Cloud & DevOps"
-                    />
-                  </div>
-                  <p className="text-xs font-medium text-gray-700 text-center">
-                    Cloud & <br /> DevOps
-                  </p>
-                </div>
-              </div>
-
+            <h1 className="font-hanken font-extrabold text-[clamp(42px,7vw,92px)] leading-[1.0] tracking-[-.035em] max-w-[15ch] text-foreground">
+              Reimagine your business with AI<span className="text-accent">.</span>
+            </h1>
+            <p className="max-w-[600px] mt-6 text-[clamp(17px,2.1vw,22px)] text-muted-foreground">
+              We help teams integrate AI into their daily workflows. Automating the busywork and building intelligent tools that learn, adapt and scale.
+            </p>
+            <div className="flex flex-wrap items-center gap-3.5 mt-8">
+              <Button
+                onClick={goToServices}
+                className="group flex items-center gap-2.5 pl-6 pr-4 py-6 bg-foreground text-white rounded-pill text-base font-semibold hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+              >
+                Explore AI services
+                <span className="flex items-center justify-center w-7 h-7 bg-white rounded-full text-foreground transition-transform group-hover:translate-x-0.5">
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
+              </Button>
+              <Button
+                onClick={goToContact}
+                variant="outline"
+                className="flex items-center gap-2 px-6 py-6 bg-black/5 border-none text-foreground rounded-pill text-base font-semibold hover:-translate-y-1 transition-all duration-300"
+              >
+                Let's talk
+              </Button>
               <a
                 href="https://www.upwork.com/agencies/1959629402932155222/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between gap-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-gray-100 p-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-blue-100 group"
+                className="flex items-center gap-2 text-foreground text-[15px] font-semibold"
               >
-                <div className="flex items-center gap-3">
-                  <img src="/upwork.svg" alt="Upwork" width={32} />
-                  <div>
-                    <p className="font-semibold text-lg">Delamain Software</p>
-                    <p className="text-xs text-gray-500 underline group-hover:text-blue-500 transition-colors">
-                      See Full Profile
-                    </p>
-                  </div>
-                </div>
-                <ArrowUpRightFromCircle className="w-6 h-6 text-gray-400 group-hover:text-blue-500 transition-colors" />
+                <span className="text-[#ffb400] tracking-wider">★</span>
+                5.0 &middot; Top Rated on Upwork
+                <ArrowUpRightFromCircle className="w-4 h-4 text-muted-foreground" />
               </a>
             </div>
-
-            {/* CENTER COLUMN */}
-            <div className="order-1 md:order-1 md:w-fit mx-auto md:col-span-2 lg:order-2 lg:col-span-1 flex flex-col gap-6 bg-white/90 backdrop-blur-sm rounded-2xl shadow-sm border border-gray-100 p-5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-blue-100">
-              <div>
-                <h3 className="text-lg font-semibold">Services</h3>
-                <p className="text-sm text-gray-500">
-                  Empowering your business with modern, scalable solutions.
-                </p>
+            <div className="mt-10 sm:mt-14">
+              <div className="text-xs font-bold uppercase tracking-[.2em] text-muted-foreground mb-4">
+                Our AI services
               </div>
-
-              <div className="flex items-center justify-center gap-3">
-                <div className="bg-[#E9EFFE] p-3 rounded-full">
-                  <img src="/website.svg" width={20} alt="Website" />
-                </div>
-                <span className="font-semibold">
-                  Web Design & Development
-                </span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 mt-4">
-                <div className="flex flex-col items-center text-center gap-2">
-                  <div className="bg-[#E9EFFE] p-3 rounded-full">
-                    <img src="/desktop.svg" width={20} alt="Desktop Applications" />
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 max-w-[980px]">
+                {AI_CARDS.map((card) => (
+                  <div
+                    key={card.title}
+                    className="p-5 border border-black/10 rounded-2xl bg-white/60 backdrop-blur-md shadow-[0_18px_40px_-24px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+                  >
+                    <div className="w-8 h-8 rounded-[10px] bg-accent flex items-center justify-center mb-4">
+                      <card.icon className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="text-[15px] sm:text-base font-extrabold leading-tight">{card.title}</div>
+                    <div className="mt-1.5 text-[13px] text-muted-foreground leading-snug">{card.desc}</div>
                   </div>
-                  <p className="font-semibold">Desktop <br /> Applications</p>
-                </div>
-                <div className="flex flex-col items-center text-center gap-2">
-                  <div className="bg-[#E9EFFE] p-3 rounded-full">
-                    <img src="/mobile.svg" width={20} alt="Mobile Applications" />
-                  </div>
-                  <p className="font-semibold">Mobile <br /> Applications</p>
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN */}
-            <div className="order-3 md:order-3 md:col-span-2 lg:order-3 lg:col-span-1 grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-col gap-6">
-              <div className="flex items-center justify-between bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-gray-100 p-3 pr-12 w-full lg:w-fit transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-blue-100">
-                <div>
-                  <p className="font-semibold text-lg underline decoration-dotted underline-offset-2 mb-4">Overall Reviews <ArrowUpRightFromCircle className="w-5 h-5 inline ml-2" /> </p>
-                  <img src="/stars.svg" width={100} alt="Star Rating" />
-                </div>
-              </div>
-
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm border border-gray-100 p-3 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-blue-100">
-                <p className="font-semibold text-lg mb-1">Industries Served</p>
-                <p className="text-xs text-gray-700">
-                  FinTech • SaaS • Healthcare • Gaming • Enterprise • EdTech
-                </p>
+                ))}
               </div>
             </div>
           </div>
-        </section>{" "}
+        </div>
+
+        {/* SLIDE 1 : CRM */}
+        <div
+          className="[grid-area:1/1] relative pt-[clamp(112px,13vw,140px)] px-[clamp(20px,6vw,64px)] pb-[clamp(64px,6vw,84px)] transition-all duration-700 ease-out"
+          style={{
+            opacity: slide === 1 ? 1 : 0,
+            transform: slide === 1 ? "translateY(0)" : "translateY(18px)",
+            pointerEvents: slide === 1 ? "auto" : "none",
+          }}
+        >
+          <div className="w-full max-w-[1180px] sm:mx-auto lg:ml-24">
+            <div className="text-accent text-[13px] font-bold uppercase tracking-[.24em] mb-5">
+              Custom software
+            </div>
+            <h1 className="font-hanken font-extrabold text-[clamp(36px,5.4vw,74px)] leading-[1.03] tracking-[-.035em] max-w-[17ch] text-foreground">
+              CRMs &amp; internal tools, built around how you work<span className="text-accent">.</span>
+            </h1>
+            <p className="max-w-[560px] mt-6 text-[clamp(17px,2.1vw,22px)] text-muted-foreground">
+              From dispatch and inventory to sales and support, we build the internal software that runs the business. Customized around your team and business processes.
+            </p>
+            <div className="flex flex-wrap gap-3.5 mt-8">
+              <Button
+                onClick={() => navigate("/work")}
+                className="group flex items-center gap-2.5 pl-6 pr-4 py-6 bg-foreground text-white rounded-pill text-base font-semibold hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+              >
+                See our work
+                <span className="flex items-center justify-center w-7 h-7 bg-white rounded-full text-foreground transition-transform group-hover:translate-x-0.5">
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
+              </Button>
+              <Button
+                onClick={goToContact}
+                variant="outline"
+                className="flex items-center gap-2 px-6 py-6 bg-black/5 border-none text-foreground rounded-pill text-base font-semibold hover:-translate-y-1 transition-all duration-300"
+              >
+                Let's talk
+              </Button>
+            </div>
+            <div className="mt-10 sm:mt-12">
+              <div className="text-xs font-bold uppercase tracking-[.2em] text-muted-foreground mb-5">
+                Industries we serve
+              </div>
+              <div className="flex flex-nowrap gap-2.5 max-w-[800px] overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                {INDUSTRIES.map((ind) => (
+                  <span
+                    key={ind.name}
+                    className="flex-none flex items-center gap-1.5 px-3.5 py-2 border border-black/10 rounded-pill text-md font-semibold text-foreground/80 whitespace-nowrap"
+                  >
+                    <ind.icon className="w-3.5 h-3.5 text-accent shrink-0" />
+                    {ind.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Floating client cards */}
+          <div className="hidden lg:flex absolute right-[clamp(20px,6vw,64px)] bottom-[clamp(64px,9vw,96px)] flex-col items-end gap-3 z-[2]">
+            <div className="text-[11px] font-bold uppercase tracking-[.2em] text-muted-foreground">
+              Proud to build for
+            </div>
+            <div className="w-[240px] flex flex-col items-center text-center gap-2.5 p-4 border border-black/10 rounded-2xl bg-white/70 backdrop-blur-md shadow-[0_18px_40px_-26px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-accent/50">
+              <img src={CLIENT_CARDS[0].logo} alt={CLIENT_CARDS[0].name} className="h-[40px] object-contain" />
+              <div className="text-[13px] font-extrabold leading-tight">{CLIENT_CARDS[0].name}</div>
+            </div>
+            <div className="flex gap-3">
+              {CLIENT_CARDS.slice(1).map((client) => (
+                <div
+                  key={client.name}
+                  className="w-[158px] flex flex-col items-center text-center gap-2.5 p-4 border border-black/10 rounded-2xl bg-white/70 backdrop-blur-md shadow-[0_18px_40px_-26px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+                >
+                  <img src={client.logo} alt={client.name} className="h-[40px] object-contain" />
+                  <div className="text-[13px] font-extrabold leading-tight">{client.name}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Dot navigation */}
+      <div className="absolute right-[clamp(20px,6vw,64px)] bottom-[clamp(38px,6vw,56px)] flex gap-2.5 z-[5]">
+        {[0, 1].map((i) => (
+          <button
+            key={i}
+            onClick={() => setSlide(i)}
+            aria-label={i === 0 ? "AI slide" : "CRM slide"}
+            className="h-[9px] rounded-pill transition-all duration-300"
+            style={{
+              width: slide === i ? "26px" : "9px",
+              background: slide === i ? "hsl(var(--accent))" : "rgba(0,0,0,.22)",
+            }}
+          />
+        ))}
       </div>
     </section>
   );

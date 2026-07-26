@@ -19,10 +19,10 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'poppins': ['Poppins', 'sans-serif'],
-				'open': ['Open Sans', 'sans-serif'],
-				'quicksand': ['Quicksand', 'sans-serif'],
-				
+				'hanken': ['Hanken Grotesk', 'sans-serif'],
+				'poppins': ['Hanken Grotesk', 'sans-serif'],
+				'open': ['Hanken Grotesk', 'sans-serif'],
+				'quicksand': ['Hanken Grotesk', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -72,7 +72,10 @@ export default {
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				'4xl': '28px',
+				'5xl': '34px',
+				'pill': '100px'
 			},
 			keyframes: {
 				'accordion-down': {
