@@ -77,7 +77,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="relative pt-[clamp(140px,16vw,196px)] pb-[clamp(60px,8vw,96px)] px-5 sm:px-8 overflow-hidden">
+      <header className="relative pt-[clamp(140px,16vw,156px)] pb-[clamp(60px,8vw,96px)] px-5 sm:px-8 overflow-hidden">
         <div className="relative max-w-[1120px] mx-auto">
           <RevealOnScroll>
             <SectionBadge className="block mb-5">Our work</SectionBadge>
@@ -132,12 +132,12 @@ const Projects = () => {
 
       {/* CTA */}
       <section className="py-[clamp(80px,11vw,150px)] px-5 sm:px-8">
-        <RevealOnScroll className="max-w-[840px] mx-auto text-center">
+        <RevealOnScroll className="max-w-[940px] mx-auto text-center">
           <h2 className="font-hanken font-extrabold text-[clamp(36px,5.6vw,64px)] leading-[1.02] tracking-[-.035em] text-foreground">
             Have something like this in mind?
           </h2>
-          <p className="max-w-[520px] mx-auto mt-6 text-[clamp(17px,2.2vw,21px)] text-muted-foreground">
-            Tell us what you're building — we'll tell you how we'd ship it.
+          <p className="max-w-[580px] mx-auto mt-6 text-[clamp(17px,2.2vw,21px)] text-muted-foreground">
+            Tell us what you're building, we'll tell you how to get started!
           </p>
           <div className="flex gap-3.5 flex-wrap justify-center mt-10">
             <Link to="/#contact">

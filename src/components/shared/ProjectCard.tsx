@@ -41,7 +41,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         {/* Content */}
         <div className="pt-2 sm:pt-4 px-4 sm:px-8 pb-4 sm:pb-8 space-y-3 sm:space-y-4">
           <div className="flex justify-between items-center gap-1 sm:gap-4">
-            <h3 className="text-lg sm:text-xl font-hanken font-bold tracking-[-.02em] text-foreground">
+            <h3 className="text-lg sm:text-2xl mt-3 font-hanken font-bold tracking-[-.02em] text-foreground">
               {project.title}
             </h3>
             <div className="shrink-0 flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-accent/10 rounded-full text-accent transition-transform duration-300 group-hover:rotate-45 group-hover:bg-accent group-hover:text-white">
