@@ -17,7 +17,9 @@
       "Bash(grep -E \"^\\(form|input|textarea|use-toast\\)\\\\.tsx?$\")",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8081/)",
-      "Bash(git diff *)"
+      "Bash(git diff *)",
+      "Bash(lsof -ti:5173 -sTCP:LISTEN)",
+      "Bash(curl -s http://localhost:5183/ -o /dev/null -w \"%{http_code}\\\\n\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\MAAZAH~1\\AppData\\Local\\Temp\\claude\\d--Work-Agency-Delamain-Software-Solutions\\39b67b6f-6983-4414-b67f-2696612ceddb\\scratchpad"

@@ -4,16 +4,13 @@ const Footer = () => {
   return (
     <footer data-bg="dark" className="bg-black text-[#a1a1a6] py-12 sm:py-20">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col sm:flex-row justify-between gap-12 mb-12">
+        <div className="flex flex-col items-center text-center sm:items-stretch sm:text-left sm:flex-row justify-between gap-10 sm:gap-12 mb-10 sm:mb-12">
           {/* Brand Section */}
-          <div className='flex-1 max-w-md'>
+          <div className="flex-1 max-w-md flex flex-col items-center sm:items-start">
             <Link to="/" className="flex items-center">
-              <img src="/logo-full.svg" alt="Delamain Software Solutions" className="h-20 w-auto invert" />
+              <img src="/logo-full.svg" alt="Delamain Software Solutions" className="h-16 sm:h-20 w-auto invert" />
             </Link>
-            {/* <p className="text-sm leading-relaxed mt-4 mb-6 max-w-md">
-              Developed by Professionals, Coded by AI!
-            </p> */}
-            <div className="flex space-x-3 pt-20">
+            <div className="flex space-x-3 mt-6 sm:mt-20">
               {/* Instagram */}
               <a href="#" className="w-10 h-10 bg-[#1E293B] rounded-full flex items-center justify-center hover:bg-[#334155] transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -35,11 +32,12 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className='flex justify-between flex-1 gap-12'>
+          {/* Links */}
+          <div className="w-full grid grid-cols-2 gap-8 sm:flex sm:justify-between sm:flex-1 sm:gap-12">
             {/* Quick Links */}
             <div>
-              <h4 className="font-hanken font-bold text-white mb-6 text-lg">Quick Links</h4>
-              <ul className="space-y-3 text-sm">
+              <h4 className="font-hanken font-bold text-white mb-4 sm:mb-6 text-base sm:text-lg">Quick Links</h4>
+              <ul className="space-y-2.5 sm:space-y-3 text-sm">
                 <li><Link to="/" className="hover:text-white hover:underline underline-offset-4 transition-colors">Home</Link></li>
                 <li><Link to="/#home" className="hover:text-white hover:underline underline-offset-4 transition-colors">About Us</Link></li>
                 <li><Link to="/services" className="hover:text-white hover:underline underline-offset-4 transition-colors">Services</Link></li>
@@ -49,8 +47,8 @@ const Footer = () => {
             </div>
             {/* Contact */}
             <div>
-              <h4 className="font-hanken font-bold text-white mb-6 text-lg">Contact</h4>
-              <ul className="space-y-3 text-sm">
+              <h4 className="font-hanken font-bold text-white mb-4 sm:mb-6 text-base sm:text-lg">Contact</h4>
+              <ul className="space-y-2.5 sm:space-y-3 text-sm">
                 <li><a href="mailto:contact@delamainsoftware.com" className="hover:text-white hover:underline underline-offset-4 transition-colors">Email</a></li>
                 <li><a href="https://wa.me/923024072240" className="hover:text-white hover:underline underline-offset-4 transition-colors">WhatsApp</a></li>
                 <li><Link to="/#contact" className="hover:text-white hover:underline underline-offset-4 transition-colors">Get in touch</Link></li>
@@ -60,7 +58,7 @@ const Footer = () => {
         </div>
         {/* Bottom Section */}
         <div className="border-t border-white/10 pt-6">
-          <p className="text-sm text-center">
+          <p className="text-xs sm:text-sm text-center">
             &copy; 2026 Delamain Software Solutions. All rights reserved.
           </p>
         </div>

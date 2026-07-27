@@ -161,10 +161,10 @@ const HeroSection = () => {
       onMouseEnter={() => (pausedRef.current = true)}
       onMouseLeave={() => (pausedRef.current = false)}
     >
-      <div className="relative grid min-h-[min(920px,100vh)] min-[2200px]:min-h-[min(1080px,100vh)] items-start">
+      <div className="relative grid grid-cols-1 w-full min-h-[min(920px,100vh)] min-[2200px]:min-h-[min(1080px,100vh)] items-start">
         {/* SLIDE 0 : AI */}
         <div
-          className="[grid-area:1/1] relative pt-[clamp(112px,13vw,140px)] min-[2200px]:pt-[170px] px-[clamp(20px,6vw,64px)] min-[2200px]:px-24 pb-[clamp(64px,6vw,84px)] min-[2200px]:pb-28 transition-all duration-700 ease-out"
+          className="[grid-area:1/1] relative w-full min-w-0 pt-[clamp(112px,13vw,140px)] min-[2200px]:pt-[170px] px-[clamp(20px,6vw,64px)] min-[2200px]:px-24 pb-[clamp(64px,6vw,84px)] min-[2200px]:pb-28 transition-all duration-700 ease-out"
           style={{
             opacity: slide === 0 ? 1 : 0,
             transform: slide === 0 ? "translateY(0)" : "translateY(18px)",
@@ -238,7 +238,7 @@ const HeroSection = () => {
 
         {/* SLIDE 1 : CRM */}
         <div
-          className="[grid-area:1/1] relative pt-[clamp(112px,13vw,140px)] min-[2200px]:pt-[170px] px-[clamp(20px,6vw,64px)] min-[2200px]:px-24 pb-[clamp(64px,6vw,84px)] min-[2200px]:pb-28 transition-all duration-700 ease-out"
+          className="[grid-area:1/1] relative w-full min-w-0 pt-[clamp(112px,13vw,140px)] min-[2200px]:pt-[170px] px-[clamp(20px,6vw,64px)] min-[2200px]:px-24 pb-[clamp(64px,6vw,84px)] min-[2200px]:pb-28 transition-all duration-700 ease-out"
           style={{
             opacity: slide === 1 ? 1 : 0,
             transform: slide === 1 ? "translateY(0)" : "translateY(18px)",
