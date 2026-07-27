@@ -1,8 +1,9 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { projects } from "@/data/projectsData";
 import RevealOnScroll from "../shared/RevealOnScroll";
 import SectionBadge from "../shared/SectionBadge";
+import { Button } from "@/components/ui/button";
 import { getProjectCoverGradient } from "@/lib/projectCoverColors";
 
 const FeaturedProjects = () => {
@@ -64,6 +65,14 @@ const FeaturedProjects = () => {
           </RevealOnScroll>
         ))}
       </div>
+      <RevealOnScroll className="flex justify-center mt-[clamp(48px,7vw,80px)]">
+        <Link to="/work">
+          <Button className="group flex items-center gap-2.5 pl-7 pr-6 py-6 bg-white text-black rounded-pill text-base font-semibold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 hover:text-white">
+            See our work
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-rotate-45" />
+          </Button>
+        </Link>
+      </RevealOnScroll>
     </section>
   );
 };

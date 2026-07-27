@@ -80,10 +80,6 @@ const technologies = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
   },
   {
-    name: "Laravel",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg",
-  },
-  {
     name: "Django",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
   },
@@ -96,10 +92,6 @@ const technologies = [
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
   },
   {
-    name: "Rust",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg",
-  },
-  {
     name: "Swift",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
   },
@@ -110,10 +102,6 @@ const technologies = [
   {
     name: "Supabase",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
-  },
-  {
-    name: "Tailwind",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
   },
   {
     name: "Vite",
@@ -134,11 +122,11 @@ const ServicesSection = () => {
           className="overflow-hidden relative"
           style={{ WebkitMaskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)", maskImage: "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)" }}
         >
-          <div className="flex animate-scroll-left mb-8">
+          <div className="flex w-max animate-scroll-left mb-8">
             {[...technologies, ...technologies].map((tech, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center p-4 mx-4 hover:scale-110 transition-all duration-300 flex-shrink-0 min-w-[80px]"
+                className="flex items-center justify-center p-4 mx-4 hover:scale-110 transition-all duration-300 flex-shrink-0 w-20"
               >
                 <img
                   src={tech.logo}

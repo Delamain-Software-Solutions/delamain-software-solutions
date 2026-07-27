@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import RevealOnScroll from "@/components/shared/RevealOnScroll";
 import SectionBadge from "@/components/shared/SectionBadge";
+import { Button } from "@/components/ui/button";
 
 const SERVICES = [
   {
@@ -168,6 +171,14 @@ const ServicesShowcase = () => {
           </div>
         ))}
       </div>
+      <RevealOnScroll className="flex justify-center mt-[clamp(48px,7vw,80px)]">
+        <Link to="/services">
+          <Button className="group flex items-center gap-2.5 pl-7 pr-6 py-6 bg-white text-black rounded-pill text-base font-semibold hover:-translate-y-1 hover:shadow-xl transition-all duration-300 hover:text-white">
+            See all our services
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-rotate-45" />
+          </Button>
+        </Link>
+      </RevealOnScroll>
     </section>
   );
 };

@@ -134,7 +134,7 @@ export default {
 				'gradient-x': 'gradient-x 15s ease infinite',
 				'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
 				'draw': 'draw 8s ease-in-out infinite',
-				'scroll-left': 'scroll-left 30s linear infinite'
+				'scroll-left': 'scroll-left 50s linear infinite'
 			}
 		}
 	},

@@ -80,7 +80,7 @@ const Contact = () => {
             Tell us what you're building.
           </h2>
           <p className="mt-5 text-lg leading-[1.5] text-muted-foreground">
-            We reply to everything, usually within a day. No forms-into-the-void here.
+            We reply to everything, usually within a day.
           </p>
           <div className="mt-9 flex flex-col gap-[22px]">
             <div>
@@ -96,7 +96,7 @@ const Contact = () => {
             <div>
               <div className="text-[13px] font-semibold text-muted-foreground">Visit</div>
               <div className="text-[17px] font-semibold text-foreground">
-                Block B, Milaad Street, Faisal Town, Lahore, Pakistan
+                Gulberg 3, Lahore, Pakistan
               </div>
             </div>
           </div>
