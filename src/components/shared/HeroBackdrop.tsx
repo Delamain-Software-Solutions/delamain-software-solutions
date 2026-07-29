@@ -13,7 +13,7 @@ const HeroBackdrop = () => {
           height: "65vw",
           maxWidth: "900px",
           maxHeight: "900px",
-          background: "radial-gradient(circle at 50% 50%, hsl(211 100% 52% / 0.1), transparent 65%)",
+          background: "radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.1), transparent 65%)",
         }}
       />
       <svg
@@ -38,7 +38,7 @@ const HeroBackdrop = () => {
           textAnchor="middle"
           dominantBaseline="central"
           fontSize="360"
-          fill="hsl(211 100% 52%)"
+          fill="hsl(var(--accent))"
           style={{ transformBox: "fill-box", transformOrigin: "center", animation: "bubble 32s ease-in-out infinite" }}
         >
           &#10022;
@@ -49,7 +49,7 @@ const HeroBackdrop = () => {
           textAnchor="middle"
           dominantBaseline="central"
           fontSize="150"
-          fill="hsl(211 100% 52%)"
+          fill="hsl(var(--accent))"
           style={{ transformBox: "fill-box", transformOrigin: "center", animation: "bubble 32s ease-in-out infinite", animationDelay: "-2.4s" }}
         >
           &#10022;
@@ -60,7 +60,7 @@ const HeroBackdrop = () => {
           textAnchor="middle"
           dominantBaseline="central"
           fontSize="112"
-          fill="hsl(211 100% 52%)"
+          fill="hsl(var(--accent))"
           style={{ transformBox: "fill-box", transformOrigin: "center", animation: "bubble 32s ease-in-out infinite", animationDelay: "-3.6s" }}
         >
           &#10022;
@@ -69,7 +69,7 @@ const HeroBackdrop = () => {
           d="M200,150 L200,514 L380,514 L480,332 L380,150 Z"
           pathLength={1000}
           fill="none"
-          stroke="hsl(211 100% 52%)"
+          stroke="hsl(var(--accent))"
           strokeWidth={54}
           strokeLinejoin="miter"
           strokeLinecap="round"
@@ -79,7 +79,7 @@ const HeroBackdrop = () => {
           d="M452,192 L214,192 L214,306 L426,342 L426,472 L198,472"
           pathLength={1000}
           fill="none"
-          stroke="hsl(211 100% 52%)"
+          stroke="hsl(var(--accent))"
           strokeWidth={54}
           strokeLinejoin="miter"
           strokeLinecap="round"
