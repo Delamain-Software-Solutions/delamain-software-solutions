@@ -1,7 +1,14 @@
+import { useLiteMode } from "@/lib/liteMode";
+
 // Same animated aurora + letterform as GlobalBackground, but absolutely
 // positioned within its parent instead of fixed to the viewport — use this
 // when the animation should be confined to one section and scroll away with it.
 const HeroBackdrop = () => {
+  // Same reasoning as GlobalBackground: the blur under these animations is
+  // only cheap on a GPU. See lib/liteMode.
+  const lite = useLiteMode();
+  const anim = (value: string) => (lite ? undefined : value);
+
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
       <div
@@ -29,7 +36,7 @@ const HeroBackdrop = () => {
           filter: "blur(56px)",
           opacity: 0.35,
           pointerEvents: "none",
-          animation: "roam 52s ease-in-out infinite",
+          animation: anim("roam 52s ease-in-out infinite"),
         }}
       >
         <text
@@ -39,7 +46,7 @@ const HeroBackdrop = () => {
           dominantBaseline="central"
           fontSize="360"
           fill="hsl(var(--accent))"
-          style={{ transformBox: "fill-box", transformOrigin: "center", animation: "bubble 32s ease-in-out infinite" }}
+          style={{ transformBox: "fill-box", transformOrigin: "center", animation: anim("bubble 32s ease-in-out infinite") }}
         >
           &#10022;
         </text>
@@ -50,7 +57,7 @@ const HeroBackdrop = () => {
           dominantBaseline="central"
           fontSize="150"
           fill="hsl(var(--accent))"
-          style={{ transformBox: "fill-box", transformOrigin: "center", animation: "bubble 32s ease-in-out infinite", animationDelay: "-2.4s" }}
+          style={{ transformBox: "fill-box", transformOrigin: "center", animation: anim("bubble 32s ease-in-out infinite"), animationDelay: "-2.4s" }}
         >
           &#10022;
         </text>
@@ -61,7 +68,7 @@ const HeroBackdrop = () => {
           dominantBaseline="central"
           fontSize="112"
           fill="hsl(var(--accent))"
-          style={{ transformBox: "fill-box", transformOrigin: "center", animation: "bubble 32s ease-in-out infinite", animationDelay: "-3.6s" }}
+          style={{ transformBox: "fill-box", transformOrigin: "center", animation: anim("bubble 32s ease-in-out infinite"), animationDelay: "-3.6s" }}
         >
           &#10022;
         </text>
@@ -73,7 +80,7 @@ const HeroBackdrop = () => {
           strokeWidth={54}
           strokeLinejoin="miter"
           strokeLinecap="round"
-          style={{ strokeDasharray: 1000, strokeDashoffset: 1000, animation: "drawD 32s ease-in-out infinite" }}
+          style={{ strokeDasharray: 1000, strokeDashoffset: lite ? 0 : 1000, animation: anim("drawD 32s ease-in-out infinite") }}
         />
         <path
           d="M452,192 L214,192 L214,306 L426,342 L426,472 L198,472"
@@ -83,7 +90,7 @@ const HeroBackdrop = () => {
           strokeWidth={54}
           strokeLinejoin="miter"
           strokeLinecap="round"
-          style={{ strokeDasharray: 1000, strokeDashoffset: 1000, animation: "drawS 32s ease-in-out infinite" }}
+          style={{ strokeDasharray: 1000, strokeDashoffset: lite ? 0 : 1000, animation: anim("drawS 32s ease-in-out infinite") }}
         />
       </svg>
       <div className="grain-overlay" />

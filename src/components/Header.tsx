@@ -1,11 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useLiteMode } from '@/lib/liteMode';
+import { DEMOS_URL } from '@/lib/links';
+
+type NavLinkItem = { to: string; label: string; path: string; external?: boolean };
+
+// react-router's Link can't leave the SPA, so anything off-site renders as a
+// plain anchor. Both branches carry data-current so the underline still works.
+const NavItem = ({
+  link,
+  className,
+  current,
+  onClick,
+}: {
+  link: NavLinkItem;
+  className: string;
+  current?: boolean;
+  onClick?: () => void;
+}) =>
+  link.external ? (
+    <a
+      href={link.to}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+      data-current={current}
+      onClick={onClick}
+    >
+      {link.label}
+    </a>
+  ) : (
+    <Link to={link.to} className={className} data-current={current} onClick={onClick}>
+      {link.label}
+    </Link>
+  );
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  // backdrop-filter re-samples and re-blurs whatever scrolls beneath the bar on
+  // every frame — the single most expensive effect here without a GPU. Trade it
+  // for an opaque bar. See lib/liteMode.
+  const lite = useLiteMode();
 
   // Handle hash navigation on location change
   useEffect(() => {
@@ -37,11 +75,12 @@ const Navbar = () => {
     return false;
   };
 
-  const navLinks = [
+  const navLinks: NavLinkItem[] = [
     { to: '/', label: 'Home', path: '/' },
     { to: '/#home', label: 'About Us', path: '/#home' },
     { to: '/services', label: 'Services', path: '/services' },
     { to: '/work', label: 'Our Work', path: '/work' },
+    { to: DEMOS_URL, label: 'Demos', path: '', external: true },
     { to: '/#contact', label: 'Contact Us', path: '/#contact' },
   ];
 
@@ -49,27 +88,27 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-[150] transition-all duration-300 border-b ${
         scrolled
-          ? 'bg-[#f5f5f7]/80 backdrop-blur-xl backdrop-saturate-150 border-black/5 shadow-sm'
+          ? lite
+            ? 'bg-[#f5f5f7] border-black/5 shadow-sm'
+            : 'bg-[#f5f5f7]/80 backdrop-blur-xl backdrop-saturate-150 border-black/5 shadow-sm'
           : 'bg-transparent border-transparent'
       }`}
     >
       <div className="mx-auto px-5 sm:px-10 py-2.5 flex items-center justify-between gap-2.5">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src="/logo.svg" alt="Logo" className="w-[86px] h-[29px]" />
+          <img src="/logos/logo-full-black.png" alt="Delamain Software Solutions" className="h-12 w-auto -my-2" />
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center justify-center gap-[clamp(14px,2.4vw,34px)]">
           {navLinks.map((link) => (
-            <Link
+            <NavItem
               key={link.label}
-              to={link.to}
-              data-current={isActive(link.path)}
+              link={link}
+              current={isActive(link.path)}
               className={`nav-link font-hanken font-medium text-[15px] transition-colors text-foreground`}
-            >
-              {link.label}
-            </Link>
+            />
           ))}
         </div>
 
@@ -100,16 +139,14 @@ const Navbar = () => {
         <div className="md:hidden px-5 py-4 bg-[#f5f5f7]/97 backdrop-blur-xl border-t border-black/5">
           <div className="flex flex-col">
             {navLinks.map((link) => (
-              <Link
+              <NavItem
                 key={link.label}
-                to={link.to}
+                link={link}
                 className={`px-1 py-[15px] font-hanken font-semibold text-[17px] border-b border-black/[0.06] last:border-b-0 ${
                   isActive(link.path) ? 'text-accent' : 'text-foreground'
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
+              />
             ))}
             <button
               onClick={() => {

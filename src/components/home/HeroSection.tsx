@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useToast } from "@/components/ui/use-toast";
+import { DEMOS_URL } from "@/lib/links";
 import { ArrowUpRight, ArrowUpRightFromCircle, Landmark, Cloud, HeartPulse, Gamepad2, Building2, GraduationCap, Compass, Workflow, Bot, ShieldCheck } from "lucide-react";
 
 const heroFormSchema = z.object({
@@ -256,15 +257,16 @@ const HeroSection = () => {
               From dispatch and inventory to sales and support, we build the internal software that runs the business. Customized around your team and business processes.
             </p>
             <div className="flex flex-wrap gap-3.5 min-[2200px]:gap-5 mt-8 min-[2200px]:mt-12">
-              <Button
-                onClick={() => navigate("/work")}
-                className="group flex items-center gap-2.5 min-[2200px]:gap-3.5 pl-6 pr-4 py-6 min-[2200px]:pl-9 min-[2200px]:pr-6 min-[2200px]:py-8 bg-foreground text-white rounded-pill text-base min-[2200px]:text-xl font-semibold hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
-              >
-                See our work
-                <span className="flex items-center justify-center w-7 h-7 min-[2200px]:w-9 min-[2200px]:h-9 bg-white rounded-full text-foreground transition-transform group-hover:translate-x-0.5">
-                  <ArrowUpRight className="w-4 h-4 min-[2200px]:w-5 min-[2200px]:h-5" />
-                </span>
-              </Button>
+              <a href={DEMOS_URL} target="_blank" rel="noopener noreferrer">
+                <Button
+                  className="group flex items-center gap-2.5 min-[2200px]:gap-3.5 pl-6 pr-4 py-6 min-[2200px]:pl-9 min-[2200px]:pr-6 min-[2200px]:py-8 bg-foreground text-white rounded-pill text-base min-[2200px]:text-xl font-semibold hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                >
+                  See Our Demo
+                  <span className="flex items-center justify-center w-7 h-7 min-[2200px]:w-9 min-[2200px]:h-9 bg-white rounded-full text-foreground transition-transform group-hover:translate-x-0.5">
+                    <ArrowUpRight className="w-4 h-4 min-[2200px]:w-5 min-[2200px]:h-5" />
+                  </span>
+                </Button>
+              </a>
               <Button
                 onClick={() => navigate("/booking")}
                 variant="outline"

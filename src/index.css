@@ -222,6 +222,25 @@
   }
 }
 
+/* Lite effects mode, toggled from src/lib/liteMode.ts when the compositor
+   looks like it's running on the CPU. Drops the per-frame work — animated
+   blur re-rasterisation and blended overlays — and keeps the static artwork.
+   Unlayered, so these win over the Tailwind utilities they override. */
+.lite-fx .aurora-blob {
+  animation: none;
+}
+
+/* Full-viewport soft-light blend: recomposited whenever anything under it
+   repaints, which on a software rasteriser is every scroll frame. */
+.lite-fx .grain-overlay {
+  display: none;
+}
+
+/* Marquee inside a mask-image — a continuously translating masked layer. */
+.lite-fx .animate-scroll-left {
+  animation: none;
+}
+
 @keyframes auroraDrift {
   0%, 100% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(-6%, 5%) scale(1.12); }

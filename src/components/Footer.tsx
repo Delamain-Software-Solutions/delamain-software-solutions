@@ -8,9 +8,9 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="flex-1 max-w-md flex flex-col items-center sm:items-start">
             <Link to="/" className="flex items-center">
-              <img src="/logo-full.svg" alt="Delamain Software Solutions" className="h-16 sm:h-20 w-auto invert" />
+              <img src="/logos/logo-full-white.png" alt="Delamain Software Solutions" className="h-16 sm:h-20 w-auto" />
             </Link>
-            <div className="flex space-x-3 mt-6 sm:mt-20">
+            <div className="flex space-x-3 mt-6 sm:mt-2 ms-7">
               {/* Instagram */}
               <a href="#" className="w-10 h-10 bg-[#1E293B] rounded-full flex items-center justify-center hover:bg-[#334155] transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          <div className="w-full grid grid-cols-2 gap-8 sm:flex sm:justify-between sm:flex-1 sm:gap-12">
+          <div className="w-full grid grid-cols-2 lg:gap-80 lg:justify-start sm:flex sm:justify-between sm:flex-1 sm:gap-12">
             {/* Quick Links */}
             <div>
               <h4 className="font-hanken font-bold text-white mb-4 sm:mb-6 text-base sm:text-lg">Quick Links</h4>

@@ -3,6 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
+import { useLiteMode } from "@/lib/liteMode";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -16,29 +18,37 @@ import ServicesPage from "./pages/ServicesPage";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <GlobalBackground />
-        <ScrollProgressBar />
-        <div className="relative" style={{ zIndex: 1 }}>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/work" element={<Projects />} />
-            <Route path="/work/:slug" element={<ProjectDetail />} />
-            <Route path="/booking" element={<Booking />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <Footer />
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  // Collapses the scroll-reveal transforms to instant; framer-motion keeps
+  // opacity, which is cheap. See lib/liteMode.
+  const lite = useLiteMode();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <MotionConfig reducedMotion={lite ? "always" : "user"}>
+          <BrowserRouter>
+            <GlobalBackground />
+            <ScrollProgressBar />
+            <div className="relative" style={{ zIndex: 1 }}>
+              <Header />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/work" element={<Projects />} />
+                <Route path="/work/:slug" element={<ProjectDetail />} />
+                <Route path="/booking" element={<Booking />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <Footer />
+            </div>
+          </BrowserRouter>
+        </MotionConfig>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
