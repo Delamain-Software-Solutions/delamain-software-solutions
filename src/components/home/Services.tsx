@@ -1,7 +1,3 @@
-import React from "react";
-import RevealOnScroll from "@/components/shared/RevealOnScroll";
-import SectionBadge from "@/components/shared/SectionBadge";
-
 const technologies = [
   {
     name: "React",

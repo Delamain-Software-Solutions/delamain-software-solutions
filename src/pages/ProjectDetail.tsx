@@ -5,12 +5,21 @@ import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { projects } from "@/data/projectsData";
 import ZoomableImage from "@/components/shared/ZoomableImage";
 import RevealOnScroll from "@/components/shared/RevealOnScroll";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
 
   const project = projects.find((p) => p.slug === slug);
+
+  // Hooks can't be skipped for the missing-project case, so fall back to a
+  // neutral title until the redirect below lands.
+  usePageMeta({
+    title: project ? `${project.title} — ${project.client}` : "Our Work",
+    description: project?.description,
+    image: project?.thumbnail,
+  });
 
   useEffect(() => {
     if (!project) {

@@ -14,6 +14,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollProgressBar from "./components/shared/ScrollProgressBar";
 import GlobalBackground from "./components/shared/GlobalBackground";
+import RouteAnalytics from "./components/shared/RouteAnalytics";
 import ServicesPage from "./pages/ServicesPage";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => {
         <Sonner />
         <MotionConfig reducedMotion={lite ? "always" : "user"}>
           <BrowserRouter>
+            <RouteAnalytics />
             <GlobalBackground />
             <ScrollProgressBar />
             <div className="relative" style={{ zIndex: 1 }}>

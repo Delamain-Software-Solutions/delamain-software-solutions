@@ -1,14 +1,23 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { trackEvent } from "@/lib/analytics";
 
 const NotFound = () => {
   const location = useLocation();
+
+  usePageMeta({
+    title: "Page Not Found (404)",
+    description: "The page you were looking for doesn't exist.",
+  });
 
   useEffect(() => {
     console.error(
       "404 Error: User attempted to access non-existent route:",
       location.pathname
     );
+    // Lets you find broken inbound links in GA without digging through page views.
+    trackEvent("page_not_found", { page_path: location.pathname });
   }, [location.pathname]);
 
   return (

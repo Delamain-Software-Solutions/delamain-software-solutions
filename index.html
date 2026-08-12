@@ -17,7 +17,32 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@delamainsoftware" />
+    <meta name="twitter:title" content="Delamain Software Solutions" />
+    <meta name="twitter:description" content="Next-gen software development agency specializing in AI-driven solutions for businesses." />
     <meta name="twitter:image" content="https://delamainsoftware.com/logos/logo-full-black.png" />
+
+    <link rel="canonical" href="https://delamainsoftware.com/" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFV83521RW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // cookie_domain 'auto' writes the _ga cookie on delamainsoftware.com rather
+      // than on the host it was served from, so a visitor keeps the same client id
+      // and session across every subdomain (demos.*, app.*, ...). Paste this same
+      // block into any subdomain's HTML to join it to this property.
+      //
+      // send_page_view is off on purpose: this is a client-side router, so the tag
+      // would read the *previous* page's <title> on navigation. src/lib/analytics.ts
+      // sends page_view itself, after the new title is on the document.
+      gtag('config', 'G-PFV83521RW', {
+        cookie_domain: 'auto',
+        send_page_view: false
+      });
+    </script>
   </head>
 
   <body>

@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import RevealOnScroll from "@/components/shared/RevealOnScroll";
 import HeroBackdrop from "@/components/shared/HeroBackdrop";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { trackEvent } from "@/lib/analytics";
 
 interface ServiceTab {
   num: string;
@@ -228,10 +230,18 @@ const ServicesPage = () => {
   const [dir, setDir] = useState(0);
   const svc = SERVICES[active];
 
+  usePageMeta({
+    title: "Services",
+    description:
+      "Full-stack engineering, AI/ML, mobile and web product work — how Delamain scopes, builds and ships software for clients.",
+  });
+
   const setTab = (i: number) => {
     if (i === active) return;
     setDir(i > active ? 1 : -1);
     setActive(i);
+    // The tabs don't change the URL, so they'd be invisible in GA otherwise.
+    trackEvent("service_tab_view", { service_name: SERVICES[i].title });
   };
 
   return (

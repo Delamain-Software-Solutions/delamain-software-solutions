@@ -16,6 +16,7 @@ import * as z from 'zod';
 import { useToast } from '@/components/ui/use-toast';
 import RevealOnScroll from '../shared/RevealOnScroll';
 import SectionBadge from '../shared/SectionBadge';
+import { trackEvent } from '@/lib/analytics';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -51,6 +52,8 @@ const Contact = () => {
 
       const result = await response.json();
       if (result.success) {
+        // GA4's recommended lead event — mark it as a key event in the property.
+        trackEvent("generate_lead", { method: "contact_form" });
         toast({
           title: "Message Sent!",
           description: "We'll get back to you as soon as possible.",
@@ -60,6 +63,7 @@ const Contact = () => {
         throw new Error(result.message);
       }
     } catch (error) {
+      trackEvent("form_error", { form_name: "contact" });
       toast({
         title: "Error",
         description: "Something went wrong. Please try again later.",

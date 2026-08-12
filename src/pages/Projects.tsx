@@ -6,6 +6,7 @@ import RevealOnScroll from "@/components/shared/RevealOnScroll";
 import SectionBadge from "@/components/shared/SectionBadge";
 import { Button } from "@/components/ui/button";
 import { siteStats } from "@/lib/siteStats";
+import { usePageMeta } from "@/hooks/usePageMeta";
 import { ArrowRight } from "lucide-react";
 
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
@@ -74,6 +75,12 @@ const ScrubCard = ({ project, col }: { project: (typeof projects)[number]; col: 
 };
 
 const Projects = () => {
+  usePageMeta({
+    title: "Our Work",
+    description:
+      "A selection of the platforms, internal tools and AI products Delamain has designed, built and shipped for clients.",
+  });
+
   return (
     <div className="min-h-screen">
       {/* Header */}

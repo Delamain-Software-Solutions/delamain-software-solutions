@@ -3,10 +3,18 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Cal, { getCalApi } from "@calcom/embed-react";
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { trackEvent } from '@/lib/analytics';
 
 
 const Booking = () => {
   const navigate = useNavigate();
+
+  usePageMeta({
+    title: 'Book a Consultation',
+    description:
+      'Schedule a call with the Delamain team to discuss your project requirements and get a personalized solution.',
+  });
 
 useEffect(() => {
     (async function () {
@@ -14,6 +22,13 @@ useEffect(() => {
       cal("ui", {
         theme: "light",   // or "dark"
         styles: { branding: { brandColor: "#4F46E5" } }, // optional
+      });
+
+      // The booking flow lives in a cross-origin iframe, so GA can't see it —
+      // Cal's event bus is the only way to record the conversion.
+      cal("on", {
+        action: "bookingSuccessful",
+        callback: () => trackEvent("generate_lead", { method: "cal_booking" }),
       });
     })();
   }, []);
